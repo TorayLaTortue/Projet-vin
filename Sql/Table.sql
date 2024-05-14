@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS public.client
     prenom character(100) COLLATE pg_catalog."default",
     mail character(100) COLLATE pg_catalog."default",
     telephone character(20) COLLATE pg_catalog."default",
-    commande character(100) COLLATE pg_catalog."default",
     role character(100) COLLATE pg_catalog."default",
     datesuppression date
 );
@@ -19,21 +18,6 @@ CREATE TABLE IF NOT EXISTS public.adresse
     codepostal character(20) COLLATE pg_catalog."default",
     datesuppression date
 );
-
-
-CREATE TABLE IF NOT EXISTS public.commande
-(
-    referencecommande SERIAL PRIMARY KEY,
-    referenceclient integer REFERENCES public.client (referenceclient),
-    adressefacturation integer REFERENCES public.adresse (referenceadresse),
-    adresselivraison integer REFERENCES public.adresse (referenceadresse),
-    statut character(100) COLLATE pg_catalog."default",
-    datecreationcommande date,
-    referencevin integer REFERENCES public.vin (referencevin),
-    quantiteproduit integer,
-    datesuppression date
-);
-
 
 CREATE TABLE IF NOT EXISTS public.vin
 (
@@ -49,6 +33,22 @@ CREATE TABLE IF NOT EXISTS public.vin
     prix integer,
     datesuppression date
 );
+
+CREATE TABLE IF NOT EXISTS public.commande
+(
+    referencecommande SERIAL PRIMARY KEY,
+    referenceclient integer REFERENCES public.client (referenceclient),
+    adressefacturation integer REFERENCES public.adresse (referenceadresse),
+    adresselivraison integer REFERENCES public.adresse (referenceadresse),
+    statut character(100) COLLATE pg_catalog."default",
+    datecreationcommande date,
+    referencevin integer REFERENCES public.vin (referencevin),
+    quantiteproduit integer,
+    datesuppression date
+);
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS public.depot
