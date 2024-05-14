@@ -20,7 +20,7 @@ VALUES
     ('Vin3', 'image3.jpg', 'Champagne', 'Famille3', '2018-01-01', 200, '750ml', 0.15, 30, NULL);
 
 -- Insertion de données de test pour la table "commande"
-INSERT INTO public.commande (referenceclient, adressefacturation, adresselivraison, statu, datecreationcommande, referencevin, quantiteproduit, datesuppression)
+INSERT INTO public.commande (referenceclient, adressefacturation, adresselivraison, statut, datecreationcommande, referencevin, quantiteproduit, datesuppression)
 VALUES
     (1, 1, 2, 'En cours', '2024-05-14', 1, 5, NULL),
     (2, 2, 3, 'En attente', '2024-05-14', 2, 3, NULL),
