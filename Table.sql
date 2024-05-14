@@ -1,6 +1,3 @@
-CREATE DATABASE StockOvin;
-
-
 CREATE TABLE IF NOT EXISTS public.client
 (
     referenceclient SERIAL PRIMARY KEY,
