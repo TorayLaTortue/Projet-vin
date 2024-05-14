@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS public.commande
     referenceclient integer REFERENCES public.client (referenceclient),
     adressefacturation integer REFERENCES public.adresse (referenceadresse),
     adresselivraison integer REFERENCES public.adresse (referenceadresse),
-    statue character(100) COLLATE pg_catalog."default",
+    statut character(100) COLLATE pg_catalog."default",
     datecreationcommande date,
     referencevin integer REFERENCES public.vin (referencevin),
     quantiteproduit integer,
