@@ -21,18 +21,7 @@ CREATE TABLE IF NOT EXISTS public.adresse
 );
 
 
-CREATE TABLE IF NOT EXISTS public.commande
-(
-    referencecommande SERIAL PRIMARY KEY,
-    referenceclient integer REFERENCES public.client (referenceclient),
-    adressefacturation integer REFERENCES public.adresse (referenceadresse),
-    adresselivraison integer REFERENCES public.adresse (referenceadresse),
-    statue character(100) COLLATE pg_catalog."default",
-    datecreationcommande date,
-    referencevin integer REFERENCES public.vin (referencevin),
-    quantiteproduit integer,
-    datesuppression date
-);
+
 
 
 CREATE TABLE IF NOT EXISTS public.vin
@@ -50,15 +39,20 @@ CREATE TABLE IF NOT EXISTS public.vin
     datesuppression date
 );
 
-
-CREATE TABLE IF NOT EXISTS public.depot
+CREATE TABLE IF NOT EXISTS public.commande
 (
-    referencedepot SERIAL PRIMARY KEY,
-    nomdepot character(100) COLLATE pg_catalog."default",
-    datesuppression date,
+    referencecommande SERIAL PRIMARY KEY,
+    referenceclient integer REFERENCES public.client (referenceclient),
+    adressefacturation integer REFERENCES public.adresse (referenceadresse),
+    adresselivraison integer REFERENCES public.adresse (referenceadresse),
+    statue character(100) COLLATE pg_catalog."default",
+    datecreationcommande date,
     referencevin integer REFERENCES public.vin (referencevin),
-    referencefournisseur integer REFERENCES public.fournisseur (referencefournisseur)
+    quantiteproduit integer,
+    datesuppression date
 );
+
+
 
 CREATE TABLE IF NOT EXISTS public.fournisseur
 (
@@ -70,3 +64,11 @@ CREATE TABLE IF NOT EXISTS public.fournisseur
     datesuppression date
 );
 
+CREATE TABLE IF NOT EXISTS public.depot
+(
+    referencedepot SERIAL PRIMARY KEY,
+    nomdepot character(100) COLLATE pg_catalog."default",
+    datesuppression date,
+    referencevin integer REFERENCES public.vin (referencevin),
+    referencefournisseur integer REFERENCES public.fournisseur (referencefournisseur)
+);
