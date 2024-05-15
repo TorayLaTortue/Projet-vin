@@ -11,7 +11,7 @@ public class VinEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int referencevin;
+    private int reference_vin;
 
     
     private String nom;
@@ -23,7 +23,7 @@ public class VinEntity {
     private String format;
     private float promotion;
     private int prix;
-    private Date datesuppression;
+    private Date date_suppression;
 
 }
 

@@ -8,29 +8,29 @@ import java.util.Date;
 public class AdresseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int referenceadresse;
+    private int reference_adresse;
     private String ville;
     private String rue;
-    private String codepostal;
-    private Date datesuppression;
+    private String code_postal;
+    private Date date_suppression;
 
     public AdresseEntity() {
     }
 
-    public AdresseEntity(int referenceadresse, String ville, String rue, String codepostal, Date datesuppression) {
-        this.referenceadresse = referenceadresse;
+    public AdresseEntity(int reference_adresse, String ville, String rue, String code_postal, Date date_suppression) {
+        this.reference_adresse = reference_adresse;
         this.ville = ville;
         this.rue = rue;
-        this.codepostal = codepostal;
-        this.datesuppression = datesuppression;
+        this.code_postal = code_postal;
+        this.date_suppression = date_suppression;
     }
 
-    public int getReferenceadresse() {
-        return referenceadresse;
+    public int getReference_adresse() {
+        return reference_adresse;
     }
 
-    public void setReferenceadresse(int referenceadresse) {
-        this.referenceadresse = referenceadresse;
+    public void setReference_adresse(int reference_adresse) {
+        this.reference_adresse = reference_adresse;
     }
 
     public String getVille() {
@@ -49,19 +49,19 @@ public class AdresseEntity {
         this.rue = rue;
     }
 
-    public String getCodepostal() {
-        return codepostal;
+    public String getCode_postal() {
+        return code_postal;
     }
 
-    public void setCodepostal(String codepostal) {
-        this.codepostal = codepostal;
+    public void setCode_postal(String code_postal) {
+        this.code_postal = code_postal;
     }
 
-    public Date getDatesuppression() {
-        return datesuppression;
+    public Date getDate_suppression() {
+        return date_suppression;
     }
 
-    public void setDatesuppression(Date datesuppression) {
-        this.datesuppression = datesuppression;
+    public void setDate_suppression(Date date_suppression) {
+        this.date_suppression = date_suppression;
     }
 }

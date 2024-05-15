@@ -70,17 +70,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
         return telephone;
     }
 
-        public void setTelephone(String telephone) {
-            this.telephone = telephone;
-        }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
 
-        @Schema(name = "mot_de_passe")
-        public String getmotDePasse() {
-            return mot_de_passe;
-        }
-        public void setmotDePasse(String mot_de_passe) {
-            this.mot_de_passe = mot_de_passe;
-        }
+    @Schema(name = "motDePasse")
+    public String getMotDePasse() {
+        return mot_de_passe;
+    }
+    public void setMotDePasse(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
+    }
 
     public String getRole() {
         return role;

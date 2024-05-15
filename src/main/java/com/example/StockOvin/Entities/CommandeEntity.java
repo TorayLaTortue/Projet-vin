@@ -24,17 +24,17 @@ public class CommandeEntity {
     public CommandeEntity() {
     }
 
-    public CommandeEntity(int referenceCommande, int referenceClient, int adresseFacturation, int adresseLivraison,
-                        String statut, Date dateCreationCommande, int referenceVin, int quantiteProduit, Date dateSuppression) {
+    public CommandeEntity(int referenceCommande, int reference_client, int adresse_facturation, int adresse_livraison,
+                        String statut, Date date_creation_commande, int reference_vin, int quantite_produit, Date date_suppression) {
         this.reference_commande = referenceCommande;
-        this.reference_client = referenceClient;
-        this.adresse_facturation = adresseFacturation;
-        this.adresse_livraison = adresseLivraison;
+        this.reference_client = reference_client;
+        this.adresse_facturation = adresse_facturation;
+        this.adresse_livraison = adresse_livraison;
         this.statut = statut;
-        this.date_creation_commande = dateCreationCommande;
-        this.reference_vin = referenceVin;
-        this.quantite_produit = quantiteProduit;
-        this.date_suppression = dateSuppression;
+        this.date_creation_commande = date_creation_commande;
+        this.reference_vin = reference_vin;
+        this.quantite_produit = quantite_produit;
+        this.date_suppression = date_suppression;
     }
 
     public int getReference_commande() {
