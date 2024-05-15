@@ -17,5 +17,8 @@ public class ClientService implements IClientService {
     public List<ClientEntity> getAllClient() {
         return ClientRepository.findAll();
     }
-
+    
+    public ClientEntity AddClient(ClientEntity client) {
+        return ClientRepository.save(client);
+    }
 }
