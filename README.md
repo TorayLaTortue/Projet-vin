@@ -21,3 +21,10 @@ GET Dépôt Fait
 UPDATE Dépôt
 POST Dépôt
 
+
+
+// HUGO :
+
+INSCRIPTION (fait) 
+VERIF-CONNEXION (en cours)
+GET VIN POUR CATALOGUE (prochaine étape)

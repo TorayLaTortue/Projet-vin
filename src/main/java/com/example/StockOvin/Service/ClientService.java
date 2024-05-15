@@ -7,18 +7,23 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Service
 public class ClientService implements IClientService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ClientService.class);
+
     @Autowired
-    private ClientRepository ClientRepository;
+    private ClientRepository clientRepository;
 
     @Override
     public List<ClientEntity> getAllClient() {
-        return ClientRepository.findAll();
+        return clientRepository.findAll();
     }
-    
+
     public ClientEntity AddClient(ClientEntity client) {
-        return ClientRepository.save(client);
+        return clientRepository.save(client);
     }
 }

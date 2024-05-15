@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
 
-body, html {
+body {
+    font-family: 'Red Hat Text', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Red Hat Text', sans-serif;
-    height: 2000px;
-    background-color: blue;
+    background-color: #d2d2d2;
 }
 
 ::-webkit-scrollbar {
@@ -24,7 +23,7 @@ body, html {
     margin-top: 60px;
 }
   
-  .scroll {
+.scroll {
     position: relative;
     width: 10px;
     height: 400px;
@@ -33,7 +32,7 @@ body, html {
     margin-bottom: 100px;
 }
   
-  .interieur {
+.interieur {
     position: absolute;
     top: 0;
     width: 6px;
@@ -62,17 +61,12 @@ body, html {
 header {
     position: fixed;
     width: 100%;
-    height: 220px;
+    height: 70px;
     transition: all 0.3s ease;
     z-index: 1000;
     background-color: rgb(202, 202, 202);
     background: none;
-}
-
-.header-scrolled {
-    height: 70px;
     border-bottom: 1px solid white;
-    background: none;
 }
 
 .navbar {
@@ -80,16 +74,11 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    width: 85%;
+    width: 1000px;
     padding: 0 5%;
     box-sizing: border-box;
     height: 100%;
     transition: all 0.3s ease;
-}
-
-.header-scrolled .navbar {
-    width: 1000px;
-    margin: auto;
 }
 
 .nav-item {
@@ -106,11 +95,35 @@ header {
     color: #7b002d; 
 }
 
-.logo {
-    width: 200px;
-    transition: 0.3s ease;
+
+
+.vin-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
 }
 
-.header-scrolled .logo {
-    display: none;
+.vin-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 40px); 
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: calc(30% - 40px); 
+}
+
+.vin-card h3 {
+    margin-top: 0;
+}
+
+.vin-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
