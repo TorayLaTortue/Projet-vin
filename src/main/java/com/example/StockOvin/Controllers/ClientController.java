@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
@@ -82,4 +86,32 @@ public class ClientController {
     }
 
 
+    @Operation(summary = "Delete d'un client")
+    @PutMapping("/DeleteClient/{id}")
+    public ResponseEntity<ClientEntity> deleteClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
+        ClientEntity Client = ClientService.getClientById(reference);
+        if (Client != null) {
+        
+            long currentTimeMillis = System.currentTimeMillis();
+        
+            // Création d'une instance de java.sql.Date avec la date actuelle
+            Date date = new Date(currentTimeMillis);
+
+            Client.setdate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+
+            ClientEntity updatedClient = ClientService.updateClient(Client);
+            
+            if (updatedClient != null) {
+                return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le client est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
+        }
     }
+
+
+}
