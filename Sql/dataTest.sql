@@ -1,9 +1,9 @@
 -- Insertion de données de test pour la table "client"
-INSERT INTO public.client (nom, prenom, mail, telephone, role, dateSuppression)
+INSERT INTO public.client (nom, prenom, mail, telephone, motDePasse, role, dateSuppression)
 VALUES
-    ('Dupont', 'Jean', 'jean.dupont@example.com', '123456789', 'Role1', NULL),
-    ('Durand', 'Pierre', 'pierre.durand@example.com', '987654321', 'Role2', NULL),
-    ('Martin', 'Marie', 'marie.martin@example.com', '456123789', 'Role3', NULL);
+    ('Dupont', 'Jean', 'jean.dupont@example.com', '123456789', 'passWord123', 'Role1', NULL),
+    ('Durand', 'Pierre', 'pierre.durand@example.com', '987654321','passWord3210', 'Role2', NULL),
+    ('Martin', 'Marie', 'marie.martin@example.com', '456123789','passWord123456', 'Role3', NULL);
 
 -- Insertion de données de test pour la table "adresse"
 INSERT INTO public.adresse (ville, rue, codePostal, dateSuppression)

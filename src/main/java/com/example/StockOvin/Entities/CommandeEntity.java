@@ -8,63 +8,63 @@ import java.util.Date;
 public class CommandeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int referencecommande;
-    private int referenceclient;
-    private int adressefacturation;
-    private int adresselivraison;
+    private int referenceCommande;
+    private int referenceClient;
+    private int adresseFacturation;
+    private int adresseLivraison;
     private String statut;
-    private Date datecreationcommande;
-    private int referencevin;
-    private int quantiteproduit;
-    private Date datesuppression;
+    private Date dateCreationCommande;
+    private int referenceVin;
+    private int quantiteProduit;
+    private Date dateSuppression;
 
     public CommandeEntity() {
     }
 
-    public CommandeEntity(int referencecommande, int referenceclient, int adressefacturation, int adresselivraison,
-                        String statue, Date datecreationcommande, int referencevin, int quantiteproduit, Date datesuppression) {
-        this.referencecommande = referencecommande;
-        this.referenceclient = referenceclient;
-        this.adressefacturation = adressefacturation;
-        this.adresselivraison = adresselivraison;
+    public CommandeEntity(int referenceCommande, int referenceClient, int adresseFacturation, int adresseLivraison,
+                        String statut, Date dateCreationCommande, int referenceVin, int quantiteProduit, Date dateSuppression) {
+        this.referenceCommande = referenceCommande;
+        this.referenceClient = referenceClient;
+        this.adresseFacturation = adresseFacturation;
+        this.adresseLivraison = adresseLivraison;
         this.statut = statut;
-        this.datecreationcommande = datecreationcommande;
-        this.referencevin = referencevin;
-        this.quantiteproduit = quantiteproduit;
-        this.datesuppression = datesuppression;
+        this.dateCreationCommande = dateCreationCommande;
+        this.referenceVin = referenceVin;
+        this.quantiteProduit = quantiteProduit;
+        this.dateSuppression = dateSuppression;
 
     }
 
-    public int getReferencecommande() {
-        return referencecommande;
+    public int getreferenceCommande() {
+        return referenceCommande;
     }
 
-    public void setReferencecommande(int referencecommande) {
-        this.referencecommande = referencecommande;
+    public void setreferenceCommande(int referenceCommande) {
+        this.referenceCommande = referenceCommande;
     }
 
-    public int getReferenceclient() {
-        return referenceclient;
+    public int getreferenceClient() {
+        return referenceClient;
     }
 
-    public void setReferenceclient(int referenceclient) {
-        this.referenceclient = referenceclient;
+    public void setreferenceClient(int referenceClient) {
+        this.referenceClient = referenceClient;
     }
 
-    public int getAdressefacturation() {
-        return adressefacturation;
+    public int getadresseFacturation() {
+        return adresseFacturation;
     }
 
-    public void setAdressefacturation(int adressefacturation) {
-        this.adressefacturation = adressefacturation;
+    public void setadresseFacturation(int adresseFacturation) {
+        this.adresseFacturation = adresseFacturation;
     }
 
     public int getAdresselivraison() {
-        return adresselivraison;
+        return adresseLivraison;
     }
 
-    public void setAdresselivraison(int adresselivraison) {
-        this.adresselivraison = adresselivraison;
+    public void setAdresselivraison(int adresseLivraison) {
+        this.adresseLivraison = adresseLivraison;
     }
 
     public String getStatut() {
@@ -75,35 +75,35 @@ public class CommandeEntity {
         this.statut = statut;
     }
 
-    public Date getDatecreationcommande() {
-        return datecreationcommande;
+    public Date getDateCreationCommande() {
+        return dateCreationCommande;
     }
 
-    public void setDatecreationcommande(Date datecreationcommande) {
-        this.datecreationcommande = datecreationcommande;
+    public void setDateCreationCommande(Date dateCreationCommande) {
+        this.dateCreationCommande = dateCreationCommande;
     }
 
-    public int getReferencevin() {
-        return referencevin;
+    public int getReferenceVin() {
+        return referenceVin;
     }
 
-    public void setReferencevin(int referencevin) {
-        this.referencevin = referencevin;
+    public void setReferenceVin(int referenceVin) {
+        this.referenceVin = referenceVin;
     }
 
-    public int getQuantiteproduit() {
-        return quantiteproduit;
+    public int getQuantiteProduit() {
+        return quantiteProduit;
     }
 
-    public void setQuantiteproduit(int quantiteproduit) {
-        this.quantiteproduit = quantiteproduit;
+    public void setQuantiteProduit(int quantiteProduit) {
+        this.quantiteProduit = quantiteProduit;
     }
 
-    public Date getDatesuppression() {
-        return datesuppression;
+    public Date getDateSuppression() {
+        return dateSuppression;
     }
 
-    public void setDatesuppression(Date datesuppression) {
-        this.datesuppression = datesuppression;
+    public void setDateSuppression(Date dateSuppression) {
+        this.dateSuppression = dateSuppression;
     }
 }

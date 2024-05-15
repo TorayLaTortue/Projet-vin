@@ -1,4 +1,4 @@
-package com.example.StockOvin.Models;
+/*package com.example.StockOvin.Models;
 
 import java.util.Date;
 
@@ -9,17 +9,20 @@ public class ClientModels {
     private String prenom;
     private String mail;
     private String telephone;
+    private String motDePasse;
     private String role;
-    private Date DateSupression;
+    private Date DateSuppression;
 
 
-    public ClientModels(int referenceClient, String nom, String prenom, String telephone, String role, Date DateSuprresion) {
+    public ClientModels(int referenceClient, String nom, String prenom, String mail, String telephone, String motDePasse, String role, Date DateSuppresion) {
         this.referenceClient = referenceClient;
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
+        this.mail = mail;
+        this.motDePasse = motDePasse;
         this.role = role;
-        this.DateSupression = DateSuprresion;
+        this.DateSuppression = DateSuppresion;
     }
 
     public int getReferenceClient() {
@@ -57,6 +60,13 @@ public class ClientModels {
         this.telephone = telephone;
     }
 
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
     public String getRole() {
         return role;
     }
@@ -64,11 +74,12 @@ public class ClientModels {
         this.role = role;
     }
 
-    public Date getDateSupression() {
-        return DateSupression;
+    public Date getDateSuppression() {
+        return DateSuppression;
     }
-    public void setDateSupression(Date dateSupression) {
-        DateSupression = dateSupression;
+    public void setDateSuppression(Date dateSuppression) {
+        DateSuppression = dateSuppression;
     }
     
 }
+*/

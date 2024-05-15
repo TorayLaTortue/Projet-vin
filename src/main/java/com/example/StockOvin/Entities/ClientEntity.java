@@ -8,34 +8,26 @@ import java.util.Date;
     public class ClientEntity {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int referenceclient;
-
+        
         private String nom;
         private String prenom;
         private String mail;
         private String telephone;
+        private String motDePasse;
         private String role;
-        private Date datesuppression;
+        private Date dateSuppression;
 
         public ClientEntity() {
         }
 
-        public ClientEntity(String nom, String prenom, String mail, String telephone, String role, Date datesuppression) {
+        public ClientEntity(String nom, String prenom, String mail, String telephone, String motDePasse, String role, Date dateSuppression) {
             this.nom = nom;
             this.prenom = prenom;
             this.mail = mail;
             this.telephone = telephone;
+            this.motDePasse = motDePasse;
             this.role = role;
-            this.datesuppression = datesuppression;
-
-        }
-
-        public int getReferenceclient() {
-            return referenceclient;
-        }
-
-        public void setReferenceclient(int referenceclient) {
-            this.referenceclient = referenceclient;
+            this.dateSuppression = dateSuppression;
         }
 
         public String getNom() {
@@ -70,6 +62,13 @@ import java.util.Date;
             this.telephone = telephone;
         }
 
+        public String getMotDePasse() {
+            return motDePasse;
+        }
+        public void setMotDePasse(String motDePasse) {
+            this.motDePasse = motDePasse;
+        }
+
         public String getRole() {
             return role;
         }
@@ -78,11 +77,11 @@ import java.util.Date;
             this.role = role;
         }
 
-        public Date getDatesuppression() {
-            return datesuppression;
+        public Date getdateSuppression() {
+            return dateSuppression;
         }
 
-        public void setDatesuppression(Date datesuppression) {
-            this.datesuppression = datesuppression;
+        public void setdateSuppression(Date dateSuppression) {
+            this.dateSuppression = dateSuppression;
         }
     }
