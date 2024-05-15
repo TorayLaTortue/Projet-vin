@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="inscription.css">
+    <title>Inscription</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <form id="clientForm">
+
+            <h1>Inscription</h1>
+            <div class="input-box">
+                <input type="text" id="prenom" placeholder="Prénom" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="text" id="nom" placeholder="Nom" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" id="mail" placeholder="Adresse e-mail" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="tel" id="tel" placeholder="Numéro de téléphone" required>
+                <i class='bx bxs-phone'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="motdepasse" placeholder="Mot de passe" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+
+            <button type="submit" class="btn">S'inscrire</button>
+
+        </form>
+    </div>
+
+    <script src="inscription.js"></script>
+</body>
+</html>

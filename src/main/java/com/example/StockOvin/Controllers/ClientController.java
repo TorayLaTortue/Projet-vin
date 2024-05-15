@@ -26,12 +26,13 @@ public class ClientController {
 
     @Operation(summary = "Nouveau client")
     @PostMapping("/newClient")
-    public ClientEntity newClient(@RequestBody ClientModels newClient) {
+    public ClientEntity newClient(@RequestBody ClientEntity newClient) {
         ClientEntity Client = new ClientEntity();
         Client.setNom(newClient.getNom());
         Client.setPrenom(newClient.getPrenom());
         Client.setMail(newClient.getMail());
         Client.setTelephone(newClient.getTelephone());
+        Client.setMotdepasse(newClient.getMotdepasse());
         Client.setRole("Client");
         return ClientService.AddClient(Client);
     }

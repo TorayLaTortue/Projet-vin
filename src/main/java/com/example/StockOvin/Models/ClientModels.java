@@ -11,15 +11,17 @@ public class ClientModels {
     private String telephone;
     private String role;
     private Date DateSupression;
+    private String motdepasse;
 
 
-    public ClientModels(int referenceClient, String nom, String prenom, String telephone, String role, Date DateSuprresion) {
+    public ClientModels(int referenceClient, String nom, String prenom, String telephone, String role, Date DateSuprresion, String motdepasse) {
         this.referenceClient = referenceClient;
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
         this.role = role;
         this.DateSupression = DateSuprresion;
+        this.motdepasse = motdepasse;
     }
 
     public int getReferenceClient() {
@@ -70,5 +72,12 @@ public class ClientModels {
     public void setDateSupression(Date dateSupression) {
         DateSupression = dateSupression;
     }
-    
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+    }
 }
