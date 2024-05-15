@@ -5,6 +5,8 @@ import com.example.StockOvin.Service.ClientService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,39 +38,48 @@ public class ClientController {
 
     @Operation(summary = "Update d'un client (Nom ,prenom ,mail ,telephone)")
     @PutMapping("/updateClient{id}")
-    public ClientEntity updateClient(int reference, @RequestBody ClientEntity newClient) {
+    public ResponseEntity<ClientEntity> updateClient(int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-        Client.setNom(newClient.getNom());
-        Client.setPrenom(newClient.getPrenom());
-        Client.setMail(newClient.getMail());
-        Client.setTelephone(newClient.getTelephone());
+            Client.setNom(newClient.getNom());
+            Client.setPrenom(newClient.getPrenom());
+            Client.setMail(newClient.getMail());
+            Client.setTelephone(newClient.getTelephone());
 
-        return ClientService.updateClient(Client);
-        
+            ClientEntity updatedClient = ClientService.updateClient(Client);
+            
+            if (updatedClient != null) {
+                return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le client est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
         }
-        else{
-            System.out.println("Client inexistant");
-            return null;
-        }
-
-    }
+}
 
     @Operation(summary = "Update le mdp d'un client")
-    @PutMapping("/updateClientMdp{id}")
-    public ClientEntity updateMdpClient(int reference, @RequestBody ClientEntity newClient) {
+    @PutMapping("/updateClientMdp/{id}")
+    public ResponseEntity<ClientEntity> updateMdpClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-        Client.setMotDePasse(newClient.getMotDePasse());
+            Client.setmotDePasse(newClient.getmotDePasse()); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
 
-        return ClientService.updateClient(Client);
-        
+            ClientEntity updatedClient = ClientService.updateClient(Client);
+            
+            if (updatedClient != null) {
+                return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le client est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
         }
-        else{
-            System.out.println("Client inexistant");
-            return null;
-        }
-
     }
 
-}
+
+    }

@@ -3,31 +3,43 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
     @Entity
     @Table(name = "client")
     public class ClientEntity {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        
+        private int reference_client;
         private String nom;
         private String prenom;
         private String mail;
         private String telephone;
-        private String motDePasse;
+        @Schema(name = "mot_de_passe")
+        private String mot_de_passe;
         private String role;
-        private Date dateSuppression;
+        @Schema(name = "date_suppression")
+        private Date date_suppression;
 
         public ClientEntity() {
         }
 
-        public ClientEntity(String nom, String prenom, String mail, String telephone, String motDePasse, String role, Date dateSuppression) {
+        public ClientEntity(int reference_client, String nom, String prenom, String mail, String telephone, String mot_de_passe, String role, Date date_suppression) {
+            this.reference_client = reference_client;
             this.nom = nom;
             this.prenom = prenom;
             this.mail = mail;
             this.telephone = telephone;
-            this.motDePasse = motDePasse;
+            this.mot_de_passe = mot_de_passe;
             this.role = role;
-            this.dateSuppression = dateSuppression;
+            this.date_suppression = date_suppression;
+        }
+
+        public int getReference_client() {
+            return reference_client;
+        }
+        public void setReference_client(int reference_client) {
+            this.reference_client = reference_client;
         }
 
         public String getNom() {
@@ -62,11 +74,12 @@ import java.util.Date;
             this.telephone = telephone;
         }
 
-        public String getMotDePasse() {
-            return motDePasse;
+        @Schema(name = "mot_de_passe")
+        public String getmotDePasse() {
+            return mot_de_passe;
         }
-        public void setMotDePasse(String motDePasse) {
-            this.motDePasse = motDePasse;
+        public void setmotDePasse(String mot_de_passe) {
+            this.mot_de_passe = mot_de_passe;
         }
 
         public String getRole() {
@@ -77,11 +90,11 @@ import java.util.Date;
             this.role = role;
         }
 
-        public Date getdateSuppression() {
-            return dateSuppression;
+        public Date getdate_suppression() {
+            return date_suppression;
         }
 
-        public void setdateSuppression(Date dateSuppression) {
-            this.dateSuppression = dateSuppression;
+        public void setdate_suppression(Date date_suppression) {
+            this.date_suppression = date_suppression;
         }
     }
