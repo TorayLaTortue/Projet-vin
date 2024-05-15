@@ -2,13 +2,13 @@
 
 ROUTES A FAIRE :
 
-GET Client Fait
-UPDATE Client
-POST Client Fait
+GET Client (Fait)
+UPDATE Client (Dam)
+POST Client (Fait)
 GET Vin En cours (Adem)
 UPDATE VIN
 POST Vin
-GET Commande Fait
+GET Commande (Fait)
 UPDATE Commande
 POST Commande
 GET Domaine
