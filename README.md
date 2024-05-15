@@ -11,13 +11,13 @@ POST Vin
 GET Commande (Fait)
 UPDATE Commande
 POST Commande
-GET Domaine 
-UPDATE Domaine
-POST Domaine
-GET Adresse En cours (Clem)
+GET Fournisseur ( en cours Adem )
+UPDATE Fournisseur
+POST Fournisseur
+GET Adresse Fait
 UPDATE Adresse
 POST Adresse
-GET Dépôt En cours (Clem)
+GET Dépôt Fait
 UPDATE Dépôt
 POST Dépôt
 
