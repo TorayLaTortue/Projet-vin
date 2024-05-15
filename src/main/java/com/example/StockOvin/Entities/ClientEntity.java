@@ -14,19 +14,17 @@ import java.util.Date;
         private String prenom;
         private String mail;
         private String telephone;
-        private String commande;
         private String role;
         private Date datesuppression;
 
         public ClientEntity() {
         }
 
-        public ClientEntity(String nom, String prenom, String mail, String telephone, String commande, String role, Date datesuppression) {
+        public ClientEntity(String nom, String prenom, String mail, String telephone, String role, Date datesuppression) {
             this.nom = nom;
             this.prenom = prenom;
             this.mail = mail;
             this.telephone = telephone;
-            this.commande = commande;
             this.role = role;
             this.datesuppression = datesuppression;
 
@@ -70,14 +68,6 @@ import java.util.Date;
 
         public void setTelephone(String telephone) {
             this.telephone = telephone;
-        }
-
-        public String getCommande() {
-            return commande;
-        }
-
-        public void setCommande(String commande) {
-            this.commande = commande;
         }
 
         public String getRole() {
