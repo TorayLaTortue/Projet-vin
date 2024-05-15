@@ -1,4 +1,5 @@
 package com.example.StockOvin.Entities;
+
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -22,7 +23,7 @@ public class CommandeEntity {
     }
 
     public CommandeEntity(int referencecommande, int referenceclient, int adressefacturation, int adresselivraison,
-                        String statue, Date datecreationcommande, int referencevin, int quantiteproduit, Date datesuppression) {
+            String statut, Date datecreationcommande, int referencevin, int quantiteproduit, Date datesuppression) {
         this.referencecommande = referencecommande;
         this.referenceclient = referenceclient;
         this.adressefacturation = adressefacturation;
