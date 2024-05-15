@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.adresse
 
 CREATE TABLE IF NOT EXISTS public.vin
 (
-    referenceBin SERIAL PRIMARY KEY,
+    referenceVin SERIAL PRIMARY KEY,
     nom character(100) COLLATE pg_catalog."default",
     image character(100) COLLATE pg_catalog."default",
     region character(100) COLLATE pg_catalog."default",
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS public.commande
     adresseLivraison integer REFERENCES public.adresse (referenceAdresse),
     statut character(100) COLLATE pg_catalog."default",
     dateCreationCommande date,
-    referenceVin integer REFERENCES public.vin (referencevin),
+    referenceVin integer REFERENCES public.vin (referenceVin),
     quantiteProduit integer,
     dateSuppression date
 );
@@ -52,14 +52,7 @@ CREATE TABLE IF NOT EXISTS public.commande
 
 
 
-CREATE TABLE IF NOT EXISTS public.depot
-(
-    referenceDepot SERIAL PRIMARY KEY,
-    nomDepot character(100) COLLATE pg_catalog."default",
-    dateSuppression date,
-    referenceVin integer REFERENCES public.vin (referenceVin),
-    referenceFournisseur integer REFERENCES public.fournisseur (referenceFournisseur)
-);
+
 
 CREATE TABLE IF NOT EXISTS public.fournisseur
 (
@@ -71,3 +64,11 @@ CREATE TABLE IF NOT EXISTS public.fournisseur
     dateSuppression date
 );
 
+CREATE TABLE IF NOT EXISTS public.depot
+(
+    referenceDepot SERIAL PRIMARY KEY,
+    nomDepot character(100) COLLATE pg_catalog."default",
+    dateSuppression date,
+    referenceVin integer REFERENCES public.vin (referenceVin),
+    referenceFournisseur integer REFERENCES public.fournisseur (referenceFournisseur)
+);
