@@ -11,18 +11,18 @@ public class AdresseEntity {
     private int referenceadresse;
     private String ville;
     private String rue;
-    private String codepostal;
-    private Date datesuppression;
+    private String code_postal;
+    private Date date_suppression;
 
     public AdresseEntity() {
     }
 
-    public AdresseEntity(int referenceadresse, String ville, String rue, String codepostal, Date datesuppression) {
+    public AdresseEntity(int referenceadresse, String ville, String rue, String code_postal, Date date_suppression) {
         this.referenceadresse = referenceadresse;
         this.ville = ville;
         this.rue = rue;
-        this.codepostal = codepostal;
-        this.datesuppression = datesuppression;
+        this.code_postal = code_postal;
+        this.date_suppression = date_suppression;
     }
 
     public int getReferenceadresse() {
@@ -49,19 +49,19 @@ public class AdresseEntity {
         this.rue = rue;
     }
 
-    public String getCodepostal() {
-        return codepostal;
+    public String getcode_postal() {
+        return code_postal;
     }
 
-    public void setCodepostal(String codepostal) {
-        this.codepostal = codepostal;
+    public void setcode_postal(String code_postal) {
+        this.code_postal = code_postal;
     }
 
-    public Date getDatesuppression() {
-        return datesuppression;
+    public Date getdate_suppression() {
+        return date_suppression;
     }
 
-    public void setDatesuppression(Date datesuppression) {
-        this.datesuppression = datesuppression;
+    public void setdate_suppression(Date date_suppression) {
+        this.date_suppression = date_suppression;
     }
 }

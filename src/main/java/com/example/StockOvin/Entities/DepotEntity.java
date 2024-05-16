@@ -8,62 +8,62 @@ import java.util.Date;
 public class DepotEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int referencedepot;
-    private String nomdepot;
-    private Date datesuppression;
-    private int referencevin;
-    private int referencefournisseur;
+    private int reference_depot;
+    private String nom_depot;
+    private Date date_suppression;
+    private int reference_vin;
+    private int reference_fournisseur;
 
     public DepotEntity() {
     }
 
-    public DepotEntity(int referencedepot, String nomdepot, Date datesuppression, int referencevin, int referencefournisseur) {
-        this.referencedepot = referencedepot;
-        this.nomdepot = nomdepot;
-        this.datesuppression = datesuppression;
-        this.referencevin = referencevin;
-        this.referencefournisseur = referencefournisseur;
+    public DepotEntity(int reference_depot, String nom_depot, Date date_suppression, int reference_vin, int reference_fournisseur) {
+        this.reference_depot = reference_depot;
+        this.nom_depot = nom_depot;
+        this.date_suppression = date_suppression;
+        this.reference_vin = reference_vin;
+        this.reference_fournisseur = reference_fournisseur;
 
 
     }
 
-    public int getReferencedepot() {
-        return referencedepot;
+    public int getreference_depot() {
+        return reference_depot;
     }
 
-    public void setReferencedepot(int referencedepot) {
-        this.referencedepot = referencedepot;
+    public void setreference_depot(int reference_depot) {
+        this.reference_depot = reference_depot;
     }
 
-    public String getNomdepot() {
-        return nomdepot;
+    public String getnom_depot() {
+        return nom_depot;
     }
 
-    public void setNomdepot(String nomdepot) {
-        this.nomdepot = nomdepot;
+    public void setnom_depot(String nom_depot) {
+        this.nom_depot = nom_depot;
     }
 
-    public Date getDatesuppression() {
-        return datesuppression;
+    public Date getdate_suppression() {
+        return date_suppression;
     }
 
-    public void setDatesuppression(Date datesuppression) {
-        this.datesuppression = datesuppression;
+    public void setdate_suppression(Date date_suppression) {
+        this.date_suppression = date_suppression;
     }
 
-    public int getReferencevin() {
-        return referencevin;
+    public int getreference_vin() {
+        return reference_vin;
     }
 
-    public void setReferencevin(int referencevin) {
-        this.referencevin = referencevin;
+    public void setreference_vin(int reference_vin) {
+        this.reference_vin = reference_vin;
     }
 
-    public int getReferencefournisseur() {
-        return referencefournisseur;
+    public int getreference_fournisseur() {
+        return reference_fournisseur;
     }
 
-    public void setReferencefournisseur(int referencefournisseur) {
-        this.referencefournisseur = referencefournisseur;
+    public void setreference_fournisseur(int reference_fournisseur) {
+        this.reference_fournisseur = reference_fournisseur;
     }
 }

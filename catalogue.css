@@ -103,27 +103,63 @@ header {
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .vin-card {
-    background-color: #f8f8f8;
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(30% - 40px); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 40px); /* 3 columns */
     margin: 10px;
     padding: 20px;
     text-align: center;
-    max-width: calc(30% - 40px); 
+    max-width: calc(33.333% - 40px); /* 3 columns */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.vin-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .vin-card h3 {
     margin-top: 0;
+    color: #333;
 }
 
-.vin-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.vin-card p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.vin-card p.price {
+    color: #e91e63;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.vin-card p.promotion {
+    color: #4caf50;
+}
+
+@media (max-width: 768px) {
+    .vin-card {
+        flex: 1 1 calc(50% - 20px); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .vin-card {
+        flex: 1 1 100%; /* 1 column on very small screens */
+    }
 }

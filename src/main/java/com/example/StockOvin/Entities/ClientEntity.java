@@ -15,20 +15,20 @@ public class ClientEntity {
     private String mail;
     private String telephone;
     private String role;
-    private Date datesuppression;
-    private String motdepasse;
+    private Date date_suppression;
+    private String mot_de_passe;
 
     public ClientEntity() {
     }
 
-    public ClientEntity(String nom, String prenom, String mail, String telephone, String role, Date datesuppression, String motdepasse) {
+    public ClientEntity(String nom, String prenom, String mail, String telephone, String role, Date date_suppression, String mot_de_passe) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.telephone = telephone;
         this.role = role;
-        this.datesuppression = datesuppression;
-        this.motdepasse = motdepasse;
+        this.date_suppression = date_suppression;
+        this.mot_de_passe = mot_de_passe;
 
     }
 
@@ -81,18 +81,18 @@ public class ClientEntity {
     }
 
     public Date getDatesuppression() {
-        return datesuppression;
+        return date_suppression;
     }
 
-    public void setDatesuppression(Date datesuppression) {
-        this.datesuppression = datesuppression;
+    public void setdate_suppression(Date date_suppression) {
+        this.date_suppression = date_suppression;
     }
 
-    public void setMotdepasse(String motdepasse) {
-        this.motdepasse = motdepasse;
+    public void setmot_de_passe(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
     }
 
-    public String getMotdepasse() {
-        return motdepasse;
+    public String getmot_de_passe() {
+        return mot_de_passe;
     }
 }
