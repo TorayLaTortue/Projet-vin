@@ -74,6 +74,28 @@ public class VinController {
         }
     }
 
+    @Operation(summary = "Edit du stock de vin")
+    @PutMapping("/UpdateStock/{id}")
+    public ResponseEntity<VinEntity> UpdateStock(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
+        VinEntity Vin = VinService.getVinById(reference);
+        if (Vin != null) {
+        
+            Vin.setQuantite(newVin.getQuantite());
+
+            VinEntity updatedVin = VinService.updateVin(Vin);
+            
+            if (updatedVin != null) {
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le Vin est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @Operation(summary = "Ajout ou modification d'une promotion de vin")
     @PutMapping("/Promotion/{id}")
     public ResponseEntity<VinEntity> PromotionVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
