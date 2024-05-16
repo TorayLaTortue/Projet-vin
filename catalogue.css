@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d2d2d2;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.scroll-bar {
+    position: fixed;
+    right: 0;
+    width: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-top: 60px;
+}
+  
+.scroll {
+    position: relative;
+    width: 10px;
+    height: 400px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 50px;
+    margin-bottom: 100px;
+}
+  
+.interieur {
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 20%;
+    background-color: #7b002d;
+    border-radius: 50px;
+    margin: 2px 0 0 2px;
+    animation: scroll linear;
+    animation-timeline: scroll();
+}
+
+@keyframes scroll {
+    from {
+        top: 0;
+    }
+    to {
+        top: calc(100% - 20% - 4px);
+    }
+}
+
+
+#main-header {
+    background: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    background-color: rgb(202, 202, 202);
+    background: none;
+    border-bottom: 1px solid white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+    padding: 0 5%;
+    box-sizing: border-box;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.nav-item {
+    margin: 0 15px; 
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 550;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transition-duration: 0.3s;
+    color: #7b002d; 
+}
+
+
+
+.vin-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vin-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(33.333% - 40px); /* 3 columns */
+    margin: 10px;
+    max-width: calc(33.333% - 40px); /* 3 columns */
+}
+
+.vin-card {
+    perspective: 1000px;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height for smoother animation */
+}
+
+.vin-card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.vin-card:hover .vin-card-inner {
+    transform: rotateY(180deg);
+}
+
+.vin-card-front,
+.vin-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.vin-card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vin-card-front img {
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.vin-card-front h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.vin-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.vin-card-back p {
+    color: #333;
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    font-family: 'Arial', sans-serif;
+}
+
+.vin-card-back p.price {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.vin-card-back p.promotion {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.vin-card-back p:not(.price):not(.promotion) {
+    font-weight: normal;
+}
+
+.price-container {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #000;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .vin-card-wrapper {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .vin-card-wrapper {
+        flex: 1 1 100%;
+    }
+}

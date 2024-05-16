@@ -1,0 +1,4 @@
+créer une connection avec une database appeler StockOvin
+ouvrir un script sql dans Dbeaver
+charger le script .sql existant dans le GitHub (ctrl + maj + alt + O) (Table.sql) ou le copier coller dedans
+lancer le script sql en entier (alt + X)
