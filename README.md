@@ -12,7 +12,7 @@ POST Vin
 GET Commande (Fait)
 UPDATE Commande
 POST Commande
-GET Fournisseur ( en cours Adem )
+GET Fournisseur ( en cours Adem   ) (c'est fait)
 UPDATE Fournisseur
 POST Fournisseur
 GET Adresse (Fait)
