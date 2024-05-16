@@ -27,7 +27,8 @@ public class VinController {
      @Autowired
     private VinService VinService;
 
-    @GetMapping
+    @Operation(summary = "Liste de toutes les infos de tout les vin")
+    @GetMapping("/Vin")
     public List<VinEntity> getAllVin() {
         return VinService.getAllVin();
     }
