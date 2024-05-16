@@ -10,9 +10,6 @@ INSERT INTO public.adresse (ville, rue, code_postal, date_suppression)
 VALUES
     ('Paris', 'Rue de la Paix', '75001', NULL),
     ('Lyon', 'Avenue des Fleurs', '69000', NULL),
-    ('Paris', 'Rue de la Paix', '75001', NULL),
-    ('Lyon', 'Avenue des Fleurs', '69000', NULL),
-    ('Lyon', 'Avenue des Fleurs', '69000', NULL),
     ('Marseille', 'Boulevard du Port', '13000', NULL);
 
 -- Insertion de données de test pour la table "vin"
@@ -30,15 +27,15 @@ VALUES
     (3, 3, 1, 'Terminée', '2024-05-14', 3, 2, NULL);
 
 -- Insertion de données de test pour la table "fournisseur"
-INSERT INTO public.fournisseur (reference_vin, nom, date_creation, valeurs_vin, date_suppression)
+INSERT INTO public.fournisseur (reference_vin, nom, date_creation, valeurs_vin, adresse, date_suppression)
 VALUES
-    (1, 'Fournisseur1', '2020-01-01', 100, NULL),
-    (2, 'Fournisseur2', '2019-01-01', 150, NULL),
-    (3, 'Fournisseur3', '2018-01-01', 200, NULL);
+    (1, 'Fournisseur1', '2020-01-01', 'cher', 3, NULL),
+    (2, 'Fournisseur2', '2019-01-01', 'pas cher', 2, NULL),
+    (3, 'Fournisseur3', '2018-01-01', 'j y connais rien', 1, NULL);
 
 -- Insertion de données de test pour la table "depot"
-INSERT INTO public.depot (reference_depot, nom_depot, adresse, reference_vin, reference_fournisseur, date_suppression)
+INSERT INTO public.depot (reference_depot, nom_depot, reference_vin, reference_fournisseur, date_suppression)
 VALUES
-    (1, 'Depot1',4, 1, 1, NULL),
-    (2, 'Depot2',5, 2, 2, NULL),
-    (3, 'Depot3',6, 3, 3, NULL);
+    (1, 'Depot1', 1, 1, NULL),
+    (2, 'Depot2', 2, 2, NULL),
+    (3, 'Depot3', 3, 3, NULL);
