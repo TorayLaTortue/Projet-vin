@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS public.fournisseur
     "nom" character(100) COLLATE pg_catalog."default",
     "date_creation" date,
     "valeurs_vin" integer,
+    "adresse" integer REFERENCES public.adresse ("reference_adresse"),
     "date_suppression" date
 );
 
@@ -61,6 +62,7 @@ CREATE TABLE IF NOT EXISTS public.depot
 (
     "reference_depot" SERIAL PRIMARY KEY,
     "nom_depot" character(100) COLLATE pg_catalog."default",
+    "adresse" integer REFERENCES public.adresse ("reference_adresse"),
     "reference_vin" integer REFERENCES public.vin ("reference_vin"),
     "reference_fournisseur" integer REFERENCES public.fournisseur ("reference_fournisseur"),
     "date_suppression" date

@@ -12,8 +12,6 @@ public class VinEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reference_vin;
-
-    
     private String nom;
     private String image;
     private String region;
