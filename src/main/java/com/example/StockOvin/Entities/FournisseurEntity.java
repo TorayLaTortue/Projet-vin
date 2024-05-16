@@ -12,10 +12,10 @@ public class FournisseurEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int referencefournisseur;
+    private int reference_fournisseur;
     private String nom;
-    private Date datecreation;
-    private int valeursvin;
-    private Date datesuppression;
+    private Date date_creation;
+    private int valeurs_vin;
+    private Date date_suppression;
 
 }

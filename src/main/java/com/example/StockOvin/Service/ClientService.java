@@ -21,4 +21,13 @@ public class ClientService implements IClientService {
     public ClientEntity AddClient(ClientEntity client) {
         return ClientRepository.save(client);
     }
+
+    public ClientEntity getClientById(int id) {
+        return ClientRepository.findById(id).orElse(null);
+    }
+
+    public ClientEntity updateClient(ClientEntity client) {
+        return ClientRepository.save(client);
+    }
+    
 }
