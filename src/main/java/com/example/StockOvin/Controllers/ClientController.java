@@ -95,7 +95,7 @@ public class ClientController {
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
-            Client.setdate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+            Client.setDate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             

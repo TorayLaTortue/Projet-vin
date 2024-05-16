@@ -88,11 +88,11 @@ import java.util.Date;
         this.role = role;
     }
 
+
     public Date getdate_suppression() {
         return date_suppression;
     }
 
     public void setdate_suppression(Date date_suppression) {
         this.date_suppression = date_suppression;
-    }
     }
