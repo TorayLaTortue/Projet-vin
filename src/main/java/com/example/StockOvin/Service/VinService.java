@@ -10,14 +10,27 @@ import com.example.StockOvin.Entities.VinEntity;
 import com.example.StockOvin.Repository.VinRepository;
 
 @Service
-public class VinService {
+public class VinService implements IVinService{
 
    @Autowired
-    private VinRepository vinRepository;
+    private VinRepository VinRepository;
 
-    public List<VinEntity> getAllVins() {
-        return vinRepository.findAll();
+    @Override
+    public List<VinEntity> getAllVin() {
+        return VinRepository.findAll();
     }
     
 
+    public VinEntity AddVin(VinEntity vin) {
+        return VinRepository.save(vin);
     }
+
+    public VinEntity getVinById(int id) {
+        return VinRepository.findById(id).orElse(null);
+    }
+
+    public VinEntity updateVin(VinEntity vin) {
+        return VinRepository.save(vin);
+    }
+
+}
