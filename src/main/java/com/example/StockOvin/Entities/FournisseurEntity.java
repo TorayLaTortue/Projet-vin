@@ -15,7 +15,10 @@ public class FournisseurEntity {
     private int reference_fournisseur;
     private String nom;
     private Date date_creation;
-    private int valeurs_vin;
+    private String valeurs_vin;
+    @ManyToOne
+    @JoinColumn(name = "adresse")
+    private AdresseEntity adresse;
     private Date date_suppression;
 
 }
