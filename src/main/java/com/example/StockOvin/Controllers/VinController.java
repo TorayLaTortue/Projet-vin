@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/getAllVins")
+@RequestMapping("/Vin")
 
 public class VinController {
 
@@ -32,23 +33,21 @@ public class VinController {
     }
 
     @Operation(summary = "Ajout d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
-    @PutMapping("/PostVin/{id}")
+    @PostMapping("/Post")
     public VinEntity AddVin(@RequestBody VinEntity newVin) {
         VinEntity Vin = new VinEntity();
-    
-        Vin.setNom(Vin.getNom());
-        Vin.setImage(Vin.getImage());
-        Vin.setRegion(Vin.getRegion());
-        Vin.setAnnee(Vin.getAnnee());
-        Vin.setQuantite(Vin.getQuantite());
-        Vin.setFormat(Vin.getFormat());
-        Vin.setPrix(Vin.getPrix());
-
+        Vin.setNom(newVin.getNom());
+        Vin.setImage(newVin.getImage());
+        Vin.setRegion(newVin.getRegion());
+        Vin.setAnnee(newVin.getAnnee());
+        Vin.setQuantite(newVin.getQuantite());
+        Vin.setFormat(newVin.getFormat());
+        Vin.setPrix(newVin.getPrix());
         return VinService.AddVin(Vin); 
     }
 
     @Operation(summary = "Edit d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
-    @PutMapping("/UpdateVin/{id}")
+    @PutMapping("/Update/{id}")
     public ResponseEntity<VinEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
@@ -76,7 +75,7 @@ public class VinController {
     }
 
     @Operation(summary = "Ajout ou modification d'une promotion de vin")
-    @PutMapping("/PromotionVin/{id}")
+    @PutMapping("/Promotion/{id}")
     public ResponseEntity<VinEntity> PromotionVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
@@ -98,7 +97,7 @@ public class VinController {
     }
 
     @Operation(summary = "Delete d'un vin")
-    @PutMapping("/DeleteVin/{id}")
+    @PutMapping("/Delete/{id}")
     public ResponseEntity<VinEntity> deleteVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
