@@ -23,7 +23,7 @@ public class VinController {
     private VinService VinService;
 
     @Operation(summary = "Liste de toutes les infos de tout les vin")
-    @GetMapping("/All")
+    @GetMapping("/Vin")
     public List<VinEntity> getAllVin() {
         return VinService.getAllVin();
     }

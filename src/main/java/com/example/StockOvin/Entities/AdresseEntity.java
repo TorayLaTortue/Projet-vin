@@ -6,7 +6,6 @@ import java.util.Date;
 @Entity
 @Table(name = "adresse")
 public class AdresseEntity {
-    public Integer setReference_adresse;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reference_adresse;
