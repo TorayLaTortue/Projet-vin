@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS public.vin
 (
     "reference_vin" SERIAL PRIMARY KEY,
     "nom" character(100) COLLATE pg_catalog."default",
-    "image" character(100) COLLATE pg_catalog."default",
+    "image" character(1000) COLLATE pg_catalog."default",
     "region" character(100) COLLATE pg_catalog."default",
     "famille" character(100) COLLATE pg_catalog."default",
     "annee" date,
