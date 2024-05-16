@@ -31,6 +31,72 @@ public class VinController {
         return VinService.getAllVin();
     }
 
+    @Operation(summary = "Ajout d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
+    @PutMapping("/PostVin/{id}")
+    public VinEntity AddVin(@RequestBody VinEntity newVin) {
+        VinEntity Vin = new VinEntity();
+    
+        Vin.setNom(Vin.getNom());
+        Vin.setImage(Vin.getImage());
+        Vin.setRegion(Vin.getRegion());
+        Vin.setAnnee(Vin.getAnnee());
+        Vin.setQuantite(Vin.getQuantite());
+        Vin.setFormat(Vin.getFormat());
+        Vin.setPrix(Vin.getPrix());
+
+        return VinService.AddVin(Vin); 
+    }
+
+    @Operation(summary = "Edit d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
+    @PutMapping("/UpdateVin/{id}")
+    public ResponseEntity<VinEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
+        VinEntity Vin = VinService.getVinById(reference);
+        if (Vin != null) {
+        
+            Vin.setNom(Vin.getNom());
+            Vin.setImage(Vin.getImage());
+            Vin.setRegion(Vin.getRegion());
+            Vin.setAnnee(Vin.getAnnee());
+            Vin.setQuantite(Vin.getQuantite());
+            Vin.setFormat(Vin.getFormat());
+            Vin.setPrix(Vin.getPrix());
+
+            VinEntity updatedVin = VinService.updateVin(Vin);
+            
+            if (updatedVin != null) {
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le Vin est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "Ajout ou modification d'une promotion de vin")
+    @PutMapping("/PromotionVin/{id}")
+    public ResponseEntity<VinEntity> PromotionVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
+        VinEntity Vin = VinService.getVinById(reference);
+        if (Vin != null) {
+        
+            Vin.setPromotion(Vin.getPromotion());
+
+            VinEntity updatedVin = VinService.updateVin(Vin);
+            
+            if (updatedVin != null) {
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le Vin est inexistant, renvoie un statut 404
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @Operation(summary = "Delete d'un vin")
     @PutMapping("/DeleteVin/{id}")
     public ResponseEntity<VinEntity> deleteVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
