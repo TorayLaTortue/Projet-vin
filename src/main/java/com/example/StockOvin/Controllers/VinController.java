@@ -51,13 +51,14 @@ public class VinController {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
         
-            Vin.setNom(Vin.getNom());
-            Vin.setImage(Vin.getImage());
-            Vin.setRegion(Vin.getRegion());
-            Vin.setAnnee(Vin.getAnnee());
-            Vin.setQuantite(Vin.getQuantite());
-            Vin.setFormat(Vin.getFormat());
-            Vin.setPrix(Vin.getPrix());
+            Vin.setNom(newVin.getNom());
+            Vin.setImage(newVin.getImage());
+            Vin.setRegion(newVin.getRegion());
+            Vin.setAnnee(newVin.getAnnee());
+            Vin.setFamille(newVin.getFamille());
+            Vin.setQuantite(newVin.getQuantite());
+            Vin.setFormat(newVin.getFormat());
+            Vin.setPrix(newVin.getPrix());
 
             VinEntity updatedVin = VinService.updateVin(Vin);
             
@@ -79,7 +80,7 @@ public class VinController {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
         
-            Vin.setPromotion(Vin.getPromotion());
+            Vin.setPromotion(newVin.getPromotion());
 
             VinEntity updatedVin = VinService.updateVin(Vin);
             
