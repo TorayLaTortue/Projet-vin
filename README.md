@@ -10,8 +10,8 @@ GET Vin (faite)
 UPDATE VIN
 POST Vin
 GET Commande (Fait)
-UPDATE Commande (adem)
-POST Commande (adem)
+UPDATE Commande ( adem)
+POST Commande (adem) (c fait)
 GET Fournisseur ( en cours Adem   ) (c'est fait)
 UPDATE Fournisseur
 POST Fournisseur
