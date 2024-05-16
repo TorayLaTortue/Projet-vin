@@ -11,6 +11,22 @@ import java.util.List;
 import com.example.StockOvin.Entities.VinEntity;
 import com.example.StockOvin.Service.VinService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
+
+@RestController
+@RequestMapping("/Vin")
+
+public class VinController {
+
+     @Autowired
+    private VinService VinService;
+
+    @Operation(summary = "Liste de toutes les infos de tout les vin")
+    @GetMapping("/Vin")
+    public List<VinEntity> getAllVin() {
+        return VinService.getAllVin();
+    }
 
     @Operation(summary = "Ajout d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
     @PostMapping("/Post")
