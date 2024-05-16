@@ -20,11 +20,11 @@ public class DepotEntity {
     private Date date_suppression;
 
     @ManyToOne
-    @JoinColumn(name = "vin")
+    @JoinColumn(name = "reference_vin")
     private VinEntity reference_vin;
 
     @ManyToOne
-    @JoinColumn(name = "fournisseur")
+    @JoinColumn(name = "reference_fournisseur")
     private FournisseurEntity reference_fournisseur;
 
 
