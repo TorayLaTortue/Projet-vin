@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS public.fournisseur
     "nom" character(100) COLLATE pg_catalog."default",
     "date_creation" date,
     "valeurs_vin" character(100) COLLATE pg_catalog."default",
+    "adresse" integer REFERENCES public.adresse ("reference_adresse"),
     "date_suppression" date
 );
 
