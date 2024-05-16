@@ -18,7 +18,7 @@ public class VinEntity {
     private String image;
     private String region;
     private String famille;
-    private String annee;
+    private Date annee;
     private int quantite;
     private String format;
     private float promotion;
