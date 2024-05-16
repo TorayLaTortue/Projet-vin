@@ -7,11 +7,11 @@ UPDATE Client (Fait)
 POST Client (Fait)
 "DELETE" Client (Fait)
 GET Vin (faite)
-UPDATE VIN
-POST Vin
+UPDATE VIN (Fait)
+POST Vin (Fait)
 GET Commande (Fait)
 UPDATE Commande (adem)
-POST Commande (adem)
+POST Commande ( en cours adem)
 GET Fournisseur ( en cours Adem   ) (c'est fait)
 UPDATE Fournisseur
 POST Fournisseur

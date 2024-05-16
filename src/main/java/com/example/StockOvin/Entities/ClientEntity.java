@@ -15,32 +15,30 @@ import java.util.Date;
         private String prenom;
         private String mail;
         private String telephone;
-
         private String mot_de_passe;
         private String role;
-
         private Date date_suppression;
 
     public ClientEntity() {
     }
 
-        public ClientEntity(int reference_client, String nom, String prenom, String mail, String telephone, String mot_de_passe, String role, Date date_suppression) {
-            this.reference_client = reference_client;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.mail = mail;
-            this.telephone = telephone;
-            this.mot_de_passe = mot_de_passe;
-            this.role = role;
-            this.date_suppression = date_suppression;
-        }
+    public ClientEntity(int reference_client, String nom, String prenom, String mail, String telephone, String mot_de_passe, String role, Date date_suppression) {
+        this.reference_client = reference_client;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mot_de_passe = mot_de_passe;
+        this.role = role;
+        this.date_suppression = date_suppression;
+    }
 
-        public int getReference_client() {
-            return reference_client;
-        }
-        public void setReference_client(int reference_client) {
-            this.reference_client = reference_client;
-        }
+    public int getReference_client() {
+        return reference_client;
+    }
+    public void setReference_client(int reference_client) {
+        this.reference_client = reference_client;
+    }
 
     public String getNom() {
         return nom;
@@ -90,11 +88,11 @@ import java.util.Date;
         this.role = role;
     }
 
-        public Date getDate_suppression() {
-            return date_suppression;
-        }
 
-        public void setDate_suppression(Date date_suppression) {
-            this.date_suppression = date_suppression;
-        }
+    public Date getdate_suppression() {
+        return date_suppression;
+    }
+
+    public void setdate_suppression(Date date_suppression) {
+        this.date_suppression = date_suppression;
     }
