@@ -33,7 +33,7 @@ public class ClientController {
         Client.setPrenom(newClient.getPrenom());
         Client.setMail(newClient.getMail());
         Client.setTelephone(newClient.getTelephone());
-        Client.setMotDePasse(newClient.getMotDePasse());
+        Client.setMot_de_passe(newClient.getMot_de_passe());
         Client.setRole("Client");
         return ClientService.AddClient(Client);
     }
@@ -67,7 +67,7 @@ public class ClientController {
     public ResponseEntity<ClientEntity> updateMdpClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-            Client.setMotDePasse(newClient.getMotDePasse()); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+            Client.setMot_de_passe(newClient.getMot_de_passe());// Utilisez la méthode setMotDePasse au lieu de setmotDePasse
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             
@@ -95,7 +95,7 @@ public class ClientController {
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
-            Client.setdate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+            Client.setDate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             

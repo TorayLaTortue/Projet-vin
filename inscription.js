@@ -6,7 +6,7 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
     const prenom = document.getElementById('prenom').value;
     const mail = document.getElementById('mail').value;
     const telephone = document.getElementById('tel').value;
-    const motdepasse = document.getElementById('motdepasse').value;
+    const mot_de_passe = document.getElementById('mot_de_passe').value;
 
     // Crée l'objet client à envoyer
     const newClient = {
@@ -14,7 +14,7 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
         prenom: prenom,
         mail: mail,
         telephone: telephone,
-        motdepasse: motdepasse
+        mot_de_passe: mot_de_passe
     };
 
     // Envoie une requête POST à l'API
