@@ -3,8 +3,9 @@
 ROUTES A FAIRE :
 
 GET Client (Fait)
-UPDATE Client (Dam)
+UPDATE Client (Fait)
 POST Client (Fait)
+"DELETE" Client (Fait)
 GET Vin (faite)
 UPDATE VIN
 POST Vin
@@ -14,10 +15,10 @@ POST Commande
 GET Fournisseur ( en cours Adem )
 UPDATE Fournisseur
 POST Fournisseur
-GET Adresse Fait
+GET Adresse (Fait)
 UPDATE Adresse
 POST Adresse
-GET Dépôt Fait
+GET Dépôt (Fait)
 UPDATE Dépôt
 POST Dépôt
 
