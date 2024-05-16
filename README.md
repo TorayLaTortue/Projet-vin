@@ -7,7 +7,7 @@ UPDATE Client (Fait)
 POST Client (Fait)
 "DELETE" Client (Fait)
 GET Vin (faite)
-UPDATE VIN
+UPDATE VIN (en cours)
 POST Vin
 GET Commande (Fait)
 UPDATE Commande (adem)
