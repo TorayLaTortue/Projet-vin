@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+
 
     @Entity
     @Table(name = "client")
@@ -15,10 +15,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
         private String prenom;
         private String mail;
         private String telephone;
-        @Schema(name = "mot_de_passe")
         private String mot_de_passe;
         private String role;
-        @Schema(name = "date_suppression")
         private Date date_suppression;
 
     public ClientEntity() {
@@ -74,15 +72,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
         this.telephone = telephone;
     }
 
-    @Schema(name = "motDePasse")
-    public String getMotDePasse() {
-        return mot_de_passe;
-    }
-    public void setMotDePasse(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
-    }
+        public String getMot_de_passe() {
+            return mot_de_passe;
+        }
 
-    public String getRole() {
+        public void setMot_de_passe(String mot_de_passe) {
+            this.mot_de_passe = mot_de_passe;
+        }
+
+        public String getRole() {
         return role;
     }
 
