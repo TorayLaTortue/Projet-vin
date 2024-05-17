@@ -7,10 +7,8 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:8080/getAllVins')
+    fetch('http://localhost:8080/Vin/Vin')
         .then(response => response.json())
         .then(data => {
             displayVins(data);
@@ -37,6 +35,7 @@ function displayVins(vins) {
                     <p>Famille: ${vin.famille}</p>
                     <p>Année: ${new Date(vin.annee).getFullYear()}</p>
                     <p>Format: ${vin.format}</p>
+                    <p>Quantité: ${vin.quantite}</p>
                     <p class="promotion">Promotion: ${vin.promotion * 100}%</p>
                 </div>
             </div>
@@ -51,7 +50,7 @@ function displayVins(vins) {
         addToCartButton.setAttribute('data-id', vin.referencevin);
         addToCartButton.textContent = 'Ajouter au panier';
         addToCartButton.addEventListener('click', function() {
-            addToCart(vin.referencevin);
+            addToCart(vin);
         });
 
         vinCardWrapper.appendChild(vinCard);
@@ -61,7 +60,10 @@ function displayVins(vins) {
     });
 }
 
-function addToCart(vinId) {
-    console.log(`Vin ${vinId} ajouté au panier.`);
-    // Logique pour ajouter le produit au panier
+function addToCart(vin) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ ...vin, quantity: 1 });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`Le vin ${vin.nom} a été ajouté au panier.\nLa quantité souhaitée peut être modifiée dans le panier.`);
+    console.log(`Vin ${vin.nom} ajouté au panier.`);
 }

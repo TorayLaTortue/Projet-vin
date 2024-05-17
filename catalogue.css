@@ -98,6 +98,20 @@ header {
 
 
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
 .vin-container {
     display: flex;
     flex-wrap: wrap;
@@ -122,6 +136,17 @@ header {
     position: relative;
     width: 100%;
     height: 300px; /* Fixed height for smoother animation */
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .vin-card-inner {
@@ -143,10 +168,6 @@ header {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -156,10 +177,11 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #f9f9f9;
 }
 
 .vin-card-front img {
-    width: 40%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -168,6 +190,7 @@ header {
 .vin-card-front h3 {
     margin-top: 0;
     color: #333;
+    font-size: 1.2em;
 }
 
 .vin-card-back {
@@ -175,7 +198,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Align items to the left */
     text-align: left;
     background-color: #fff;
     padding: 20px;
@@ -190,7 +213,7 @@ header {
 }
 
 .vin-card-back p.price {
-    color: black;
+    color: #e91e63;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -205,10 +228,10 @@ header {
 }
 
 .price-container {
-    margin-top: 10px;
     font-size: 1.2em;
-    color: #000;
+    color: #e91e63;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .add-to-cart-btn {
@@ -229,12 +252,12 @@ header {
 
 @media (max-width: 768px) {
     .vin-card-wrapper {
-        flex: 1 1 calc(50% - 20px);
+        flex: 1 1 calc(50% - 20px); /* 2 columns on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .vin-card-wrapper {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* 1 column on very small screens */
     }
 }
