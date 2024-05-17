@@ -5,6 +5,8 @@ import com.example.StockOvin.Repository.PostCommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostCommandeService {
 
@@ -17,5 +19,9 @@ public class PostCommandeService {
 
     public PostCommandeEntity updateCommande(PostCommandeEntity commande) {
         return postCommandeRepository.save(commande);
+    }
+
+    public List<PostCommandeEntity> getAllCommande() {
+        return postCommandeRepository.findAll();
     }
 }

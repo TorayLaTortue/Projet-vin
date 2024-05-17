@@ -3,13 +3,16 @@ package com.example.StockOvin.Controllers;
 import com.example.StockOvin.Entities.PostCommandeEntity;
 import com.example.StockOvin.Service.PostCommandeService;
 
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/commandes")
 public class PostCommandeController {
@@ -17,7 +20,10 @@ public class PostCommandeController {
     @Autowired
     private PostCommandeService postCommandeService;
 
-    @Operation
+    @Autowired
+    private PostCommandeService commandeService;
+
+    @Operation(summary = "Créer une commande")
     @PostMapping
     public PostCommandeEntity createCommande(
             @Parameter(description = "Référence du client") @RequestParam Long referenceClient,
@@ -37,7 +43,7 @@ public class PostCommandeController {
         return postCommandeService.createCommande(commande);
     }
 
-    @Operation
+    @Operation(summary = "Mettre à jour une commande")
     @PutMapping("/{referenceCommande}")
     public PostCommandeEntity updateCommande(
             @Parameter(description = "Référence de la commande à mettre à jour", required = true)
@@ -59,4 +65,12 @@ public class PostCommandeController {
         commande.setStatut("en cours");
         return postCommandeService.updateCommande(commande);
     }
+
+    @Operation(summary = "Obtenir toutes les commandes")
+    @GetMapping
+    public List<PostCommandeEntity> getAllPostCommandes() {
+        return postCommandeService.getAllCommande();
+    }
+
+
 }
