@@ -16,8 +16,8 @@ GET Fournisseur ( en cours Adem   ) (c'est fait) et vérifié
 UPDATE Fournisseur
 POST Fournisseur
 GET Adresse (Fait) et vérifié
-UPDATE Adresse
-POST Adresse
+UPDATE Adresse (Fait) et vérifié
+POST Adresse (Fait) et vérifié
 GET Dépôt (Fait) et vérifié
 UPDATE Dépôt
 POST Dépôt
