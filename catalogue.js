@@ -35,7 +35,6 @@ function displayVins(vins) {
                     <p>Famille: ${vin.famille}</p>
                     <p>Année: ${new Date(vin.annee).getFullYear()}</p>
                     <p>Format: ${vin.format}</p>
-                    <p>Quantité: ${vin.quantite}</p>
                     <p class="promotion">Promotion: ${vin.promotion * 100}%</p>
                 </div>
             </div>

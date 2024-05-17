@@ -9,7 +9,7 @@ window.addEventListener('scroll', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:8080/dépôt')
+    fetch('http://localhost:8080/Depot/All')
         .then(response => response.json())
         .then(data => {
             displayDepots(data);
@@ -32,7 +32,7 @@ function displayDepots(depots) {
         row.appendChild(vinNameCell);
 
         const quantityCell = document.createElement('td');
-        quantityCell.textContent = depot.reference_vin.quantite;
+        quantityCell.textContent = depot.quantite;
         row.appendChild(quantityCell);
 
         const nomFournisseurCell = document.createElement('td');
