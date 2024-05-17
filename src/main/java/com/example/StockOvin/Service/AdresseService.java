@@ -17,6 +17,7 @@ public class AdresseService implements IAdresseService {
     public List<AdresseEntity> getAllAdresse() {
         return AdresseRepository.findAll();
     }
+
     public AdresseEntity AddAdresse(AdresseEntity adresse) {
         return AdresseRepository.save(adresse);
     }
