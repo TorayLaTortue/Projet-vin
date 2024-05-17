@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d2d2d2;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.scroll-bar {
+    position: fixed;
+    right: 0;
+    width: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-top: 60px;
+}
+  
+.scroll {
+    position: relative;
+    width: 10px;
+    height: 400px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 50px;
+    margin-bottom: 100px;
+}
+  
+.interieur {
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 20%;
+    background-color: #7b002d;
+    border-radius: 50px;
+    margin: 2px 0 0 2px;
+    animation: scroll linear;
+    animation-timeline: scroll();
+}
+
+@keyframes scroll {
+    from {
+        top: 0;
+    }
+    to {
+        top: calc(100% - 20% - 4px);
+    }
+}
+
+
+#main-header {
+    background: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    background-color: rgb(202, 202, 202);
+    background: none;
+    border-bottom: 1px solid white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+    padding: 0 5%;
+    box-sizing: border-box;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.nav-item {
+    margin: 0 15px; 
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 550;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transition-duration: 0.3s;
+    color: #7b002d; 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+table {
+    width: 90%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #7b002d;
+    color: #fff;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #7b002d;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+}
+
+table td {
+    font-size: 1em;
+    color: #333;
+}
+
+table tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+table tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.price-container {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #7b002d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background-color: #7b002d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: #0056b3;
+}
+
+.quantity-display {
+    min-width: 20px;
+    text-align: center;
+}
+
+.price-cell {
+    text-align: right;
+}
+
+.empty-cart-btn, .buy-btn {
+    background-color: #7b002d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.empty-cart-btn:hover, .buy-btn:hover {
+    background-color: #7b002d;
+}
+
+.total-amount {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}

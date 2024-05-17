@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:8081")
 @RequestMapping("/Vin")
 
 public class VinController {
