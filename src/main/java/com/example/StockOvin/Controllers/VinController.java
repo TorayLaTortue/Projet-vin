@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:8081")
+@CrossOrigin(origins = "*")
 @RequestMapping("/Vin")
 
 public class VinController {

@@ -8,14 +8,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CommandeService implements ICommandeService {
+public class CommandeService {
 
     @Autowired
     private CommandeRepository CommandeRepository;
 
-    @Override
+    public CommandeEntity createCommande(CommandeEntity commande) {
+        return CommandeRepository.save(commande);
+    }
+
+    public CommandeEntity updateCommande(CommandeEntity commande) {
+        return CommandeRepository.save(commande);
+    }
+
     public List<CommandeEntity> getAllCommande() {
         return CommandeRepository.findAll();
     }
-
 }
