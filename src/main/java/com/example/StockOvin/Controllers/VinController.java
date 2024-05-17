@@ -46,7 +46,7 @@ public class VinController {
 
 
 
-    @Operation(summary = "Edit d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
+    @Operation(summary = "Edit d'un vin (Nom, Image, Region, Annee, Format, Prix)")
     @PutMapping("/Update/{id}")
     public ResponseEntity<VinEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
         VinEntity Vin = VinService.getVinById(reference);
