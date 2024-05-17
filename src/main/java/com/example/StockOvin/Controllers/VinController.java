@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:8081")
 @RequestMapping("/Vin")
 
 public class VinController {
@@ -36,7 +38,6 @@ public class VinController {
         Vin.setImage(newVin.getImage());
         Vin.setRegion(newVin.getRegion());
         Vin.setAnnee(newVin.getAnnee());
-        Vin.setQuantite(newVin.getQuantite());
         Vin.setFamille(newVin.getFamille());
         Vin.setFormat(newVin.getFormat());
         Vin.setPrix(newVin.getPrix());
@@ -56,7 +57,6 @@ public class VinController {
             Vin.setRegion(newVin.getRegion());
             Vin.setAnnee(newVin.getAnnee());
             Vin.setFamille(newVin.getFamille());
-            Vin.setQuantite(newVin.getQuantite());
             Vin.setFormat(newVin.getFormat());
             Vin.setPrix(newVin.getPrix());
 
@@ -74,27 +74,6 @@ public class VinController {
         }
     }
 
-    @Operation(summary = "Edit du stock de vin")
-    @PutMapping("/UpdateStock/{id}")
-    public ResponseEntity<VinEntity> UpdateStock(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
-        VinEntity Vin = VinService.getVinById(reference);
-        if (Vin != null) {
-        
-            Vin.setQuantite(newVin.getQuantite());
-
-            VinEntity updatedVin = VinService.updateVin(Vin);
-            
-            if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
-            } else {
-                // La mise à jour a échoué pour une raison quelconque
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-            }
-        } else {
-            // Le Vin est inexistant, renvoie un statut 404
-            return ResponseEntity.notFound().build();
-        }
-    }
 
     @Operation(summary = "Ajout ou modification d'une promotion de vin")
     @PutMapping("/Promotion/{id}")

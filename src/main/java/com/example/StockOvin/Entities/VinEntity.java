@@ -17,21 +17,19 @@ public class VinEntity {
     private String region;
     private String famille;
     private Date annee;
-    private int quantite;
     private String format;
     private float promotion;
     private int prix;
     private Date date_suppression;
 
     // Constructeur
-    public VinEntity(int reference_vin, String nom, String image, String region, String famille, Date annee, int quantite, String format, float promotion, int prix, Date date_suppression) {
+    public VinEntity(int reference_vin, String nom, String image, String region, String famille, Date annee, String format, float promotion, int prix, Date date_suppression) {
         this.reference_vin = reference_vin;
         this.nom = nom;
         this.image = image;
         this.region = region;
         this.famille = famille;
         this.annee = annee;
-        this.quantite = quantite;
         this.format = format;
         this.promotion = promotion;
         this.prix = prix;
@@ -91,13 +89,6 @@ public class VinEntity {
         this.annee = annee;
     }
 
-    public int getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
-    }
 
     public String getFormat() {
         return format;
