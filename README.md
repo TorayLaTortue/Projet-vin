@@ -2,28 +2,25 @@
 
 ROUTES A FAIRE :
 
-GET Client (Fait)
-UPDATE Client (Fait)
-POST Client (Fait)
-"DELETE" Client (Fait)
-GET Vin (faite)
-UPDATE VIN (Fait)
-POST Vin (Fait)
-GET Commande (Fait)
-<<<<<<< HEAD
-UPDATE Commande ( adem)
-POST Commande (adem) (c fait)
-=======
-UPDATE Commande (adem)
-POST Commande ( en cours adem)
->>>>>>> 3d19f2a803cdf84beaf59805d73d71f583ac8914
-GET Fournisseur ( en cours Adem   ) (c'est fait)
-UPDATE Fournisseur
-POST Fournisseur
-GET Adresse (Fait)
-UPDATE Adresse
-POST Adresse
-GET Dépôt (Fait)
-UPDATE Dépôt
-POST Dépôt
+VERIFICATION FAITE LE 17/05
+
+GET Client (Fait) et vérifié
+UPDATE Client (Fait) et vérifié
+POST Client (Fait) et vérifié
+"DELETE" Client (Fait) et vérifié
+GET Vin (faite) et vérifié
+UPDATE VIN (Fait) et vérifié
+POST Vin (Fait) et vérifié
+GET Commande (Fait) et vérifié
+UPDATE Commande (adem) (fait) et vérifié
+POST Commande ( en cours adem -faite) 
+GET Fournisseur ( en cours Adem   ) (c'est fait) et vérifié
+UPDATE Fournisseur (Fait) et vérifié
+POST Fournisseur (Fait) et vérifié
+GET Adresse (Fait) et vérifié
+UPDATE Adresse (Fait) et vérifié
+POST Adresse (Fait) et vérifié
+GET Dépôt (Fait) et vérifié
+UPDATE Dépôt (fait par damien) et vérifié
+POST Dépôt (fait par damien) et vérifié
 

@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS public.vin
     "region" character(100) COLLATE pg_catalog."default",
     "famille" character(100) COLLATE pg_catalog."default",
     "annee" date,
-    "quantite" integer,
     "format" character(100) COLLATE pg_catalog."default",
     "promotion" float,
     "prix" integer,
@@ -64,6 +63,7 @@ CREATE TABLE IF NOT EXISTS public.depot
     "nom_depot" character(100) COLLATE pg_catalog."default",
     "adresse" integer REFERENCES public.adresse ("reference_adresse"),
     "reference_vin" integer REFERENCES public.vin ("reference_vin"),
+    "quantite" integer,
     "reference_fournisseur" integer REFERENCES public.fournisseur ("reference_fournisseur"),
     "date_suppression" date
 );

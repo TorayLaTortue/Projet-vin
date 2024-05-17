@@ -18,4 +18,15 @@ public class AdresseService implements IAdresseService {
         return AdresseRepository.findAll();
     }
 
+    public AdresseEntity AddAdresse(AdresseEntity adresse) {
+        return AdresseRepository.save(adresse);
+    }
+    public AdresseEntity updateAdresse(AdresseEntity adresse) {
+        return AdresseRepository.save(adresse);
+    }
+    public AdresseEntity getAdresseById(int id) {
+        return AdresseRepository.findById(id).orElse(null);
+    }
+
+
 }
