@@ -1,52 +1,44 @@
 package com.example.StockOvin.Entities;
 
-
 import jakarta.persistence.*;
-import lombok.*;
-import java.util.Date;
+import lombok.Data;
+import lombok.Setter;
 
+import java.time.LocalDate;
 
-@Entity
 @Data
+@Entity
 @Table(name = "commande")
 public class PostCommandeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reference_commande")
-    private int referenceCommande;
+    private Long referenceCommande;
 
-    @ManyToOne
-    @JoinColumn(name = "reference_client")
-    private ClientEntity client;
+    @Column(name = "reference_client")
+    private Long referenceClient;
 
-    @ManyToOne
-    @JoinColumn(name = "adresse_facturation")
-    private AdresseEntity adresseFacturation;
+    @Column(name = "adresse_facturation")
+    private Long adresseFacturation;
 
-    @ManyToOne
-    @JoinColumn(name = "adresse_livraison")
-    private AdresseEntity adresseLivraison;
+    @Column(name = "adresse_livraison")
+    private Long adresseLivraison;
 
-    private String statut;
-
-    @Column(name = "date_creation_commande")
-    private Date dateCreationCommande;
-
-    @ManyToOne
-    @JoinColumn(name = "reference_vin")
-    private VinEntity vin;
+    @Column(name = "reference_vin")
+    private Long referenceVin;
 
     @Column(name = "quantite_produit")
-    private int quantiteProduit;
+    private Integer quantiteProduit;
 
-    @Column(name = "date_suppression")
-    private Date dateSuppression;
+    // Méthode pour définir le statut de la commande
+    @Setter
+    @Column(name = "statut")
+    private String statut;
 
+    // Méthode pour définir la date de création de la commande
+    @Setter
+    @Column(name = "date_creation_commande")
+    private LocalDate dateCreationCommande;
 
-    public void setReferenceClient(Integer referenceClient) {
-    }
-
-    public void setReferenceVin(int referenceVin) {
-    }
 }

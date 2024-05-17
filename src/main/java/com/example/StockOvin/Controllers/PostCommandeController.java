@@ -1,41 +1,62 @@
 package com.example.StockOvin.Controllers;
 
-import com.example.StockOvin.Entities.AdresseEntity;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.example.StockOvin.Entities.PostCommandeEntity;
 import com.example.StockOvin.Service.PostCommandeService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/commandes")
 public class PostCommandeController {
 
     @Autowired
     private PostCommandeService postCommandeService;
 
-    @Operation(summary = "Créer une nouvelle commande")
-    @PostMapping("/nouvelleCommande")
+    @Operation
+    @PostMapping
     public PostCommandeEntity createCommande(
-            @Parameter(description = "Référence du client") @RequestParam(required = false) int referenceClient,
-            @Parameter(description = "Référence de l'adresse de facturation") @RequestParam(required = false) AdresseEntity referenceAdresseFacturation,
-            @Parameter(description = "Référence de l'adresse de livraison") @RequestParam(required = false) AdresseEntity referenceAdresseLivraison,
-            @Parameter(description = "Référence du vin") @RequestParam(required = false) int referenceVin,
-            @Parameter(description = "Quantité de produit") @RequestParam(required = false) int quantiteProduit
-    ) {
-
+            @Parameter(description = "Référence du client") @RequestParam Long referenceClient,
+            @Parameter(description = "Adresse de facturation") @RequestParam Long adresseFacturation,
+            @Parameter(description = "Adresse de livraison") @RequestParam Long adresseLivraison,
+            @Parameter(description = "Référence du vin") @RequestParam Long referenceVin,
+            @Parameter(description = "Quantité de produit") @RequestParam Integer quantiteProduit) {
         PostCommandeEntity commande = new PostCommandeEntity();
-
         commande.setReferenceClient(referenceClient);
-        commande.setAdresseFacturation(referenceAdresseFacturation);
-        commande.setAdresseLivraison(referenceAdresseLivraison);
+        commande.setAdresseFacturation(adresseFacturation);
+        commande.setAdresseLivraison(adresseLivraison);
         commande.setReferenceVin(referenceVin);
         commande.setQuantiteProduit(quantiteProduit);
-
-
+        // Ajouter la date de création automatique et définir le statut par défaut
+        commande.setDateCreationCommande(LocalDate.now());
+        commande.setStatut("en cours");
         return postCommandeService.createCommande(commande);
+    }
 
+    @Operation
+    @PutMapping("/{referenceCommande}")
+    public PostCommandeEntity updateCommande(
+            @Parameter(description = "Référence de la commande à mettre à jour", required = true)
+            @PathVariable Long referenceCommande,
+            @Parameter(description = "Référence du client") @RequestParam Long referenceClient,
+            @Parameter(description = "Adresse de facturation") @RequestParam Long adresseFacturation,
+            @Parameter(description = "Adresse de livraison") @RequestParam Long adresseLivraison,
+            @Parameter(description = "Référence du vin") @RequestParam Long referenceVin,
+            @Parameter(description = "Quantité de produit") @RequestParam Integer quantiteProduit) {
+        PostCommandeEntity commande = new PostCommandeEntity();
+        commande.setReferenceCommande(referenceCommande);
+        commande.setReferenceClient(referenceClient);
+        commande.setAdresseFacturation(adresseFacturation);
+        commande.setAdresseLivraison(adresseLivraison);
+        commande.setReferenceVin(referenceVin);
+        commande.setQuantiteProduit(quantiteProduit);
+        // Ajouter la date de création automatique et définir le statut par défaut
+        commande.setDateCreationCommande(LocalDate.now());
+        commande.setStatut("en cours");
+        return postCommandeService.updateCommande(commande);
     }
 }
