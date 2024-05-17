@@ -18,4 +18,16 @@ public class DepotService implements IDepotService {
         return DepotRepository.findAll();
     }
 
+    public DepotEntity AddDepot(DepotEntity depot) {
+        return DepotRepository.save(depot);
+    }
+
+    public DepotEntity getDepotById(int id) {
+        return DepotRepository.findById(id).orElse(null);
+    }
+
+    public DepotEntity updateDepot(DepotEntity depot) {
+        return DepotRepository.save(depot);
+    }
+
 }

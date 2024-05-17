@@ -89,7 +89,6 @@ public class VinEntity {
         this.annee = annee;
     }
 
-
     public String getFormat() {
         return format;
     }

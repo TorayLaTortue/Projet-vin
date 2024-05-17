@@ -99,7 +99,7 @@ public class VinController {
 
     @Operation(summary = "Delete d'un vin")
     @PutMapping("/Delete/{id}")
-    public ResponseEntity<VinEntity> deleteVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
+    public ResponseEntity<VinEntity> deleteVin(@PathVariable("id") int reference) {
         VinEntity Vin = VinService.getVinById(reference);
         if (Vin != null) {
         

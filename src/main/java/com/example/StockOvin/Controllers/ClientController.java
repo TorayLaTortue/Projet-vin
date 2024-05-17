@@ -13,20 +13,20 @@ import java.sql.Date;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping()
+@RequestMapping("/Client")
 public class ClientController {
 
     @Autowired
     private ClientService ClientService;
 
     @Operation(summary = "Liste de toutes les infos de tout les clients")
-    @GetMapping("/client")
+    @GetMapping("/All")
     public List<ClientEntity> getAllClient() {
         return ClientService.getAllClient();
     }
 
     @Operation(summary = "Nouveau client")
-    @PostMapping("/newClient")
+    @PostMapping("/New")
     public ClientEntity newClient(@RequestBody ClientEntity newClient) {
         ClientEntity Client = new ClientEntity();
         Client.setNom(newClient.getNom());
@@ -39,7 +39,7 @@ public class ClientController {
     }
 
     @Operation(summary = "Update d'un client (Nom ,prenom ,mail ,telephone)")
-    @PutMapping("/updateClient{id}")
+    @PutMapping("/Update{id}")
     public ResponseEntity<ClientEntity> updateClient(int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
@@ -63,11 +63,11 @@ public class ClientController {
 }
 
     @Operation(summary = "Update le mdp d'un client")
-    @PutMapping("/updateClientMdp/{id}")
+    @PutMapping("/UpdateMdp/{id}")
     public ResponseEntity<ClientEntity> updateMdpClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-            Client.setMot_de_passe(newClient.getMot_de_passe());// Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+            Client.setMot_de_passe(newClient.getMot_de_passe());
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             
@@ -85,8 +85,8 @@ public class ClientController {
 
 
     @Operation(summary = "Delete d'un client")
-    @PutMapping("/DeleteClient/{id}")
-    public ResponseEntity<ClientEntity> deleteClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
+    @PutMapping("/Delete/{id}")
+    public ResponseEntity<ClientEntity> deleteClient(@PathVariable("id") int reference) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
         
@@ -95,7 +95,7 @@ public class ClientController {
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
-            Client.setdate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
+            Client.setDate_suppression(date); // Utilisez la méthode setMotDePasse au lieu de setmotDePasse
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             
