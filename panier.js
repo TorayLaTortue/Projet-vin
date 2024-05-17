@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     displayCart();
     document.getElementById('emptyCartButton').addEventListener('click', emptyCart);
-    document.getElementById('buyButton').addEventListener('click', buyProducts);
 });
 
 function displayCart() {
@@ -73,41 +72,4 @@ function refreshCart() {
 function emptyCart() {
     localStorage.removeItem('cart');
     refreshCart();
-}
-
-function buyProducts() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const promises = cart.map(vin => {
-        console.log(`Sending PUT request for vin ID: ${vin.referencevin} with quantity: ${vin.quantite - vin.quantity}`);
-        return fetch(`http://localhost:8080/Vin/UpdateStock/${vin.referencevin}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                quantite: vin.quantite - vin.quantity
-            })
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to update stock for vin ID: ${vin.referencevin}`);
-            }
-            return response.json();
-        }).then(data => {
-            console.log(`Success response for vin ID: ${vin.referencevin}:`, data);
-            return data;
-        }).catch(error => {
-            console.error(`Error response for vin ID: ${vin.referencevin}:`, error);
-            throw error;
-        });
-    });
-
-    Promise.all(promises)
-        .then(data => {
-            alert('Achat effectué avec succès !');
-            emptyCart();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Erreur lors de l\'achat. Veuillez réessayer.');
-        });
 }
