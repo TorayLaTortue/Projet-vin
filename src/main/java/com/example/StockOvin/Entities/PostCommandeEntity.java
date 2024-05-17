@@ -2,7 +2,6 @@ package com.example.StockOvin.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -31,14 +30,9 @@ public class PostCommandeEntity {
     @Column(name = "quantite_produit")
     private Integer quantiteProduit;
 
-    // Méthode pour définir le statut de la commande
-    @Setter
     @Column(name = "statut")
     private String statut;
 
-    // Méthode pour définir la date de création de la commande
-    @Setter
     @Column(name = "date_creation_commande")
     private LocalDate dateCreationCommande;
-
 }
