@@ -21,6 +21,6 @@ GET Adresse (Fait) et vérifié
 UPDATE Adresse (Fait) et vérifié
 POST Adresse (Fait) et vérifié
 GET Dépôt (Fait) et vérifié
-UPDATE Dépôt (en cours par damien)
-POST Dépôt (en cours par damien)
+UPDATE Dépôt (fait par damien) et vérifié
+POST Dépôt (fait par damien) et vérifié
 
