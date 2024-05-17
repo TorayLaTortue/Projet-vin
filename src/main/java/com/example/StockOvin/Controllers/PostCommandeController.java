@@ -34,7 +34,6 @@ public class PostCommandeController {
         commande.setReferenceVin(referenceVin);
         commande.setQuantiteProduit(quantiteProduit);
 
-
         return postCommandeService.createCommande(commande);
 
     }
