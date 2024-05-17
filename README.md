@@ -10,7 +10,6 @@ GET Vin (faite)
 UPDATE VIN (Fait)
 POST Vin (Fait)
 GET Commande (Fait)
-<<<<<<< HEAD
 UPDATE Commande ( adem)
 POST Commande (adem) (c fait)
 UPDATE Commande (adem)
