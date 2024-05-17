@@ -12,30 +12,33 @@ public class DepotEntity {
 
     private String nom_depot;
 
-    @ManyToOne
+    
     @JoinColumn(name = "adresse")
-    private AdresseEntity adresse;
+    private int adresse;
 
 
     private Date date_suppression;
 
-    @ManyToOne
+    
     @JoinColumn(name = "reference_vin")
-    private VinEntity reference_vin;
+    private int reference_vin;
 
-    @ManyToOne
+    private int quantite;
+
+    
     @JoinColumn(name = "reference_fournisseur")
-    private FournisseurEntity reference_fournisseur;
+    private int reference_fournisseur;
 
 
     public DepotEntity() {
     }
 
-    public DepotEntity(String nom_depot, AdresseEntity adresse, VinEntity reference_vin, FournisseurEntity reference_fournisseur, Date date_suppression) {
+    public DepotEntity(String nom_depot, int adresse, int reference_vin, int quantite, int reference_fournisseur, Date date_suppression) {
         this.nom_depot = nom_depot;
         this.adresse = adresse;
         this.date_suppression = date_suppression;
         this.reference_vin = reference_vin;
+        this.quantite = quantite;
         this.reference_fournisseur = reference_fournisseur;
     }
 
@@ -55,11 +58,11 @@ public class DepotEntity {
         this.nom_depot = nom_depot;
     }
 
-    public AdresseEntity getAdresse() {
+    public int getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(AdresseEntity adresse) {
+    public void setAdresse(int adresse) {
         this.adresse = adresse;
     }
 
@@ -71,19 +74,26 @@ public class DepotEntity {
         this.date_suppression = date_suppression;
     }
 
-    public VinEntity getReference_vin() {
+    public int getReference_vin() {
         return reference_vin;
     }
 
-    public void setReference_vin(VinEntity reference_vin) {
+    public void setReference_vin(int reference_vin) {
         this.reference_vin = reference_vin;
     }
 
-    public FournisseurEntity getReference_fournisseur() {
+    public int getQuantite() {
+        return quantite;
+    }
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
+    public int getReference_fournisseur() {
         return reference_fournisseur;
     }
 
-    public void setReference_fournisseur(FournisseurEntity reference_fournisseur) {
+    public void setReference_fournisseur(int reference_fournisseur) {
         this.reference_fournisseur = reference_fournisseur;
     }
 }
