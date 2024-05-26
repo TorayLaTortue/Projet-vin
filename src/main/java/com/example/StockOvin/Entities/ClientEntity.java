@@ -10,74 +10,74 @@ import java.util.Date;
     public class ClientEntity {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int reference_client;
-        private String nom;
-        private String prenom;
-        private String mail;
-        private String telephone;
-        private String mot_de_passe;
+        private int client_reference;
+        private String name;
+        private String first_name;
+        private String eMail;
+        private String phone;
+        private String password;
         private String role;
-        private Date date_suppression;
+        private Date deletion_date;
 
     public ClientEntity() {
     }
 
-    public ClientEntity(int reference_client, String nom, String prenom, String mail, String telephone, String mot_de_passe, String role, Date date_suppression) {
-        this.reference_client = reference_client;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.telephone = telephone;
-        this.mot_de_passe = mot_de_passe;
+    public ClientEntity(int client_reference, String name, String first_name, String eMail, String phone, String password, String role, Date deletion_date) {
+        this.client_reference = client_reference;
+        this.name = name;
+        this.first_name = first_name;
+        this.eMail = eMail;
+        this.phone = phone;
+        this.password = password;
         this.role = role;
-        this.date_suppression = date_suppression;
+        this.deletion_date = deletion_date;
     }
 
-    public int getReference_client() {
-        return reference_client;
+    public int getClient_reference() {
+        return client_reference;
     }
-    public void setReference_client(int reference_client) {
-        this.reference_client = reference_client;
-    }
-
-    public String getNom() {
-        return nom;
+    public void setClient_reference(int client_reference) {
+        this.client_reference = client_reference;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public String getName() {
+        return name;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public String getFirstName() {
+        return first_name;
     }
 
-    public String getMail() {
-        return mail;
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public String geteMail() {
+        return eMail;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getMot_de_passe() {
-        return mot_de_passe;
+        return password;
     }
 
-    public void setMot_de_passe(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
+    public void setMot_de_passe(String password) {
+        this.password = password;
     }
 
     public String getRole() {
@@ -89,10 +89,10 @@ import java.util.Date;
     }
 
     public Date getDate_suppression() {
-        return date_suppression;
+        return deletion_date;
     }
 
-    public void setDate_suppression(Date date_suppression) {
-        this.date_suppression = date_suppression;
+    public void setDate_suppression(Date deletion_date) {
+        this.deletion_date = deletion_date;
     }
     }

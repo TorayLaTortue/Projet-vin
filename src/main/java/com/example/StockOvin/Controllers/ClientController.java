@@ -29,24 +29,24 @@ public class ClientController {
     @PostMapping("/New")
     public ClientEntity newClient(@RequestBody ClientEntity newClient) {
         ClientEntity Client = new ClientEntity();
-        Client.setNom(newClient.getNom());
-        Client.setPrenom(newClient.getPrenom());
-        Client.setMail(newClient.getMail());
-        Client.setTelephone(newClient.getTelephone());
+        Client.setName(newClient.getName());
+        Client.setFirstName(newClient.getFirstName());
+        Client.seteMail(newClient.geteMail());
+        Client.setPhone(newClient.getPhone());
         Client.setMot_de_passe(newClient.getMot_de_passe());
         Client.setRole("Client");
         return ClientService.AddClient(Client);
     }
 
-    @Operation(summary = "Update d'un client (Nom ,prenom ,mail ,telephone)")
+    @Operation(summary = "Update d'un client (Name ,first_name ,eMail ,phone)")
     @PutMapping("/Update{id}")
     public ResponseEntity<ClientEntity> updateClient(int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-            Client.setNom(newClient.getNom());
-            Client.setPrenom(newClient.getPrenom());
-            Client.setMail(newClient.getMail());
-            Client.setTelephone(newClient.getTelephone());
+            Client.setName(newClient.getName());
+            Client.setFirstName(newClient.getFirstName());
+            Client.seteMail(newClient.geteMail());
+            Client.setPhone(newClient.getPhone());
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             
@@ -57,7 +57,7 @@ public class ClientController {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le client est inexistant, renvoie un statut 404
+            // Le client est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
 }
@@ -78,7 +78,7 @@ public class ClientController {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le client est inexistant, renvoie un statut 404
+            // Le client est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }
@@ -106,7 +106,7 @@ public class ClientController {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le client est inexistant, renvoie un statut 404
+            // Le client est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }

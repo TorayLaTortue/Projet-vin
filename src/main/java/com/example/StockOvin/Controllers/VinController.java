@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.sql.Date;
 import java.util.List;
 
-import com.example.StockOvin.Entities.VinEntity;
+import com.example.StockOvin.Entities.WineEntity;
 import com.example.StockOvin.Service.VinService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,109 +17,109 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/Vin")
+@RequestMapping("/Wine")
 
 public class VinController {
 
      @Autowired
     private VinService VinService;
 
-    @Operation(summary = "Liste de toutes les infos de tout les vin")
-    @GetMapping("/Vin")
-    public List<VinEntity> getAllVin() {
+    @Operation(summary = "Liste de toutes les infos de tout les wine")
+    @GetMapping("/Wine")
+    public List<WineEntity> getAllVin() {
         return VinService.getAllVin();
     }
 
-    @Operation(summary = "Ajout d'un vin (Nom, Image, Region, Annee, Quantite, Format, Prix)")
+    @Operation(summary = "Ajout d'un wine (Name, Picture, Region, Year, Quantity, Format, Price)")
     @PostMapping("/Post")
-    public VinEntity newVin(@RequestBody VinEntity newVin) {
-        VinEntity Vin = new VinEntity();
-        Vin.setNom(newVin.getNom());
-        Vin.setImage(newVin.getImage());
-        Vin.setRegion(newVin.getRegion());
-        Vin.setAnnee(newVin.getAnnee());
-        Vin.setFamille(newVin.getFamille());
-        Vin.setFormat(newVin.getFormat());
-        Vin.setPrix(newVin.getPrix());
-        return VinService.AddVin(Vin); 
+    public WineEntity newVin(@RequestBody WineEntity newVin) {
+        WineEntity Wine = new WineEntity();
+        Wine.setName(newVin.getName());
+        Wine.setPicture(newVin.getPicture());
+        Wine.setRegion(newVin.getRegion());
+        Wine.setYear(newVin.getYear());
+        Wine.setFamily(newVin.getFamily());
+        Wine.setFormat(newVin.getFormat());
+        Wine.setPrice(newVin.getPrice());
+        return VinService.AddVin(Wine); 
     }
 
 
 
-    @Operation(summary = "Edit d'un vin (Nom, Image, Region, Annee, Format, Prix)")
+    @Operation(summary = "Edit d'un wine (Name, Picture, Region, Year, Format, Price)")
     @PutMapping("/Update/{id}")
-    public ResponseEntity<VinEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
-        VinEntity Vin = VinService.getVinById(reference);
-        if (Vin != null) {
+    public ResponseEntity<WineEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
+        WineEntity Wine = VinService.getVinById(reference);
+        if (Wine != null) {
         
-            Vin.setNom(newVin.getNom());
-            Vin.setImage(newVin.getImage());
-            Vin.setRegion(newVin.getRegion());
-            Vin.setAnnee(newVin.getAnnee());
-            Vin.setFamille(newVin.getFamille());
-            Vin.setFormat(newVin.getFormat());
-            Vin.setPrix(newVin.getPrix());
+            Wine.setName(newVin.getName());
+            Wine.setPicture(newVin.getPicture());
+            Wine.setRegion(newVin.getRegion());
+            Wine.setYear(newVin.getYear());
+            Wine.setFamily(newVin.getFamily());
+            Wine.setFormat(newVin.getFormat());
+            Wine.setPrice(newVin.getPrice());
 
-            VinEntity updatedVin = VinService.updateVin(Vin);
+            WineEntity updatedVin = VinService.updateVin(Wine);
             
             if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le Vin est inexistant, renvoie un statut 404
+            // Le Wine est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }
 
 
-    @Operation(summary = "Ajout ou modification d'une promotion de vin")
-    @PutMapping("/Promotion/{id}")
-    public ResponseEntity<VinEntity> PromotionVin(@PathVariable("id") int reference, @RequestBody VinEntity newVin) {
-        VinEntity Vin = VinService.getVinById(reference);
-        if (Vin != null) {
+    @Operation(summary = "Ajout ou modification d'une discount de wine")
+    @PutMapping("/Discount/{id}")
+    public ResponseEntity<WineEntity> DiscountVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
+        WineEntity Wine = VinService.getVinById(reference);
+        if (Wine != null) {
         
-            Vin.setPromotion(newVin.getPromotion());
+            Wine.setDiscount(newVin.getDiscount());
 
-            VinEntity updatedVin = VinService.updateVin(Vin);
+            WineEntity updatedVin = VinService.updateVin(Wine);
             
             if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le Vin est inexistant, renvoie un statut 404
+            // Le Wine est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }
 
-    @Operation(summary = "Delete d'un vin")
+    @Operation(summary = "Delete d'un wine")
     @PutMapping("/Delete/{id}")
-    public ResponseEntity<VinEntity> deleteVin(@PathVariable("id") int reference) {
-        VinEntity Vin = VinService.getVinById(reference);
-        if (Vin != null) {
+    public ResponseEntity<WineEntity> deleteVin(@PathVariable("id") int reference) {
+        WineEntity Wine = VinService.getVinById(reference);
+        if (Wine != null) {
         
             long currentTimeMillis = System.currentTimeMillis();
         
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
-            Vin.setDate_suppression(date); 
+            Wine.setDeletionDate(date); 
 
-            VinEntity updatedVin = VinService.updateVin(Vin);
+            WineEntity updatedVin = VinService.updateVin(Wine);
             
             if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le vin mis à jour
+                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le Vin est inexistant, renvoie un statut 404
+            // Le Wine est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }

@@ -27,22 +27,22 @@ public class FournisseurController {
     @PostMapping("/newFournisseur")
     public FournisseurEntity newFournisseur(@RequestBody FournisseurEntity newFournisseur) {
         FournisseurEntity Fournisseur = new FournisseurEntity();
-        Fournisseur.setNom(newFournisseur.getNom());
+        Fournisseur.setName(newFournisseur.getName());
         Fournisseur.setDate_creation(newFournisseur.getDate_creation());
         Fournisseur.setValeurs_vin(newFournisseur.getValeurs_vin());
-        Fournisseur.setAdresse(newFournisseur.getAdresse());
+        Fournisseur.setAddress(newFournisseur.getAddress());
         return fournisseurService.AddFournisseur(Fournisseur);
     }
 
-    @Operation(summary = "Update d'un Fournisseur (Nom ,prenom ,mail ,telephone)")
+    @Operation(summary = "Update d'un Fournisseur (Name ,first_name ,eMail ,phone)")
     @PutMapping("/updateFournisseur{id}")
     public ResponseEntity<FournisseurEntity> updateFournisseur(int reference, @RequestBody FournisseurEntity newFournisseur) {
         FournisseurEntity Fournisseur = fournisseurService.getFournisseurById(reference);
         if (Fournisseur != null) {
-            Fournisseur.setNom(newFournisseur.getNom());
+            Fournisseur.setName(newFournisseur.getName());
             Fournisseur.setDate_creation(newFournisseur.getDate_creation());
             Fournisseur.setValeurs_vin(newFournisseur.getValeurs_vin());
-            Fournisseur.setAdresse(newFournisseur.getAdresse());
+            Fournisseur.setAddress(newFournisseur.getAddress());
 
             FournisseurEntity updatedFournisseur = fournisseurService.updateFournisseur(Fournisseur);
 
@@ -53,7 +53,7 @@ public class FournisseurController {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
             }
         } else {
-            // Le Fournisseur est inexistant, renvoie un statut 404
+            // Le Fournisseur est inexistant, renvoie un status 404
             return ResponseEntity.notFound().build();
         }
     }

@@ -1,6 +1,6 @@
 package com.example.StockOvin.Controllers;
 
-import com.example.StockOvin.Entities.CommandeEntity;
+import com.example.StockOvin.Entities.OrderEntity;
 import com.example.StockOvin.Service.CommandeService;
 
 
@@ -25,19 +25,19 @@ public class CommandeController {
 
     @Operation(summary = "Créer une commande")
     @PostMapping
-    public CommandeEntity createCommande(
+    public OrderEntity createCommande(
             @Parameter(description = "Référence du client") @RequestParam Long referenceClient,
-            @Parameter(description = "Adresse de facturation") @RequestParam Long adresseFacturation,
-            @Parameter(description = "Adresse de livraison") @RequestParam Long adresseLivraison,
-            @Parameter(description = "Référence du vin") @RequestParam Long referenceVin,
-            @Parameter(description = "Quantité de produit") @RequestParam Integer quantiteProduit) {
-        CommandeEntity commande = new CommandeEntity();
+            @Parameter(description = "Address de facturation") @RequestParam Long addressFacturation,
+            @Parameter(description = "Address de livraison") @RequestParam Long addressLivraison,
+            @Parameter(description = "Référence du wine") @RequestParam Long wineReference,
+            @Parameter(description = "Quantité de produit") @RequestParam Integer quantityProduit) {
+        OrderEntity commande = new OrderEntity();
         commande.setReferenceClient(referenceClient);
-        commande.setAdresseFacturation(adresseFacturation);
-        commande.setAdresseLivraison(adresseLivraison);
-        commande.setReferenceVin(referenceVin);
-        commande.setQuantiteProduit(quantiteProduit);
-        // Ajouter la date de création automatique et définir le statut par défaut
+        commande.setAddressFacturation(addressFacturation);
+        commande.setAddressLivraison(addressLivraison);
+        commande.setWineReference(wineReference);
+        commande.setQuantityProduit(quantityProduit);
+        // Ajouter la date de création automatique et définir le status par défaut
         commande.setDateCreationCommande(LocalDate.now());
         commande.setStatut("en cours");
         return CommandeService.createCommande(commande);
@@ -45,22 +45,22 @@ public class CommandeController {
 
     @Operation(summary = "Mettre à jour une commande")
     @PutMapping("/{referenceCommande}")
-    public CommandeEntity updateCommande(
+    public OrderEntity updateCommande(
             @Parameter(description = "Référence de la commande à mettre à jour", required = true)
             @PathVariable Long referenceCommande,
             @Parameter(description = "Référence du client") @RequestParam Long referenceClient,
-            @Parameter(description = "Adresse de facturation") @RequestParam Long adresseFacturation,
-            @Parameter(description = "Adresse de livraison") @RequestParam Long adresseLivraison,
-            @Parameter(description = "Référence du vin") @RequestParam Long referenceVin,
-            @Parameter(description = "Quantité de produit") @RequestParam Integer quantiteProduit) {
-        CommandeEntity commande = new CommandeEntity();
+            @Parameter(description = "Address de facturation") @RequestParam Long addressFacturation,
+            @Parameter(description = "Address de livraison") @RequestParam Long addressLivraison,
+            @Parameter(description = "Référence du wine") @RequestParam Long wineReference,
+            @Parameter(description = "Quantité de produit") @RequestParam Integer quantityProduit) {
+        OrderEntity commande = new OrderEntity();
         commande.setReferenceCommande(referenceCommande);
         commande.setReferenceClient(referenceClient);
-        commande.setAdresseFacturation(adresseFacturation);
-        commande.setAdresseLivraison(adresseLivraison);
-        commande.setReferenceVin(referenceVin);
-        commande.setQuantiteProduit(quantiteProduit);
-        // Ajouter la date de création automatique et définir le statut par défaut
+        commande.setAddressFacturation(addressFacturation);
+        commande.setAddressLivraison(addressLivraison);
+        commande.setWineReference(wineReference);
+        commande.setQuantityProduit(quantityProduit);
+        // Ajouter la date de création automatique et définir le status par défaut
         commande.setDateCreationCommande(LocalDate.now());
         commande.setStatut("en cours");
         return CommandeService.updateCommande(commande);
@@ -68,7 +68,7 @@ public class CommandeController {
 
     @Operation(summary = "Obtenir toutes les commandes")
     @GetMapping
-    public List<CommandeEntity> getAllCommandes() {
+    public List<OrderEntity> getAllCommandes() {
         return CommandeService.getAllCommande();
     }
 

@@ -12,12 +12,12 @@ public class FournisseurEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reference_fournisseur;
-    private String nom;
+    private int supplier_reference;
+    private String name;
     private Date date_creation;
     private String valeurs_vin;
-    @JoinColumn(name = "adresse")
-    private int adresse;
-    private Date date_suppression;
+    @JoinColumn(name = "address")
+    private int address;
+    private Date deletion_date;
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.StockOvin.Entities.VinEntity;
+import com.example.StockOvin.Entities.WineEntity;
 import com.example.StockOvin.Repository.VinRepository;
 
 @Service
@@ -16,21 +16,21 @@ public class VinService implements IVinService{
     private VinRepository VinRepository;
 
     @Override
-    public List<VinEntity> getAllVin() {
+    public List<WineEntity> getAllVin() {
         return VinRepository.findAll();
     }
     
 
-    public VinEntity AddVin(VinEntity vin) {
-        return VinRepository.save(vin);
+    public WineEntity AddVin(WineEntity wine) {
+        return VinRepository.save(wine);
     }
 
-    public VinEntity getVinById(int id) {
+    public WineEntity getVinById(int id) {
         return VinRepository.findById(id).orElse(null);
     }
 
-    public VinEntity updateVin(VinEntity vin) {
-        return VinRepository.save(vin);
+    public WineEntity updateVin(WineEntity wine) {
+        return VinRepository.save(wine);
     }
 
 }

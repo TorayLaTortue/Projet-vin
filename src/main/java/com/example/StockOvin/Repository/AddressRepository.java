@@ -1,9 +1,9 @@
 package com.example.StockOvin.Repository;
 
-import com.example.StockOvin.Entities.AdresseEntity;
+import com.example.StockOvin.Entities.AddressEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AdresseRepository extends JpaRepository<AdresseEntity, Integer> {
+public interface AddressRepository extends JpaRepository<AddressEntity, Integer> {
 }
