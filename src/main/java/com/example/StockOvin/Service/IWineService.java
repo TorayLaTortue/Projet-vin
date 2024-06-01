@@ -4,7 +4,7 @@ import com.example.StockOvin.Entities.WineEntity;
 
 import java.util.List;
 
-public interface IVinService {
+public interface IWineService {
 
     List<WineEntity> getAllVin();
 }

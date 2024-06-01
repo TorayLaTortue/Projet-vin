@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.StockOvin.Entities.WineEntity;
-import com.example.StockOvin.Repository.VinRepository;
+import com.example.StockOvin.Repository.WineRepository;
 
 @Service
-public class VinService implements IVinService{
+public class WineService implements IWineService{
 
    @Autowired
-    private VinRepository VinRepository;
+    private WineRepository VinRepository;
 
     @Override
     public List<WineEntity> getAllVin() {

@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.example.StockOvin.Entities.WineEntity;
-import com.example.StockOvin.Service.VinService;
+import com.example.StockOvin.Service.WineService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.Operation;
 public class VinController {
 
      @Autowired
-    private VinService VinService;
+    private WineService VinService;
 
     @Operation(summary = "Liste de toutes les infos de tout les wine")
     @GetMapping("/Wine")

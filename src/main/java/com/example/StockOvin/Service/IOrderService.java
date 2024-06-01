@@ -4,7 +4,7 @@ import com.example.StockOvin.Entities.AddressEntity;
 
 import java.util.List;
 
-public interface IAddressService {
+public interface IOrderService {
 
     List<AddressEntity> getAllAddress();
 }
