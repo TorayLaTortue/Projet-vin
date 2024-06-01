@@ -8,7 +8,7 @@ import java.util.Date;
 public class AddressEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reference_address;
+    private int adress_reference;
     private String city;
     private String street;
     private String postal_code;
@@ -17,20 +17,20 @@ public class AddressEntity {
     public AddressEntity() {
     }
 
-    public AddressEntity(int reference_address, String city, String street, String postal_code, Date deletion_date) {
-        this.reference_address = reference_address;
+    public AddressEntity(int adress_reference, String city, String street, String postal_code, Date deletion_date) {
+        this.adress_reference = adress_reference;
         this.city = city;
         this.street = street;
         this.postal_code = postal_code;
         this.deletion_date = deletion_date;
     }
 
-    public int getReference_address() {
-        return reference_address;
+    public int getAdressReference() {
+        return adress_reference;
     }
 
-    public void setReference_address(int reference_address) {
-        this.reference_address = reference_address;
+    public void setAdressReference(int adress_reference) {
+        this.adress_reference = adress_reference;
     }
 
     public String getCity() {

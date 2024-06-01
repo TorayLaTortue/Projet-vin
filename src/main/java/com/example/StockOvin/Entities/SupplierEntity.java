@@ -15,20 +15,20 @@ public class SupplierEntity {
     private String wineQuality;
     @JoinColumn(name = "address")
     private int address;
-    private Date deletionDate;
+    private Date deletion_date;
 
     // Default constructor
     public SupplierEntity() {
     }
 
     // Parameterized constructor
-    public SupplierEntity(int supplierReference, String name, Date orderCreationDate, String wineQuality, int address, Date deletionDate) {
+    public SupplierEntity(int supplierReference, String name, Date orderCreationDate, String wineQuality, int address, Date deletion_date) {
         this.supplierReference = supplierReference;
         this.name = name;
         this.orderCreationDate = orderCreationDate;
         this.wineQuality = wineQuality;
         this.address = address;
-        this.deletionDate = deletionDate;
+        this.deletion_date = deletion_date;
     }
 
     // Getters and Setters
@@ -72,11 +72,11 @@ public class SupplierEntity {
         this.address = address;
     }
 
-    public Date getDeletionDate() {
-        return deletionDate;
+    public Date getdeletionDate() {
+        return deletion_date;
     }
 
-    public void setDeletionDate(Date deletionDate) {
-        this.deletionDate = deletionDate;
+    public void setdeletionDate(Date deletion_date) {
+        this.deletion_date = deletion_date;
     }
 }

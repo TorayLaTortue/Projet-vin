@@ -9,23 +9,15 @@ public class DepositEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int deposit_reference;
-
     private String deposit_name;
-
     @JoinColumn(name = "address")
     private int address;
-
-    private Date deletion_date;
-
-    
     @JoinColumn(name = "wine_reference")
     private int wine_reference;
-
     private int quantity;
-
-    
     @JoinColumn(name = "supplier_reference")
     private int supplier_reference;
+    private Date deletion_date;
 
 
     public DepositEntity() {
