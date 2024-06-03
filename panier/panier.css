@@ -209,7 +209,7 @@ table tr td:last-child {
 }
 
 .price-cell {
-    text-align: right;
+    text-align: left;
 }
 
 .empty-cart-btn, .buy-btn {
