@@ -1,9 +1,13 @@
 package com.example.StockOvin.Controllers;
 
+import com.example.StockOvin.Entities.AddressEntity;
 import com.example.StockOvin.Entities.DepositEntity;
+import com.example.StockOvin.Entities.SupplierEntity;
 import com.example.StockOvin.Entities.WineEntity;
+import com.example.StockOvin.Service.AddressService;
 import com.example.StockOvin.Service.DepositService;
 import com.example.StockOvin.Service.WineService;
+import com.example.StockOvin.Service.SupplierService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -24,6 +28,11 @@ public class DepositController {
 
     @Autowired
     private WineService WineService;
+    @Autowired
+    private AddressService AddressService;
+    @Autowired
+    private SupplierService SupplierService;
+    
 
 
     @GetMapping("/dépôt")
@@ -102,15 +111,17 @@ public class DepositController {
     }
 
     @Operation(summary = "Ajout d'un Deposit")
-    @PostMapping("/New/{wine_reference}")
-    public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference) {
+    @PostMapping("/New/{wine_reference}/{address_reference}/{supplier_reference}")
+    public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
         DepositEntity Deposit = new DepositEntity();
-        WineEntity wine = WineService.getVinById(wine_reference); 
+        WineEntity wine = WineService.getVinById(wine_reference);
+        AddressEntity address = AddressService.getAddressById(address_reference);
+        SupplierEntity supplier = SupplierService.getSupplierById(supplier_reference);
     
-        Deposit.setAddress(newDeposit.getAddress());
+        Deposit.setAddress(address);
         Deposit.setWineReference(wine);
         Deposit.setNameDeposit(newDeposit.getNameDeposit());
-        Deposit.setSupplierReference(newDeposit.getSupplierReference());
+        Deposit.setSupplierReference(supplier);
         Deposit.setQuantity(newDeposit.getQuantity());
 
         return DepositService.AddDeposit(Deposit);

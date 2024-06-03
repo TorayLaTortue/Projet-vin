@@ -10,21 +10,23 @@ public class DepositEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int deposit_reference;
     private String deposit_name;
+    @ManyToOne
     @JoinColumn(name = "address")
-    private int address;
+    private AddressEntity address;
     @ManyToOne
     @JoinColumn(name = "wine_reference")
     private WineEntity wine_reference;
     private int quantity;
+    @ManyToOne
     @JoinColumn(name = "supplier_reference")
-    private int supplier_reference;
+    private SupplierEntity supplier_reference;
     private Date deletion_date;
 
 
     public DepositEntity() {
     }
 
-    public DepositEntity(String deposit_name, int address, WineEntity wine_reference, int quantity, int supplier_reference, Date deletion_date) {
+    public DepositEntity(String deposit_name, AddressEntity address, WineEntity wine_reference, int quantity, SupplierEntity supplier_reference, Date deletion_date) {
         this.deposit_name = deposit_name;
         this.address = address;
         this.deletion_date = deletion_date;
@@ -49,11 +51,11 @@ public class DepositEntity {
         this.deposit_name = deposit_name;
     }
 
-    public int getAddress() {
+    public AddressEntity getAddress() {
         return address;
     }
 
-    public void setAddress(int address) {
+    public void setAddress(AddressEntity address) {
         this.address = address;
     }
 
@@ -80,11 +82,11 @@ public class DepositEntity {
         this.quantity = quantity;
     }
 
-    public int getSupplierReference() {
+    public SupplierEntity getSupplierReference() {
         return supplier_reference;
     }
 
-    public void setSupplierReference(int supplier_reference) {
+    public void setSupplierReference(SupplierEntity supplier_reference) {
         this.supplier_reference = supplier_reference;
     }
 }
