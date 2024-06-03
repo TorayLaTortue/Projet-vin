@@ -209,7 +209,7 @@ table tr td:last-child {
 }
 
 .price-cell {
-    text-align: right;
+    text-align: left;
 }
 
 .empty-cart-btn, .buy-btn {
@@ -233,4 +233,10 @@ table tr td:last-child {
     font-weight: bold;
     color: #333;
     margin-top: 20px;
+}
+
+
+
+#active {
+    color: #7b002d;
 }
