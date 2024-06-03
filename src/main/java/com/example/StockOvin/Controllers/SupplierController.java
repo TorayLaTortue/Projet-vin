@@ -33,7 +33,7 @@ public class SupplierController {
         return supplierService.addSupplier(supplier);
     }
 
-    @Operation(summary = "Update d'un Fournisseur (Name, first_name, eMail, phone)")
+    @Operation(summary = "Update d'un Fournisseur (Name, first_name, email, phone)")
     @PutMapping("/updateFournisseur/{id}")
     public ResponseEntity<SupplierEntity> updateSupplier(@PathVariable int id, @RequestBody SupplierEntity newSupplier) { // Updated method name
         SupplierEntity supplier = supplierService.getSupplierById(id);

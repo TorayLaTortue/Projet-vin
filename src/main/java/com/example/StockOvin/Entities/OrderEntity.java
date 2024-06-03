@@ -10,90 +10,90 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_reference")
-    private Long orderReference;
+    private Long order_reference;
 
     @Column(name = "client_reference")
-    private Long clientReference;
+    private Long client_reference;
 
     @Column(name = "billing_address")
-    private Long billingAddress;
+    private Long billing_address;
 
     @Column(name = "delivery_address")
-    private Long deliveryAddress;
+    private Long delivery_address;
 
     @Column(name = "wine_reference")
-    private Long wineReference;
+    private Long wine_reference;
 
     @Column(name = "quantity_product")
-    private Integer quantityProduct;
+    private Integer quantity_product;
 
     @Column(name = "status")
     private String status;
 
     @Column(name = "order_creation_date")
-    private LocalDate orderCreationDate;
+    private LocalDate order_creation_date;
 
     // Constructor
     public OrderEntity() {}
 
-    public OrderEntity(Long orderReference, Long clientReference, Long billingAddress, Long deliveryAddress, Long wineReference, Integer quantityProduct, String status, LocalDate orderCreationDate) {
-        this.orderReference = orderReference;
-        this.clientReference = clientReference;
-        this.billingAddress = billingAddress;
-        this.deliveryAddress = deliveryAddress;
-        this.wineReference = wineReference;
-        this.quantityProduct = quantityProduct;
+    public OrderEntity(Long order_reference, Long client_reference, Long billing_address, Long delivery_address, Long wine_reference, Integer quantity_product, String status, LocalDate order_creation_date) {
+        this.order_reference = order_reference;
+        this.client_reference = client_reference;
+        this.billing_address = billing_address;
+        this.delivery_address = delivery_address;
+        this.wine_reference = wine_reference;
+        this.quantity_product = quantity_product;
         this.status = status;
-        this.orderCreationDate = orderCreationDate;
+        this.order_creation_date = order_creation_date;
     }
 
     // Getters and Setters in camel case
     public Long getOrderReference() {
-        return orderReference;
+        return order_reference;
     }
 
-    public void setOrderReference(Long orderReference) {
-        this.orderReference = orderReference;
+    public void setOrderReference(Long order_reference) {
+        this.order_reference = order_reference;
     }
 
     public Long getClientReference() {
-        return clientReference;
+        return client_reference;
     }
 
-    public void setClientReference(Long clientReference) {
-        this.clientReference = clientReference;
+    public void setClientReference(Long client_reference) {
+        this.client_reference = client_reference;
     }
 
     public Long getBillingAddress() {
-        return billingAddress;
+        return billing_address;
     }
 
-    public void setBillingAddress(Long billingAddress) {
-        this.billingAddress = billingAddress;
+    public void setBillingAddress(Long billing_address) {
+        this.billing_address = billing_address;
     }
 
     public Long getDeliveryAddress() {
-        return deliveryAddress;
+        return delivery_address;
     }
 
-    public void setDeliveryAddress(Long deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
+    public void setDeliveryAddress(Long delivery_address) {
+        this.delivery_address = delivery_address;
     }
 
     public Long getWineReference() {
-        return wineReference;
+        return wine_reference;
     }
 
-    public void setWineReference(Long wineReference) {
-        this.wineReference = wineReference;
+    public void setWineReference(Long wine_reference) {
+        this.wine_reference = wine_reference;
     }
 
     public Integer getQuantityProduct() {
-        return quantityProduct;
+        return quantity_product;
     }
 
-    public void setQuantityProduct(Integer quantityProduct) {
-        this.quantityProduct = quantityProduct;
+    public void setQuantityProduct(Integer quantity_product) {
+        this.quantity_product = quantity_product;
     }
 
     public String getStatus() {
@@ -105,10 +105,10 @@ public class OrderEntity {
     }
 
     public LocalDate getOrderCreationDate() {
-        return orderCreationDate;
+        return order_creation_date;
     }
 
-    public void setOrderCreationDate(LocalDate orderCreationDate) {
-        this.orderCreationDate = orderCreationDate;
+    public void setOrderCreationDate(LocalDate order_creation_date) {
+        this.order_creation_date = order_creation_date;
     }
 }

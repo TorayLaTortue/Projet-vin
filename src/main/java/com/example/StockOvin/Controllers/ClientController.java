@@ -31,21 +31,21 @@ public class ClientController {
         ClientEntity Client = new ClientEntity();
         Client.setName(newClient.getName());
         Client.setFirstName(newClient.getFirstName());
-        Client.seteMail(newClient.geteMail());
+        Client.setEmail(newClient.getEmail());
         Client.setPhone(newClient.getPhone());
         Client.setMot_de_passe(newClient.getMot_de_passe());
         Client.setRole("Client");
         return ClientService.AddClient(Client);
     }
 
-    @Operation(summary = "Update d'un client (Name ,first_name ,eMail ,phone)")
+    @Operation(summary = "Update d'un client (Name ,first_name ,email ,phone)")
     @PutMapping("/Update{id}")
     public ResponseEntity<ClientEntity> updateClient(int reference, @RequestBody ClientEntity newClient) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
             Client.setName(newClient.getName());
             Client.setFirstName(newClient.getFirstName());
-            Client.seteMail(newClient.geteMail());
+            Client.setEmail(newClient.getEmail());
             Client.setPhone(newClient.getPhone());
 
             ClientEntity updatedClient = ClientService.updateClient(Client);

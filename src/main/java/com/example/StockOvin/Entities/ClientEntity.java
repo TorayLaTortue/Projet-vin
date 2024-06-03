@@ -13,7 +13,7 @@ import java.util.Date;
         private int client_reference;
         private String name;
         private String first_name;
-        private String eMail;
+        private String email;
         private String phone;
         private String password;
         private String role;
@@ -22,11 +22,11 @@ import java.util.Date;
     public ClientEntity() {
     }
 
-    public ClientEntity(int client_reference, String name, String first_name, String eMail, String phone, String password, String role, Date deletion_date) {
+    public ClientEntity(int client_reference, String name, String first_name, String email, String phone, String password, String role, Date deletion_date) {
         this.client_reference = client_reference;
         this.name = name;
         this.first_name = first_name;
-        this.eMail = eMail;
+        this.email = email;
         this.phone = phone;
         this.password = password;
         this.role = role;
@@ -56,12 +56,12 @@ import java.util.Date;
         this.first_name = first_name;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {

@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS public.wine
     "deletion_date" date
 );
 
-CREATE TABLE IF NOT EXISTS public.order
+CREATE TABLE IF NOT EXISTS public."order"
 (
     "order_reference" SERIAL PRIMARY KEY,
     "client_reference" integer REFERENCES public.client ("client_reference"),

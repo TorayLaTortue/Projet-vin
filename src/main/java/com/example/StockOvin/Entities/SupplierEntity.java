@@ -9,10 +9,10 @@ public class SupplierEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int supplierReference;
+    private int supplier_reference;
     private String name;
-    private Date orderCreationDate;
-    private String wineQuality;
+    private Date order_creation_date;
+    private String wine_quality;
     @JoinColumn(name = "address")
     private int address;
     private Date deletion_date;
@@ -22,22 +22,22 @@ public class SupplierEntity {
     }
 
     // Parameterized constructor
-    public SupplierEntity(int supplierReference, String name, Date orderCreationDate, String wineQuality, int address, Date deletion_date) {
-        this.supplierReference = supplierReference;
+    public SupplierEntity(int supplier_reference, String name, Date order_creation_date, String wine_quality, int address, Date deletion_date) {
+        this.supplier_reference = supplier_reference;
         this.name = name;
-        this.orderCreationDate = orderCreationDate;
-        this.wineQuality = wineQuality;
+        this.order_creation_date = order_creation_date;
+        this.wine_quality = wine_quality;
         this.address = address;
         this.deletion_date = deletion_date;
     }
 
     // Getters and Setters
     public int getSupplierReference() {
-        return supplierReference;
+        return supplier_reference;
     }
 
-    public void setSupplierReference(int supplierReference) {
-        this.supplierReference = supplierReference;
+    public void setSupplierReference(int supplier_reference) {
+        this.supplier_reference = supplier_reference;
     }
 
     public String getName() {
@@ -49,19 +49,19 @@ public class SupplierEntity {
     }
 
     public Date getOrderCreationDate() {
-        return orderCreationDate;
+        return order_creation_date;
     }
 
-    public void setOrderCreationDate(Date orderCreationDate) {
-        this.orderCreationDate = orderCreationDate;
+    public void setOrderCreationDate(Date order_creation_date) {
+        this.order_creation_date = order_creation_date;
     }
 
     public String getWineQuality() {
-        return wineQuality;
+        return wine_quality;
     }
 
-    public void setWineQuality(String wineQuality) {
-        this.wineQuality = wineQuality;
+    public void setWineQuality(String wine_quality) {
+        this.wine_quality = wine_quality;
     }
 
     public int getAddress() {

@@ -22,17 +22,17 @@ public class CommandeController {
     @Operation(summary = "Créer une commande")
     @PostMapping
     public OrderEntity createCommande(
-            @Parameter(description = "Client reference") @RequestParam Long clientReference,
-            @Parameter(description = "Billing adress") @RequestParam Long billingAddress,
-            @Parameter(description = "Delivery adress") @RequestParam Long deliveryAddress,
-            @Parameter(description = "Wine Reference") @RequestParam Long wineReference,
-            @Parameter(description = "Quantity of product") @RequestParam Integer quantityProduct) {
+            @Parameter(description = "Client reference") @RequestParam Long client_reference,
+            @Parameter(description = "Billing adress") @RequestParam Long billing_address,
+            @Parameter(description = "Delivery adress") @RequestParam Long delivery_address,
+            @Parameter(description = "Wine Reference") @RequestParam Long wine_reference,
+            @Parameter(description = "Quantity of product") @RequestParam Integer quantity_product) {
         OrderEntity order = new OrderEntity();
-        order.setClientReference(clientReference);
-        order.setBillingAddress(billingAddress);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setWineReference(wineReference);
-        order.setQuantityProduct(quantityProduct);
+        order.setClientReference(client_reference);
+        order.setBillingAddress(billing_address);
+        order.setDeliveryAddress(delivery_address);
+        order.setWineReference(wine_reference);
+        order.setQuantityProduct(quantity_product);
         // Ajouter la date de création automatique et définir le status par défaut
         order.setOrderCreationDate(LocalDate.now());
         order.setStatus("en cours");
@@ -44,18 +44,18 @@ public class CommandeController {
     public OrderEntity updateCommande(
             @Parameter(description = "Reference de la commande à mettre à jour", required = true)
             @PathVariable Long orderReference,
-            @Parameter(description = "Client reference") @RequestParam Long clientReference,
-            @Parameter(description = "Billing adress") @RequestParam Long billingAddress,
-            @Parameter(description = "Delivery adress") @RequestParam Long deliveryAddress,
-            @Parameter(description = "Wine Reference") @RequestParam Long wineReference,
-            @Parameter(description = "Quantity of product") @RequestParam Integer quantityProduct) {
+            @Parameter(description = "Client reference") @RequestParam Long client_reference,
+            @Parameter(description = "Billing adress") @RequestParam Long billing_address,
+            @Parameter(description = "Delivery adress") @RequestParam Long delivery_address,
+            @Parameter(description = "Wine Reference") @RequestParam Long wine_reference,
+            @Parameter(description = "Quantity of product") @RequestParam Integer quantity_product) {
         OrderEntity order = new OrderEntity();
         order.setOrderReference(orderReference);
-        order.setClientReference(clientReference);
-        order.setBillingAddress(billingAddress);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setWineReference(wineReference);
-        order.setQuantityProduct(quantityProduct);
+        order.setClientReference(client_reference);
+        order.setBillingAddress(billing_address);
+        order.setDeliveryAddress(delivery_address);
+        order.setWineReference(wine_reference);
+        order.setQuantityProduct(quantity_product);
         // Mettre à jour la date de commande et le statut par défaut
         order.setOrderCreationDate(LocalDate.now());
         order.setStatus("en cours");
