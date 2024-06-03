@@ -1,7 +1,9 @@
 package com.example.StockOvin.Controllers;
 
 import com.example.StockOvin.Entities.DepositEntity;
+import com.example.StockOvin.Entities.WineEntity;
 import com.example.StockOvin.Service.DepositService;
+import com.example.StockOvin.Service.WineService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -19,6 +21,9 @@ public class DepositController {
 
     @Autowired
     private DepositService DepositService;
+
+    @Autowired
+    private WineService WineService;
 
 
     @GetMapping("/dépôt")
@@ -97,18 +102,18 @@ public class DepositController {
     }
 
     @Operation(summary = "Ajout d'un Deposit")
-    @PostMapping("/New")
-    public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit) {
+    @PostMapping("/New/{wine_reference}")
+    public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference) {
         DepositEntity Deposit = new DepositEntity();
+        WineEntity wine = WineService.getVinById(wine_reference); 
     
         Deposit.setAddress(newDeposit.getAddress());
-        Deposit.setWineReference(newDeposit.getWineReference());
+        Deposit.setWineReference(wine);
         Deposit.setNameDeposit(newDeposit.getNameDeposit());
         Deposit.setSupplierReference(newDeposit.getSupplierReference());
         Deposit.setQuantity(newDeposit.getQuantity());
 
         return DepositService.AddDeposit(Deposit);
-    
     }
 
 

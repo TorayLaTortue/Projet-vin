@@ -12,8 +12,9 @@ public class DepositEntity {
     private String deposit_name;
     @JoinColumn(name = "address")
     private int address;
+    @ManyToOne
     @JoinColumn(name = "wine_reference")
-    private int wine_reference;
+    private WineEntity wine_reference;
     private int quantity;
     @JoinColumn(name = "supplier_reference")
     private int supplier_reference;
@@ -23,7 +24,7 @@ public class DepositEntity {
     public DepositEntity() {
     }
 
-    public DepositEntity(String deposit_name, int address, int wine_reference, int quantity, int supplier_reference, Date deletion_date) {
+    public DepositEntity(String deposit_name, int address, WineEntity wine_reference, int quantity, int supplier_reference, Date deletion_date) {
         this.deposit_name = deposit_name;
         this.address = address;
         this.deletion_date = deletion_date;
@@ -64,11 +65,11 @@ public class DepositEntity {
         this.deletion_date = deletion_date;
     }
 
-    public int getWineReference() {
+    public WineEntity getWineReference() {
         return wine_reference;
     }
 
-    public void setWineReference(int wine_reference) {
+    public void setWineReference(WineEntity wine_reference) {
         this.wine_reference = wine_reference;
     }
 
