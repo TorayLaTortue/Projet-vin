@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(image/connexion_inscription.webp) no-repeat;
+    background: url(/image/connexion_inscription.webp) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -81,3 +81,19 @@ body {
     font-weight: 600;
 }
 
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.register-link p a:hover {
+    text-decoration: none;
+}

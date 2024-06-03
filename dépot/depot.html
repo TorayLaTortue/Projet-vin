@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock'O Vin - Catalogue</title>
-    <link rel="stylesheet" href="panier.css">
+    <link rel="stylesheet" href="depot.css">
 </head>
 <body>
 
@@ -16,34 +17,30 @@
 
     <header id="main-header">
         <nav class="navbar">
-            <a href="catalogue.html" class="nav-item">Les vins</a>
+            <a href="/catalogue/catalogue.html" class="nav-item">Les vins</a>
             <a href="#" class="nav-item">À propos</a>
-            <a href="depot.html" class="nav-item">Dépots & Stock</a>
+            <a href="#" class="nav-item">Dépots & Stock</a>
             <a href="#" class="nav-item">Contact</a>
-            <a href="connexion.html" class="nav-item">Connexion</a>
-            <a href="#" class="nav-item">Panier</a>
+            <a href="/connexion/connexion.html" class="nav-item">Connexion</a>
+            <a href="/panier/panier.html" class="nav-item">Panier</a>
         </nav>
     </header>
 
     <main>
-        <h1>Mon Panier</h1>
-        <button id="emptyCartButton" class="empty-cart-btn">Vider le panier</button>
-        <table id="cartTable">
+        <h1>Liste des Dépôts / Gestion de Stock</h1>
+        <table id="depotTable">
             <thead>
                 <tr>
-                    <th>Nom du Vin</th>
+                    <th>Nom du Dépôt</th>
                     <th>Quantité</th>
-                    <th>Prix</th>
                 </tr>
             </thead>
             <tbody>
-                
+
             </tbody>
         </table>
-        <div id="totalAmount" class="total-amount"></div>
-        <button id="buyButton" class="buy-btn">Acheter</button>
     </main>
 
-    <script src="panier.js"></script>
+    <script src="depot.js"></script>
 </body>
 </html>

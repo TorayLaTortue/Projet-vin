@@ -8,11 +8,20 @@ function displayCart() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let totalAmount = 0;
 
-    cart.forEach((vin, index) => {
+    cart.forEach((wine, index) => {
         const row = document.createElement('tr');
 
+        const vinPictureCell = document.createElement('td');
+        const vinPictureImage = document.createElement('img');
+        vinPictureImage.src = wine.picture.trim();
+        vinPictureImage.alt = 'Wine Picture';
+        vinPictureImage.style.width = '100px';
+        vinPictureImage.style.height = 'auto'; 
+        vinPictureCell.appendChild(vinPictureImage);
+        row.appendChild(vinPictureCell);
+
         const vinNameCell = document.createElement('td');
-        vinNameCell.textContent = vin.nom.trim();
+        vinNameCell.textContent = wine.name.trim();
         row.appendChild(vinNameCell);
 
         const quantityCell = document.createElement('td');
@@ -22,16 +31,16 @@ function displayCart() {
         const minusButton = document.createElement('button');
         minusButton.textContent = '-';
         minusButton.className = 'quantity-btn';
-        minusButton.addEventListener('click', () => updateQuantity(index, vin.quantity - 1));
+        minusButton.addEventListener('click', () => updateQuantity(index, wine.quantity - 1));
 
         const quantityDisplay = document.createElement('span');
-        quantityDisplay.textContent = vin.quantity;
+        quantityDisplay.textContent = wine.quantity;
         quantityDisplay.className = 'quantity-display';
 
         const plusButton = document.createElement('button');
         plusButton.textContent = '+';
         plusButton.className = 'quantity-btn';
-        plusButton.addEventListener('click', () => updateQuantity(index, vin.quantity + 1));
+        plusButton.addEventListener('click', () => updateQuantity(index, wine.quantity + 1));
 
         quantityWrapper.appendChild(minusButton);
         quantityWrapper.appendChild(quantityDisplay);
@@ -40,13 +49,13 @@ function displayCart() {
         row.appendChild(quantityCell);
 
         const priceCell = document.createElement('td');
-        priceCell.textContent = `${(vin.prix * vin.quantity).toFixed(2)}€`;
+        priceCell.textContent = `${(wine.price * wine.quantity).toFixed(2)}€`;
         priceCell.className = 'price-cell';
         row.appendChild(priceCell);
 
         tableBody.appendChild(row);
 
-        totalAmount += vin.prix * vin.quantity;
+        totalAmount += wine.price * wine.quantity;
     });
 
     document.getElementById('totalAmount').textContent = `Montant total: ${totalAmount.toFixed(2)}€`;
