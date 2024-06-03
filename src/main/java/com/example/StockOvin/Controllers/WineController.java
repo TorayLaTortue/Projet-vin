@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.Operation;
 @CrossOrigin(origins = "*")
 @RequestMapping("/Wine")
 
-public class VinController {
+public class WineController {
 
      @Autowired
     private WineService VinService;
