@@ -19,8 +19,8 @@ VALUES
     ('Vin2', 'picture2.jpg', 'Bourgogne', 'Family2', '2019-01-01', '750ml', 0.2, 25, NULL),
     ('Vin3', 'picture3.jpg', 'Champagne', 'Family3', '2018-01-01', '750ml', 0.15, 30, NULL);
 
--- Insertion de données de test pour la table "order"
-INSERT INTO public."order" (client_reference, billing_address, delivery_address, status, order_creation_date, wine_reference, quantity_product, deletion_date)
+-- Insertion de données de test pour la table "orders"
+INSERT INTO public.orders (client_reference, billing_address, delivery_address, status, order_creation_date, wine_reference, quantity_product, deletion_date)
 VALUES
     (1, 1, 2, 'En cours', '2024-05-14', 1, 5, NULL),
     (2, 2, 3, 'En attente', '2024-05-14', 2, 3, NULL),

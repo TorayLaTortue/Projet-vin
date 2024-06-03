@@ -1,6 +1,6 @@
 package com.example.StockOvin.Service;
 
-import com.example.StockOvin.Entities.OrderEntity;
+import com.example.StockOvin.Entities.OrdersEntity;
 import com.example.StockOvin.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +13,15 @@ public class OrderService {
     @Autowired
     private OrderRepository CommandeRepository;
 
-    public OrderEntity createCommande(OrderEntity commande) {
+    public OrdersEntity createCommande(OrdersEntity commande) {
         return CommandeRepository.save(commande);
     }
 
-    public OrderEntity updateCommande(OrderEntity commande) {
+    public OrdersEntity updateCommande(OrdersEntity commande) {
         return CommandeRepository.save(commande);
     }
 
-    public List<OrderEntity> getAllCommande() {
+    public List<OrdersEntity> getAllCommande() {
         return CommandeRepository.findAll();
     }
 }

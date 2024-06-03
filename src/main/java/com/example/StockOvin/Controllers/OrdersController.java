@@ -1,6 +1,6 @@
 package com.example.StockOvin.Controllers;
 
-import com.example.StockOvin.Entities.OrderEntity;
+import com.example.StockOvin.Entities.OrdersEntity;
 import com.example.StockOvin.Service.OrderService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,20 +14,20 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/commandes")
-public class CommandeController {
+public class OrdersController {
 
     @Autowired
     private OrderService orderService;
 
     @Operation(summary = "Créer une commande")
     @PostMapping
-    public OrderEntity createCommande(
+    public OrdersEntity createCommande(
             @Parameter(description = "Client reference") @RequestParam Long client_reference,
             @Parameter(description = "Billing adress") @RequestParam Long billing_address,
             @Parameter(description = "Delivery adress") @RequestParam Long delivery_address,
             @Parameter(description = "Wine Reference") @RequestParam Long wine_reference,
             @Parameter(description = "Quantity of product") @RequestParam Integer quantity_product) {
-        OrderEntity order = new OrderEntity();
+        OrdersEntity order = new OrdersEntity();
         order.setClientReference(client_reference);
         order.setBillingAddress(billing_address);
         order.setDeliveryAddress(delivery_address);
@@ -41,7 +41,7 @@ public class CommandeController {
 
     @Operation(summary = "Mettre à jour une commande")
     @PutMapping("/{orderReference}")
-    public OrderEntity updateCommande(
+    public OrdersEntity updateCommande(
             @Parameter(description = "Reference de la commande à mettre à jour", required = true)
             @PathVariable Long orderReference,
             @Parameter(description = "Client reference") @RequestParam Long client_reference,
@@ -49,7 +49,7 @@ public class CommandeController {
             @Parameter(description = "Delivery adress") @RequestParam Long delivery_address,
             @Parameter(description = "Wine Reference") @RequestParam Long wine_reference,
             @Parameter(description = "Quantity of product") @RequestParam Integer quantity_product) {
-        OrderEntity order = new OrderEntity();
+        OrdersEntity order = new OrdersEntity();
         order.setOrderReference(orderReference);
         order.setClientReference(client_reference);
         order.setBillingAddress(billing_address);
@@ -64,7 +64,7 @@ public class CommandeController {
 
     @Operation(summary = "Obtenir toutes les commandes")
     @GetMapping
-    public List<OrderEntity> getAllCommandes() {
+    public List<OrdersEntity> getAllCommandes() {
         return orderService.getAllCommande();
     }
 }

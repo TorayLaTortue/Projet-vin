@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "order")
-public class OrderEntity {
+@Table(name = "orders")
+public class OrdersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +34,9 @@ public class OrderEntity {
     private LocalDate order_creation_date;
 
     // Constructor
-    public OrderEntity() {}
+    public OrdersEntity() {}
 
-    public OrderEntity(Long order_reference, Long client_reference, Long billing_address, Long delivery_address, Long wine_reference, Integer quantity_product, String status, LocalDate order_creation_date) {
+    public OrdersEntity(Long order_reference, Long client_reference, Long billing_address, Long delivery_address, Long wine_reference, Integer quantity_product, String status, LocalDate order_creation_date) {
         this.order_reference = order_reference;
         this.client_reference = client_reference;
         this.billing_address = billing_address;
