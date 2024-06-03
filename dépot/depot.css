@@ -153,3 +153,7 @@ table td {
     font-size: 1em;
     color: #333;
 }
+
+#active {
+    color: #7b002d;
+}

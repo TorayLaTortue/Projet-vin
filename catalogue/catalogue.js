@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:8080/Vin/Vin')
+    fetch('http://localhost:8080/Wine/Wine')
         .then(response => response.json())
         .then(data => {
             displayVins(data);
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Error:', error));
 });
 
-function displayVins(vins) {
+function displayVins(wines) {
     const container = document.getElementById('vinContainer');
-    vins.forEach(vin => {
+    wines.forEach(wine => {
         const vinCardWrapper = document.createElement('div');
         vinCardWrapper.className = 'vin-card-wrapper';
 
@@ -27,30 +27,29 @@ function displayVins(vins) {
         vinCard.innerHTML = `
             <div class="vin-card-inner">
                 <div class="vin-card-front">
-                    <img src="${vin.image}" alt="${vin.nom}">
-                    <h3>${vin.nom}</h3>
+                    <img src="${wine.picture}" alt="${wine.name}">
+                    <h3>${wine.name}</h3>
                 </div>
                 <div class="vin-card-back">
-                    <p>Région: ${vin.region}</p>
-                    <p>Famille: ${vin.famille}</p>
-                    <p>Année: ${new Date(vin.annee).getFullYear()}</p>
-                    <p>Format: ${vin.format}</p>
-                    <p>Quantité: ${vin.quantite}</p>
-                    <p class="promotion">Promotion: ${vin.promotion * 100}%</p>
+                    <p>Région: ${wine.region}</p>
+                    <p>Famille: ${wine.family}</p>
+                    <p>Année: ${new Date(wine.year).getFullYear()}</p>
+                    <p>Format: ${wine.format}</p>
+                    <p class="promotion">Promotion: ${wine.discount * 100}%</p>
                 </div>
             </div>
         `;
 
         const priceContainer = document.createElement('div');
         priceContainer.className = 'price-container';
-        priceContainer.textContent = `${vin.prix}€`;
+        priceContainer.textContent = `${wine.price}€`;
 
         const addToCartButton = document.createElement('button');
         addToCartButton.className = 'add-to-cart-btn';
-        addToCartButton.setAttribute('data-id', vin.referencevin);
+        addToCartButton.setAttribute('data-id', wine.wineReference);
         addToCartButton.textContent = 'Ajouter au panier';
         addToCartButton.addEventListener('click', function() {
-            addToCart(vin);
+            addToCart(wine);
         });
 
         vinCardWrapper.appendChild(vinCard);
@@ -60,10 +59,10 @@ function displayVins(vins) {
     });
 }
 
-function addToCart(vin) {
+function addToCart(wine) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push({ ...vin, quantity: 1 });
+    cart.push({ ...wine, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`Le vin ${vin.nom} a été ajouté au panier.\nLa quantité souhaitée peut être modifiée dans le panier.`);
-    console.log(`Vin ${vin.nom} ajouté au panier.`);
+    alert(`Le vin ${wine.name} a été ajouté au panier.\nLa quantité souhaitée peut être modifiée dans le panier.`);
+    console.log(`Vin ${wine.name} ajouté au panier.`);
 }

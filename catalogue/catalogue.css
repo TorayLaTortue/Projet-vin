@@ -261,3 +261,8 @@ h1 {
         flex: 1 1 100%; /* 1 column on very small screens */
     }
 }
+
+
+#active {
+    color: #7b002d;
+}
