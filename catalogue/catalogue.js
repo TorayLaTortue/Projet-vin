@@ -17,8 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function displayVins(wines) {
+    const selectedYear = parseInt(document.getElementById('yearFilter').value);
+    const filteredWines = wines.filter(wine => new Date(wine.year).getFullYear() === selectedYear);
+
     const container = document.getElementById('vinContainer');
-    wines.forEach(wine => {
+    container.innerHTML = ''; // Clear previous entries
+    filteredWines.forEach(wine => {
         const vinCardWrapper = document.createElement('div');
         vinCardWrapper.className = 'vin-card-wrapper';
 
@@ -66,3 +70,30 @@ function addToCart(wine) {
     alert(`Le vin ${wine.name} a été ajouté au panier.\nLa quantité souhaitée peut être modifiée dans le panier.`);
     console.log(`Vin ${wine.name} ajouté au panier.`);
 }
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('http://localhost:8080/Wine/Wine')
+        .then(response => response.json())
+        .then(data => {
+            populateYearFilter(data);
+            displayVins(data);
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+function populateYearFilter(wines) {
+    const years = [...new Set(wines.map(wine => new Date(wine.year).getFullYear()))];
+    const yearSelect = document.getElementById('yearFilter');
+    years.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    });
+}
+
+document.getElementById('yearFilter').addEventListener('change', function() {
+    fetch('http://localhost:8080/Wine/Wine')
+        .then(response => response.json())
+        .then(data => displayVins(data))
+        .catch(error => console.error('Error:', error));
+});
