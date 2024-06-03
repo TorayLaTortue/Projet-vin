@@ -22,12 +22,12 @@ import io.swagger.v3.oas.annotations.Operation;
 public class WineController {
 
      @Autowired
-    private WineService VinService;
+    private WineService WineService;
 
     @Operation(summary = "Liste de toutes les infos de tout les wine")
     @GetMapping("/Wine")
     public List<WineEntity> getAllVin() {
-        return VinService.getAllVin();
+        return WineService.getAllVin();
     }
 
     @Operation(summary = "Ajout d'un wine (Name, Picture, Region, Year, Quantity, Format, Price)")
@@ -41,7 +41,7 @@ public class WineController {
         Wine.setFamily(newVin.getFamily());
         Wine.setFormat(newVin.getFormat());
         Wine.setPrice(newVin.getPrice());
-        return VinService.AddVin(Wine); 
+        return WineService.AddVin(Wine); 
     }
 
 
@@ -49,7 +49,7 @@ public class WineController {
     @Operation(summary = "Edit d'un wine (Name, Picture, Region, Year, Format, Price)")
     @PutMapping("/Update/{id}")
     public ResponseEntity<WineEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
-        WineEntity Wine = VinService.getVinById(reference);
+        WineEntity Wine = WineService.getVinById(reference);
         if (Wine != null) {
         
             Wine.setName(newVin.getName());
@@ -60,7 +60,7 @@ public class WineController {
             Wine.setFormat(newVin.getFormat());
             Wine.setPrice(newVin.getPrice());
 
-            WineEntity updatedVin = VinService.updateVin(Wine);
+            WineEntity updatedVin = WineService.updateVin(Wine);
             
             if (updatedVin != null) {
                 return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
@@ -78,12 +78,12 @@ public class WineController {
     @Operation(summary = "Ajout ou modification d'une discount de wine")
     @PutMapping("/Discount/{id}")
     public ResponseEntity<WineEntity> DiscountVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
-        WineEntity Wine = VinService.getVinById(reference);
+        WineEntity Wine = WineService.getVinById(reference);
         if (Wine != null) {
         
             Wine.setDiscount(newVin.getDiscount());
 
-            WineEntity updatedVin = VinService.updateVin(Wine);
+            WineEntity updatedVin = WineService.updateVin(Wine);
             
             if (updatedVin != null) {
                 return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
@@ -100,7 +100,7 @@ public class WineController {
     @Operation(summary = "Delete d'un wine")
     @PutMapping("/Delete/{id}")
     public ResponseEntity<WineEntity> deleteVin(@PathVariable("id") int reference) {
-        WineEntity Wine = VinService.getVinById(reference);
+        WineEntity Wine = WineService.getVinById(reference);
         if (Wine != null) {
         
             long currentTimeMillis = System.currentTimeMillis();
@@ -110,7 +110,7 @@ public class WineController {
 
             Wine.setDeletionDate(date); 
 
-            WineEntity updatedVin = VinService.updateVin(Wine);
+            WineEntity updatedVin = WineService.updateVin(Wine);
             
             if (updatedVin != null) {
                 return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
