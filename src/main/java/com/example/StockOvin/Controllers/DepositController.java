@@ -35,13 +35,13 @@ public class DepositController {
     
 
 
-    @GetMapping("/dépôt")
+    @GetMapping("/Deposit")
     public List<DepositEntity> getAllDeposit() {
         return DepositService.getAllDeposit();
     }
 
-    @Operation(summary = "Soustraire du wine dans le stock d'un Deposit")
-    @PutMapping("/ReductionStock/{id}/{moin}")
+    @Operation(summary = "Substract a number of wine from a deposit")
+    @PutMapping("/SubQuantity/{id}/{moin}")
     public ResponseEntity<DepositEntity> reductionDeposit(@PathVariable("id") int reference, @PathVariable("moin") int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
@@ -62,8 +62,8 @@ public class DepositController {
         }
     }
 
-    @Operation(summary = "Ajouter du wine dans le stock d'un Deposit")
-    @PutMapping("/AjouterStock/{id}/{plus}")
+    @Operation(summary = "Add a number of wine into a deposit")
+    @PutMapping("/AddQuantity/{id}/{plus}")
     public ResponseEntity<DepositEntity> ajouterpDeposit(@PathVariable("id") int reference, @PathVariable("plus") int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
@@ -84,16 +84,21 @@ public class DepositController {
         }
     }
 
-    @Operation(summary = "Update d'un Deposit")
-    @PutMapping("/Update/{id}")
-    public ResponseEntity<DepositEntity> deleteDeposit(@PathVariable("id") int reference, @RequestBody DepositEntity newDeposit) {
+    @Operation(summary = "Update the adress, wine reference, name, supplier and quantity from a Deposit")
+    @PutMapping("/Update/{id}/{wine_reference}/{address_reference}/{supplier_reference}")
+    public ResponseEntity<DepositEntity> deleteDeposit(@PathVariable("id") int reference, @RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
+
+        WineEntity wine = WineService.getVinById(wine_reference);
+        AddressEntity address = AddressService.getAddressById(address_reference);
+        SupplierEntity supplier = SupplierService.getSupplierById(supplier_reference);
+
         if (Deposit != null) {
         
-            Deposit.setAddress(newDeposit.getAddress());
-            Deposit.setWineReference(newDeposit.getWineReference());
+            Deposit.setAddress(address);
+            Deposit.setWineReference(wine);
             Deposit.setNameDeposit(newDeposit.getNameDeposit());
-            Deposit.setSupplierReference(newDeposit.getSupplierReference());
+            Deposit.setSupplierReference(supplier);
             Deposit.setQuantity(newDeposit.getQuantity());
 
             DepositEntity updatedDeposit = DepositService.updateDeposit(Deposit);
@@ -110,7 +115,7 @@ public class DepositController {
         }
     }
 
-    @Operation(summary = "Ajout d'un Deposit")
+    @Operation(summary = "Make a new deposit")
     @PostMapping("/New/{wine_reference}/{address_reference}/{supplier_reference}")
     public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
         DepositEntity Deposit = new DepositEntity();
