@@ -8,6 +8,8 @@ window.addEventListener('scroll', function() {
 });
 
 
+// ROUTE GET //
+
 document.addEventListener("DOMContentLoaded", function() {
     fetch('http://localhost:8080/Deposit/dépôt')
         .then(response => response.json())
@@ -27,6 +29,10 @@ function displayDepots(depots) {
         depotNameCell.textContent = depot.nameDeposit.trim();
         row.appendChild(depotNameCell);
 
+        const vinNameCell = document.createElement('td');
+        vinNameCell.textContent = depot.wineReference.name.trim();
+        row.appendChild(vinNameCell);
+
         const quantityCell = document.createElement('td');
         quantityCell.textContent = depot.quantity;
         row.appendChild(quantityCell);
@@ -34,3 +40,55 @@ function displayDepots(depots) {
         tableBody.appendChild(row);
     });
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addDepotButton = document.getElementById('addDepotButton');
+    const depotForm = document.getElementById('depotForm');
+    const closeFormButton = document.getElementById('closeFormButton');
+
+    addDepotButton.addEventListener('click', function() {
+        depotForm.style.display = 'block';
+    });
+
+    closeFormButton.addEventListener('click', function() {
+        depotForm.style.display = 'none';
+    });
+
+
+    // POST //
+
+    depotForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const wine_reference = 1;  
+        const formData = {
+            nameDeposit: document.getElementById('nameDepot').value,
+            quantity: document.getElementById('quantity').value
+        };
+
+        fetch(`http://localhost:8080/Deposit/New/${wine_reference}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Success:', response);
+                alert('Dépôt ajouté avec succès');
+                depotForm.reset();
+                depotForm.style.display = 'none';
+            } else {
+                console.error('Error:', response);
+                alert('Erreur lors de l\'ajout du dépôt');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Erreur lors de l\'ajout du dépôt');
+        });
+    });
+});

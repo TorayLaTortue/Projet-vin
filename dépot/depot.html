@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,16 +27,27 @@
     </header>
 
     <main>
+        <button id="addDepotButton">Ajouter un Dépôt de Vin</button>
+        <form id="depotForm" style="display: none;">
+            <label for="nameDepot">Nom du Dépôt:</label>
+            <input type="text" id="nameDepot" name="nameDepot" required><br>
+            <label for="quantity">Quantité:</label>
+            <input type="number" id="quantity" name="quantity" required><br>
+            <div class="form-buttons">
+                <button type="submit">Soumettre</button>
+                <button type="button" id="closeFormButton">X</button>
+            </div>
+        </form>
         <h1>Liste des Dépôts / Gestion de Stock</h1>
         <table id="depotTable">
             <thead>
                 <tr>
                     <th>Nom du Dépôt</th>
+                    <th>Nom du vin</th>
                     <th>Quantité</th>
                 </tr>
             </thead>
             <tbody>
-
             </tbody>
         </table>
     </main>
