@@ -18,7 +18,7 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
     };
 
     // Envoie une requête POST à l'API
-    fetch('http://localhost:8080/newClient', {
+    fetch('http://localhost:8080/Client/New', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

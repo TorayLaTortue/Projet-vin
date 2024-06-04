@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:8080/Wine/Wine')
+    fetch('http://localhost:8080/Wine/All')
         .then(response => response.json())
         .then(data => {
             displayVins(data);

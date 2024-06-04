@@ -29,12 +29,18 @@
     <main>
         <button id="addDepotButton">Ajouter un Dépôt de Vin</button>
         <form id="depotForm" style="display: none;">
-            <label for="nameDepot">Nom du Dépôt:</label>
+            <label for="nameDepot">Nom du Dépôt :</label>
             <input type="text" id="nameDepot" name="nameDepot" required><br>
-            <label for="quantity">Quantité:</label>
+            <label for="wineRef">Référence du vin :</label>
+            <input type="number" id="wineRef" name="wineRef" required><br>
+            <label for="adressRef">Référence de l'adresse :</label>
+            <input type="number" id="adressRef" name="adressRef" required><br>
+            <label for="supplierRef">Référence du fournisseur :</label>
+            <input type="number" id="supplierRef" name="supplierRef" required><br>
+            <label for="quantity">Quantité :</label>
             <input type="number" id="quantity" name="quantity" required><br>
             <div class="form-buttons">
-                <button type="submit">Soumettre</button>
+                <button id="submit" type="submit">Soumettre</button>
                 <button type="button" id="closeFormButton">X</button>
             </div>
         </form>
