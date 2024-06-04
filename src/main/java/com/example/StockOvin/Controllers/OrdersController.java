@@ -13,14 +13,14 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/commandes")
+@RequestMapping("/Orders")
 public class OrdersController {
 
     @Autowired
     private OrderService orderService;
 
     @Operation(summary = "Créer une commande")
-    @PostMapping
+    @PostMapping("/New")
     public OrdersEntity createCommande(
             @Parameter(description = "Client reference") @RequestParam Long client_reference,
             @Parameter(description = "Billing adress") @RequestParam Long billing_address,
