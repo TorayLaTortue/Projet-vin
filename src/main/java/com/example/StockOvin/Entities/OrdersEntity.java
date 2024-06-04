@@ -10,19 +10,19 @@ public class OrdersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_reference")
-    private Long order_reference;
-
-    @Column(name = "client_reference")
-    private Long client_reference;
-
-    @Column(name = "billing_address")
-    private Long billing_address;
-
-    @Column(name = "delivery_address")
-    private Long delivery_address;
-
-    @Column(name = "wine_reference")
-    private Long wine_reference;
+    private int order_reference;
+    @ManyToOne
+    @JoinColumn(name = "client_reference")
+    private ClientEntity client_reference;
+    @ManyToOne
+    @JoinColumn(name = "billing_address")
+    private AddressEntity billing_address;
+    @ManyToOne
+    @JoinColumn(name = "delivery_address")
+    private AddressEntity delivery_address;
+    @ManyToOne
+    @JoinColumn(name = "wine_reference")
+    private WineEntity wine_reference;
 
     @Column(name = "quantity_product")
     private Integer quantity_product;
@@ -36,7 +36,7 @@ public class OrdersEntity {
     // Constructor
     public OrdersEntity() {}
 
-    public OrdersEntity(Long order_reference, Long client_reference, Long billing_address, Long delivery_address, Long wine_reference, Integer quantity_product, String status, LocalDate order_creation_date) {
+    public OrdersEntity(int order_reference, ClientEntity client_reference, AddressEntity billing_address, AddressEntity delivery_address, WineEntity wine_reference, Integer quantity_product, String status, LocalDate order_creation_date) {
         this.order_reference = order_reference;
         this.client_reference = client_reference;
         this.billing_address = billing_address;
@@ -48,43 +48,43 @@ public class OrdersEntity {
     }
 
     // Getters and Setters in camel case
-    public Long getOrderReference() {
+    public int getOrderReference() {
         return order_reference;
     }
 
-    public void setOrderReference(Long order_reference) {
+    public void setOrderReference(int order_reference) {
         this.order_reference = order_reference;
     }
 
-    public Long getClientReference() {
+    public ClientEntity getClientReference() {
         return client_reference;
     }
 
-    public void setClientReference(Long client_reference) {
+    public void setClientReference(ClientEntity client_reference) {
         this.client_reference = client_reference;
     }
 
-    public Long getBillingAddress() {
+    public AddressEntity getBillingAddress() {
         return billing_address;
     }
 
-    public void setBillingAddress(Long billing_address) {
+    public void setBillingAddress(AddressEntity billing_address) {
         this.billing_address = billing_address;
     }
 
-    public Long getDeliveryAddress() {
+    public AddressEntity getDeliveryAddress() {
         return delivery_address;
     }
 
-    public void setDeliveryAddress(Long delivery_address) {
+    public void setDeliveryAddress(AddressEntity delivery_address) {
         this.delivery_address = delivery_address;
     }
 
-    public Long getWineReference() {
+    public WineEntity getWineReference() {
         return wine_reference;
     }
 
-    public void setWineReference(Long wine_reference) {
+    public void setWineReference(WineEntity wine_reference) {
         this.wine_reference = wine_reference;
     }
 
