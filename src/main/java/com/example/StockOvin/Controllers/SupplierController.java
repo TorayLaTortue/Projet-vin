@@ -8,6 +8,8 @@ import com.example.StockOvin.Service.SupplierService;
 import com.example.StockOvin.Service.WineService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,15 +36,17 @@ public class SupplierController {
     }
 
     @Operation(summary = "New supplier (name, adress and wine)")
-    @PostMapping("/New/{address_reference}/{wine_reference}")
-    public SupplierEntity newSupplier(@RequestBody SupplierEntity newSupplier, @PathVariable("address_reference") int address_reference, @PathVariable("wine_reference") int wine_reference) {
+    @PostMapping("/New")
+    public SupplierEntity newSupplier(
+        @Parameter(description = "Supplier name") @RequestParam String name,
+        @Parameter(description = "Wine reference") @RequestParam int wine_reference,
+        @Parameter(description = "Address reference") @RequestParam int address_reference) {
+
         SupplierEntity supplier = new SupplierEntity();
         AddressEntity address = AddressService.getAddressById(address_reference);
         WineEntity wine = WineService.getWineById(wine_reference);
-        Date date = new Date(System.currentTimeMillis());
 
-        supplier.setName(newSupplier.getName());
-        supplier.setOrderCreationDate(date);
+        supplier.setName(name);
         supplier.setWine_reference(wine);
         supplier.setAddress(address);
         return supplierService.addSupplier(supplier);
@@ -50,12 +54,20 @@ public class SupplierController {
 
     @Operation(summary = "Update of a supplier (Name, first_name, email, phone)")
     @PutMapping("/Update/{id}")
-    public ResponseEntity<SupplierEntity> updateSupplier(@PathVariable int id, @RequestBody SupplierEntity newSupplier) { 
+    public ResponseEntity<SupplierEntity> updateSupplier(
+        @PathVariable int id,
+        @Parameter(description = "Supplier name") @RequestParam String name,
+        @Parameter(description = "Wine reference") @RequestParam int wine_reference,
+        @Parameter(description = "Address reference") @RequestParam int address_reference,
+        @Parameter(description = "New OrderCreationDate") @RequestParam Date orderCreationDate) { 
+
+        AddressEntity address = AddressService.getAddressById(address_reference);
+        WineEntity wine = WineService.getWineById(wine_reference);
         SupplierEntity supplier = supplierService.getSupplierById(id);
         if (supplier != null) {
-            supplier.setName(newSupplier.getName());
-            supplier.setOrderCreationDate(newSupplier.getOrderCreationDate());
-            supplier.setAddress(newSupplier.getAddress());
+            supplier.setName(name);
+            supplier.setAddress(address);
+            supplier.setWine_reference(wine);
 
             SupplierEntity updatedSupplier = supplierService.updateSupplier(supplier);
 
