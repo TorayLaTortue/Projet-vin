@@ -89,7 +89,7 @@ public class DepositController {
     public ResponseEntity<DepositEntity> deleteDeposit(@PathVariable("id") int reference, @RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
 
-        WineEntity wine = WineService.getVinById(wine_reference);
+        WineEntity wine = WineService.getWineById(wine_reference);
         AddressEntity address = AddressService.getAddressById(address_reference);
         SupplierEntity supplier = SupplierService.getSupplierById(supplier_reference);
 
@@ -119,7 +119,7 @@ public class DepositController {
     @PostMapping("/New/{wine_reference}/{address_reference}/{supplier_reference}")
     public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
         DepositEntity Deposit = new DepositEntity();
-        WineEntity wine = WineService.getVinById(wine_reference);
+        WineEntity wine = WineService.getWineById(wine_reference);
         AddressEntity address = AddressService.getAddressById(address_reference);
         SupplierEntity supplier = SupplierService.getSupplierById(supplier_reference);
     

@@ -26,44 +26,46 @@ public class WineController {
 
     @Operation(summary = "List of all wine")
     @GetMapping("/All")
-    public List<WineEntity> getAllVin() {
-        return WineService.getAllVin();
+    public List<WineEntity> getAllWine() {
+        return WineService.getAllWine();
     }
 
-    @Operation(summary = "Add a new wine (Name, Picture, Region, Year, Quantity, Format, Price)")
+    @Operation(summary = "Add a new wine (Name, Picture, Quality, Region, Year, Quantity, Format, Price)")
     @PostMapping("/New")
-    public WineEntity newVin(@RequestBody WineEntity newVin) {
+    public WineEntity newWine(@RequestBody WineEntity newWine) {
         WineEntity Wine = new WineEntity();
-        Wine.setName(newVin.getName());
-        Wine.setPicture(newVin.getPicture());
-        Wine.setRegion(newVin.getRegion());
-        Wine.setYear(newVin.getYear());
-        Wine.setFamily(newVin.getFamily());
-        Wine.setFormat(newVin.getFormat());
-        Wine.setPrice(newVin.getPrice());
-        return WineService.AddVin(Wine); 
+        Wine.setName(newWine.getName());
+        Wine.setPicture(newWine.getPicture());
+        Wine.setWineQuality(newWine.getWineQuality());
+        Wine.setRegion(newWine.getRegion());
+        Wine.setYear(newWine.getYear());
+        Wine.setFamily(newWine.getFamily());
+        Wine.setFormat(newWine.getFormat());
+        Wine.setPrice(newWine.getPrice());
+        return WineService.AddWine(Wine); 
     }
 
 
 
-    @Operation(summary = "Update of a wine (Name, Picture, Region, Year, Format, Price)")
+    @Operation(summary = "Update of a wine (Name, Picture, Quality, Region, Year, Format, Price)")
     @PutMapping("/Update/{id}")
-    public ResponseEntity<WineEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
-        WineEntity Wine = WineService.getVinById(reference);
+    public ResponseEntity<WineEntity> UpdateWine(@PathVariable("id") int reference, @RequestBody WineEntity newWine) {
+        WineEntity Wine = WineService.getWineById(reference);
         if (Wine != null) {
         
-            Wine.setName(newVin.getName());
-            Wine.setPicture(newVin.getPicture());
-            Wine.setRegion(newVin.getRegion());
-            Wine.setYear(newVin.getYear());
-            Wine.setFamily(newVin.getFamily());
-            Wine.setFormat(newVin.getFormat());
-            Wine.setPrice(newVin.getPrice());
+            Wine.setName(newWine.getName());
+            Wine.setPicture(newWine.getPicture());
+            Wine.setWineQuality(newWine.getWineQuality());
+            Wine.setRegion(newWine.getRegion());
+            Wine.setYear(newWine.getYear());
+            Wine.setFamily(newWine.getFamily());
+            Wine.setFormat(newWine.getFormat());
+            Wine.setPrice(newWine.getPrice());
 
-            WineEntity updatedVin = WineService.updateVin(Wine);
+            WineEntity updatedWine = WineService.updateWine(Wine);
             
-            if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
+            if (updatedWine != null) {
+                return ResponseEntity.ok(updatedWine); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -77,16 +79,16 @@ public class WineController {
 
     @Operation(summary = "Add or edit a discount of a wine")
     @PutMapping("/Discount/{id}")
-    public ResponseEntity<WineEntity> DiscountVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
-        WineEntity Wine = WineService.getVinById(reference);
+    public ResponseEntity<WineEntity> DiscountWine(@PathVariable("id") int reference, @RequestBody WineEntity newWine) {
+        WineEntity Wine = WineService.getWineById(reference);
         if (Wine != null) {
         
-            Wine.setDiscount(newVin.getDiscount());
+            Wine.setDiscount(newWine.getDiscount());
 
-            WineEntity updatedVin = WineService.updateVin(Wine);
+            WineEntity updatedWine = WineService.updateWine(Wine);
             
-            if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
+            if (updatedWine != null) {
+                return ResponseEntity.ok(updatedWine); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -99,8 +101,8 @@ public class WineController {
 
     @Operation(summary = "Delete a wine")
     @PutMapping("/Delete/{id}")
-    public ResponseEntity<WineEntity> deleteVin(@PathVariable("id") int reference) {
-        WineEntity Wine = WineService.getVinById(reference);
+    public ResponseEntity<WineEntity> deleteWine(@PathVariable("id") int reference) {
+        WineEntity Wine = WineService.getWineById(reference);
         if (Wine != null) {
         
             long currentTimeMillis = System.currentTimeMillis();
@@ -110,10 +112,10 @@ public class WineController {
 
             Wine.setDeletionDate(date); 
 
-            WineEntity updatedVin = WineService.updateVin(Wine);
+            WineEntity updatedWine = WineService.updateWine(Wine);
             
-            if (updatedVin != null) {
-                return ResponseEntity.ok(updatedVin); // La mise à jour a réussi, renvoie le wine mis à jour
+            if (updatedWine != null) {
+                return ResponseEntity.ok(updatedWine); // La mise à jour a réussi, renvoie le wine mis à jour
             } else {
                 // La mise à jour a échoué pour une raison quelconque
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

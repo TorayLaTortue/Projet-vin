@@ -1,10 +1,10 @@
 package com.example.StockOvin.Service;
 
-import com.example.StockOvin.Entities.AddressEntity;
+import com.example.StockOvin.Entities.OrdersEntity;
 
 import java.util.List;
 
 public interface IOrdersService {
 
-    List<AddressEntity> getAllAddress();
+    List<OrdersEntity> getAllOrders();
 }

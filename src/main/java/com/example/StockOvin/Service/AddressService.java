@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AddressService implements IOrdersService {
+public class AddressService implements IAddressService {
 
     @Autowired
     private AddressRepository AddressRepository;

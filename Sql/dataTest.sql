@@ -13,11 +13,11 @@ VALUES
     ('Marseille', 'Boulevard du Port', '13000', NULL);
 
 -- Insertion de données de test pour la table "wine"
-INSERT INTO public.wine (name, picture, region, family, year, format, discount, price, deletion_date)
+INSERT INTO public.wine (name, picture, wine_quality, region, family, year, format, discount, price, deletion_date)
 VALUES
-    ('Vin1', 'picture1.jpg', 'Bordeaux', 'Family1', '2020-01-01', '750ml', 0.1, 20, NULL),
-    ('Vin2', 'picture2.jpg', 'Bourgogne', 'Family2', '2019-01-01', '750ml', 0.2, 25, NULL),
-    ('Vin3', 'picture3.jpg', 'Champagne', 'Family3', '2018-01-01', '750ml', 0.15, 30, NULL);
+    ('Vin1', 'picture1.jpg', 'High','Bordeaux', 'Family1', '2020-01-01', '750ml', 0.1, 20, NULL),
+    ('Vin2', 'picture2.jpg', 'Low','Bourgogne', 'Family2', '2019-01-01', '750ml', 0.2, 25, NULL),
+    ('Vin3', 'picture3.jpg', 'Medium','Champagne', 'Family3', '2018-01-01', '750ml', 0.15, 30, NULL);
 
 -- Insertion de données de test pour la table "orders"
 INSERT INTO public.orders (client_reference, billing_address, delivery_address, status, order_creation_date, wine_reference, quantity_product, deletion_date)
@@ -27,11 +27,11 @@ VALUES
     (3, 3, 1, 'Terminée', '2024-05-14', 3, 2, NULL);
 
 -- Insertion de données de test pour la table "supplier"
-INSERT INTO public.supplier (wine_reference, name, order_creation_date, wine_quality, address, deletion_date)
+INSERT INTO public.supplier (wine_reference, name, order_creation_date, address, deletion_date)
 VALUES
-    (1, 'Supplier1', '2020-01-01', 'High', 3, NULL),
-    (2, 'Supplier2', '2019-01-01', 'Medium', 2, NULL),
-    (3, 'Supplier3', '2018-01-01', 'Low', 1, NULL);
+    (1, 'Supplier1', '2020-01-01', 3, NULL),
+    (2, 'Supplier2', '2019-01-01', 2, NULL),
+    (3, 'Supplier3', '2018-01-01', 1, NULL);
 
 -- Insertion de données de test pour la table "deposit"
 INSERT INTO public.deposit (deposit_name, address, wine_reference, quantity, supplier_reference, deletion_date)
