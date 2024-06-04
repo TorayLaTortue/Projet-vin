@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping()
+@RequestMapping("/Address")
 public class AddressController {
 
     @Autowired
     private AddressService AddressService;
 
 
-    @GetMapping("/address")
+    @GetMapping("/All")
     public List<AddressEntity> getAllDeposit() {
         return AddressService.getAllAddress();
     }
 
     @Operation(summary = "Ajout d'une address (city, street, postal_code)")
-    @PostMapping("/Post")
+    @PostMapping("/New")
     public AddressEntity newAddress(@RequestBody AddressEntity newAddress) {
         AddressEntity Address = new AddressEntity();
         Address.setCity(newAddress.getCity());

@@ -11,9 +11,9 @@ public class WineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int wine_reference;
-
     private String name;
     private String picture;
+    private String wine_quality;
     private String region;
     private String family;
     private Date year;
@@ -23,10 +23,11 @@ public class WineEntity {
     private Date deletion_date;
 
     // Constructeur
-    public WineEntity(int wine_reference, String name, String picture, String region, String family, Date year, String format, float discount, int price, Date deletion_date) {
+    public WineEntity(int wine_reference, String name, String picture, String wine_quality, String region, String family, Date year, String format, float discount, int price, Date deletion_date) {
         this.wine_reference = wine_reference;
         this.name = name;
         this.picture = picture;
+        this.wine_quality = wine_quality;
         this.region = region;
         this.family = family;
         this.year = year;
@@ -63,6 +64,13 @@ public class WineEntity {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public String getWineQuality() {
+        return wine_quality;
+    }
+    public void setWineQuality(String wine_quality) {
+        this.wine_quality = wine_quality;
     }
 
     public String getRegion() {

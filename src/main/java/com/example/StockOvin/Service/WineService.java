@@ -13,24 +13,24 @@ import com.example.StockOvin.Repository.WineRepository;
 public class WineService implements IWineService{
 
    @Autowired
-    private WineRepository VinRepository;
+    private WineRepository WineRepository;
 
     @Override
-    public List<WineEntity> getAllVin() {
-        return VinRepository.findAll();
+    public List<WineEntity> getAllWine() {
+        return WineRepository.findAll();
     }
     
 
-    public WineEntity AddVin(WineEntity wine) {
-        return VinRepository.save(wine);
+    public WineEntity AddWine(WineEntity wine) {
+        return WineRepository.save(wine);
     }
 
-    public WineEntity getVinById(int id) {
-        return VinRepository.findById(id).orElse(null);
+    public WineEntity getWineById(int id) {
+        return WineRepository.findById(id).orElse(null);
     }
 
-    public WineEntity updateVin(WineEntity wine) {
-        return VinRepository.save(wine);
+    public WineEntity updateWine(WineEntity wine) {
+        return WineRepository.save(wine);
     }
 
 }

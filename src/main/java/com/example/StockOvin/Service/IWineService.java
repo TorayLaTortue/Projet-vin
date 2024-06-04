@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IWineService {
 
-    List<WineEntity> getAllVin();
+    List<WineEntity> getAllWine();
 }
