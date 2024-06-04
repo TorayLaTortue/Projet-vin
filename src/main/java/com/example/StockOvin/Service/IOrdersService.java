@@ -1,8 +1,8 @@
 package com.example.StockOvin.Service;
 
-import com.example.StockOvin.Entities.OrdersEntity;
-
 import java.util.List;
+
+import com.example.StockOvin.Entities.OrdersEntity;
 
 public interface IOrdersService {
 

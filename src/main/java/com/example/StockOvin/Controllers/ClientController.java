@@ -4,6 +4,8 @@ import com.example.StockOvin.Entities.ClientEntity;
 import com.example.StockOvin.Service.ClientService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,26 +29,37 @@ public class ClientController {
 
     @Operation(summary = "Nouveau client")
     @PostMapping("/New")
-    public ClientEntity newClient(@RequestBody ClientEntity newClient) {
+    public ClientEntity newClient(
+        @Parameter(description = "Name") @RequestParam String name,
+        @Parameter(description = "Firstname") @RequestParam String firstname,
+        @Parameter(description = "Email") @RequestParam String email,
+        @Parameter(description = "Phone number") @RequestParam String phone,
+        @Parameter(description = "Password") @RequestParam String password) {
         ClientEntity Client = new ClientEntity();
-        Client.setName(newClient.getName());
-        Client.setFirstName(newClient.getFirstName());
-        Client.setEmail(newClient.getEmail());
-        Client.setPhone(newClient.getPhone());
-        Client.setMot_de_passe(newClient.getMot_de_passe());
+        Client.setName(name);
+        Client.setFirstName(firstname);
+        Client.setEmail(email);
+        Client.setPhone(phone);
+        Client.setMot_de_passe(password);
         Client.setRole("Client");
         return ClientService.AddClient(Client);
     }
 
     @Operation(summary = "Update d'un client (Name ,first_name ,email ,phone)")
     @PutMapping("/Update{id}")
-    public ResponseEntity<ClientEntity> updateClient(int reference, @RequestBody ClientEntity newClient) {
+    public ResponseEntity<ClientEntity> updateClient(
+        @PathVariable("id") int reference,
+        @Parameter(description = "Name") @RequestParam String name,
+        @Parameter(description = "Firstname") @RequestParam String firstname,
+        @Parameter(description = "Email") @RequestParam String email,
+        @Parameter(description = "Phone number") @RequestParam String phone) {
         ClientEntity Client = ClientService.getClientById(reference);
+
         if (Client != null) {
-            Client.setName(newClient.getName());
-            Client.setFirstName(newClient.getFirstName());
-            Client.setEmail(newClient.getEmail());
-            Client.setPhone(newClient.getPhone());
+            Client.setName(name);
+            Client.setFirstName(firstname);
+            Client.setEmail(email);
+            Client.setPhone(phone);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             
@@ -64,10 +77,13 @@ public class ClientController {
 
     @Operation(summary = "Update le mdp d'un client")
     @PutMapping("/UpdateMdp/{id}")
-    public ResponseEntity<ClientEntity> updateMdpClient(@PathVariable("id") int reference, @RequestBody ClientEntity newClient) {
+    public ResponseEntity<ClientEntity> updateMdpClient(
+        @PathVariable("id") int reference,
+        @Parameter(description = "Password") @RequestParam String password
+        ) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-            Client.setMot_de_passe(newClient.getMot_de_passe());
+            Client.setMot_de_passe(password);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
             

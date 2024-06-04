@@ -10,6 +10,7 @@ import com.example.StockOvin.Service.WineService;
 import com.example.StockOvin.Service.SupplierService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,8 +42,10 @@ public class DepositController {
     }
 
     @Operation(summary = "Substract a number of wine from a deposit")
-    @PutMapping("/SubQuantity/{id}/{substract}")
-    public ResponseEntity<DepositEntity> reductionDeposit(@PathVariable("id") int reference, @PathVariable("substract") int modification) {
+    @PutMapping("/SubQuantity/{id}")
+    public ResponseEntity<DepositEntity> reductionDeposit(
+        @PathVariable("id") int reference,
+        @Parameter(description = "substract") @RequestParam int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
             
@@ -63,8 +66,10 @@ public class DepositController {
     }
 
     @Operation(summary = "Add a number of wine into a deposit")
-    @PutMapping("/AddQuantity/{id}/{add}")
-    public ResponseEntity<DepositEntity> ajouterpDeposit(@PathVariable("id") int reference, @PathVariable("add") int modification) {
+    @PutMapping("/AddQuantity/{id}")
+    public ResponseEntity<DepositEntity> ajouterpDeposit(
+        @PathVariable("id") int reference,
+        @Parameter(description = "add") @RequestParam int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
             
@@ -85,8 +90,14 @@ public class DepositController {
     }
 
     @Operation(summary = "Update the adress, wine reference, name, supplier and quantity from a Deposit")
-    @PutMapping("/Update/{id}/{wine_reference}/{address_reference}/{supplier_reference}")
-    public ResponseEntity<DepositEntity> deleteDeposit(@PathVariable("id") int reference, @RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
+    @PutMapping("/Update/{id}")
+    public ResponseEntity<DepositEntity> deleteDeposit(
+        @PathVariable("id") int reference,
+        @Parameter(description = "wine_reference")@RequestParam int wine_reference,
+        @Parameter(description = "address_reference")@RequestParam int address_reference,
+        @Parameter(description = "supplier_reference")@RequestParam int supplier_reference,
+        @Parameter(description = "name")@RequestParam String name,
+        @Parameter(description = "quantity")@RequestParam int quantity) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
 
         WineEntity wine = WineService.getWineById(wine_reference);
@@ -97,9 +108,9 @@ public class DepositController {
         
             Deposit.setAddress(address);
             Deposit.setWineReference(wine);
-            Deposit.setNameDeposit(newDeposit.getNameDeposit());
+            Deposit.setNameDeposit(name);
             Deposit.setSupplierReference(supplier);
-            Deposit.setQuantity(newDeposit.getQuantity());
+            Deposit.setQuantity(quantity);
 
             DepositEntity updatedDeposit = DepositService.updateDeposit(Deposit);
             
@@ -116,8 +127,13 @@ public class DepositController {
     }
 
     @Operation(summary = "Make a new deposit")
-    @PostMapping("/New/{wine_reference}/{address_reference}/{supplier_reference}")
-    public DepositEntity newDeposit(@RequestBody DepositEntity newDeposit, @PathVariable("wine_reference") int wine_reference, @PathVariable("address_reference") int address_reference, @PathVariable("supplier_reference") int supplier_reference) {
+    @PostMapping("/New")
+    public DepositEntity newDeposit(
+        @Parameter(description = "name")@RequestParam String name,
+        @Parameter(description ="wine_reference") @RequestParam int wine_reference,
+        @Parameter(description ="address_reference") @RequestParam int address_reference,
+        @Parameter(description ="supplier_reference") @RequestParam int supplier_reference,
+        @Parameter(description = "quantity")@RequestParam int quantity) {
         DepositEntity Deposit = new DepositEntity();
         WineEntity wine = WineService.getWineById(wine_reference);
         AddressEntity address = AddressService.getAddressById(address_reference);
@@ -125,9 +141,9 @@ public class DepositController {
     
         Deposit.setAddress(address);
         Deposit.setWineReference(wine);
-        Deposit.setNameDeposit(newDeposit.getNameDeposit());
+        Deposit.setNameDeposit(name);
         Deposit.setSupplierReference(supplier);
-        Deposit.setQuantity(newDeposit.getQuantity());
+        Deposit.setQuantity(quantity);
 
         return DepositService.AddDeposit(Deposit);
     }
