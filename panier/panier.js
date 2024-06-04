@@ -82,3 +82,32 @@ function emptyCart() {
     localStorage.removeItem('cart');
     refreshCart();
 }
+
+
+
+
+
+document.getElementById('createOrderButton').addEventListener('click', () => {
+    const params = new URLSearchParams({
+        client_reference: 1,
+        billing_address: 1,
+        delivery_address: 1,
+        wine_reference: 1,
+        quantity_product: 1
+    });
+
+    fetch('http://localhost:8080/Orders/New', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});

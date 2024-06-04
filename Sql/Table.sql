@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS public.wine
 (
     "wine_reference" SERIAL PRIMARY KEY,
     "name" character(100) COLLATE pg_catalog."default",
+    "wine_quality" character(100) COLLATE pg_catalog."default",
     "picture" character(1000) COLLATE pg_catalog."default",
     "region" character(100) COLLATE pg_catalog."default",
     "family" character(100) COLLATE pg_catalog."default",
@@ -51,8 +52,6 @@ CREATE TABLE IF NOT EXISTS public.supplier
     "supplier_reference" SERIAL PRIMARY KEY,
     "wine_reference" integer REFERENCES public.wine ("wine_reference"),
     "name" character(100) COLLATE pg_catalog."default",
-    "order_creation_date" date,
-    "wine_quality" character(100) COLLATE pg_catalog."default",
     "address" integer REFERENCES public.address ("address_reference"),
     "deletion_date" date
 );
