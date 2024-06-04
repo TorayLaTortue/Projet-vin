@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/suppliers") // Adjusted to a more RESTful naming convention
+@RequestMapping("/Suppliers") 
 public class SupplierController {
 
     @Autowired
     private SupplierService supplierService;
 
     @GetMapping
-    public List<SupplierEntity> getAllSuppliers() { // Updated method name
+    public List<SupplierEntity> getAllSuppliers() {
         return supplierService.getAllSupplier();
     }
 
-    @Operation(summary = "Nouveau Fournisseur")
-    @PostMapping("/newFournisseur")
-    public SupplierEntity newSupplier(@RequestBody SupplierEntity newSupplier) { // Updated method name
+    @Operation(summary = "New supplier")
+    @PostMapping("/New")
+    public SupplierEntity newSupplier(@RequestBody SupplierEntity newSupplier) {
         SupplierEntity supplier = new SupplierEntity();
         supplier.setName(newSupplier.getName());
         supplier.setOrderCreationDate(newSupplier.getOrderCreationDate());
@@ -33,9 +33,9 @@ public class SupplierController {
         return supplierService.addSupplier(supplier);
     }
 
-    @Operation(summary = "Update d'un Fournisseur (Name, first_name, email, phone)")
-    @PutMapping("/updateFournisseur/{id}")
-    public ResponseEntity<SupplierEntity> updateSupplier(@PathVariable int id, @RequestBody SupplierEntity newSupplier) { // Updated method name
+    @Operation(summary = "Update of a supplier (Name, first_name, email, phone)")
+    @PutMapping("/Update/{id}")
+    public ResponseEntity<SupplierEntity> updateSupplier(@PathVariable int id, @RequestBody SupplierEntity newSupplier) { 
         SupplierEntity supplier = supplierService.getSupplierById(id);
         if (supplier != null) {
             supplier.setName(newSupplier.getName());

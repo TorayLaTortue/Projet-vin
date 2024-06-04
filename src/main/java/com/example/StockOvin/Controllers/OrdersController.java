@@ -1,7 +1,8 @@
 package com.example.StockOvin.Controllers;
 
+import com.example.StockOvin.Entities.DepositEntity;
 import com.example.StockOvin.Entities.OrdersEntity;
-import com.example.StockOvin.Service.OrderService;
+import com.example.StockOvin.Service.OrdersService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -13,14 +14,20 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/commandes")
+@RequestMapping("/Order")
 public class OrdersController {
 
     @Autowired
-    private OrderService orderService;
+    private OrdersService OrdersService;
 
-    @Operation(summary = "Créer une commande")
-    @PostMapping
+    @Operation(summary = "Get all orders")
+    @GetMapping("/All")
+    public List<OrdersEntity> getAllOrders() {
+        return OrdersService.getAllOrders();
+    }
+
+    @Operation(summary = "Create an order with client ref, billing address, delivery adress, wine ref and quantity product")
+    @PostMapping("/New")
     public OrdersEntity createCommande(
             @Parameter(description = "Client reference") @RequestParam Long client_reference,
             @Parameter(description = "Billing adress") @RequestParam Long billing_address,
@@ -36,11 +43,11 @@ public class OrdersController {
         // Ajouter la date de création automatique et définir le status par défaut
         order.setOrderCreationDate(LocalDate.now());
         order.setStatus("en cours");
-        return orderService.createCommande(order);
+        return OrdersService.createOrders(order);
     }
 
-    @Operation(summary = "Mettre à jour une commande")
-    @PutMapping("/{orderReference}")
+    @Operation(summary = "Update an order (client ref, billing address, delivery adress, wine ref and quantity product)")
+    @PutMapping("/Update/{Order}")
     public OrdersEntity updateCommande(
             @Parameter(description = "Reference de la commande à mettre à jour", required = true)
             @PathVariable Long orderReference,
@@ -59,12 +66,7 @@ public class OrdersController {
         // Mettre à jour la date de commande et le statut par défaut
         order.setOrderCreationDate(LocalDate.now());
         order.setStatus("en cours");
-        return orderService.updateCommande(order);
+        return OrdersService.updateOrders(order);
     }
 
-    @Operation(summary = "Obtenir toutes les commandes")
-    @GetMapping
-    public List<OrdersEntity> getAllCommandes() {
-        return orderService.getAllCommande();
-    }
 }

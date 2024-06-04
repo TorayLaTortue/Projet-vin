@@ -24,14 +24,14 @@ public class WineController {
      @Autowired
     private WineService WineService;
 
-    @Operation(summary = "Liste de toutes les infos de tout les wine")
-    @GetMapping("/Wine")
+    @Operation(summary = "List of all wine")
+    @GetMapping("/All")
     public List<WineEntity> getAllVin() {
         return WineService.getAllVin();
     }
 
-    @Operation(summary = "Ajout d'un wine (Name, Picture, Region, Year, Quantity, Format, Price)")
-    @PostMapping("/Post")
+    @Operation(summary = "Add a new wine (Name, Picture, Region, Year, Quantity, Format, Price)")
+    @PostMapping("/New")
     public WineEntity newVin(@RequestBody WineEntity newVin) {
         WineEntity Wine = new WineEntity();
         Wine.setName(newVin.getName());
@@ -46,7 +46,7 @@ public class WineController {
 
 
 
-    @Operation(summary = "Edit d'un wine (Name, Picture, Region, Year, Format, Price)")
+    @Operation(summary = "Update of a wine (Name, Picture, Region, Year, Format, Price)")
     @PutMapping("/Update/{id}")
     public ResponseEntity<WineEntity> UpdateVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
         WineEntity Wine = WineService.getVinById(reference);
@@ -75,7 +75,7 @@ public class WineController {
     }
 
 
-    @Operation(summary = "Ajout ou modification d'une discount de wine")
+    @Operation(summary = "Add or edit a discount of a wine")
     @PutMapping("/Discount/{id}")
     public ResponseEntity<WineEntity> DiscountVin(@PathVariable("id") int reference, @RequestBody WineEntity newVin) {
         WineEntity Wine = WineService.getVinById(reference);
@@ -97,7 +97,7 @@ public class WineController {
         }
     }
 
-    @Operation(summary = "Delete d'un wine")
+    @Operation(summary = "Delete a wine")
     @PutMapping("/Delete/{id}")
     public ResponseEntity<WineEntity> deleteVin(@PathVariable("id") int reference) {
         WineEntity Wine = WineService.getVinById(reference);

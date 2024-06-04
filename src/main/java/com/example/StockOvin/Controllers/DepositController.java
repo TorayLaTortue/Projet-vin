@@ -35,14 +35,14 @@ public class DepositController {
     
 
 
-    @GetMapping("/Deposit")
+    @GetMapping("/All")
     public List<DepositEntity> getAllDeposit() {
         return DepositService.getAllDeposit();
     }
 
     @Operation(summary = "Substract a number of wine from a deposit")
-    @PutMapping("/SubQuantity/{id}/{moin}")
-    public ResponseEntity<DepositEntity> reductionDeposit(@PathVariable("id") int reference, @PathVariable("moin") int modification) {
+    @PutMapping("/SubQuantity/{id}/{substract}")
+    public ResponseEntity<DepositEntity> reductionDeposit(@PathVariable("id") int reference, @PathVariable("substract") int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
             
@@ -63,8 +63,8 @@ public class DepositController {
     }
 
     @Operation(summary = "Add a number of wine into a deposit")
-    @PutMapping("/AddQuantity/{id}/{plus}")
-    public ResponseEntity<DepositEntity> ajouterpDeposit(@PathVariable("id") int reference, @PathVariable("plus") int modification) {
+    @PutMapping("/AddQuantity/{id}/{add}")
+    public ResponseEntity<DepositEntity> ajouterpDeposit(@PathVariable("id") int reference, @PathVariable("add") int modification) {
         DepositEntity Deposit = DepositService.getDepositById(reference);
         if (Deposit != null) {
             
