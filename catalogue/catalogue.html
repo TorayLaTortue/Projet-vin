@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,10 +32,20 @@
 
     <main>
         <h1>Catalogue de Vins</h1>
-        <label for="yearFilter">Choisir une année :</label>
-    <select id="yearFilter">
-        <!-- Les options seront générées dynamiquement -->
-    </select>
+        <input type="checkbox" class="filtreVin"> Afficher les filtres
+        <div class="divFiltre hidden">
+            <label for="yearFilter">Choisir une année :</label>
+            <select name="année" id="yearFilter">
+                <option value="">Choix...</option>
+                <!-- Les options seront générées dynamiquement -->
+            </select>
+
+            <label for="familyFilter">Choisir une famille :</label>
+            <select name="famille" id="familyFilter">
+                <option value="">Choix...</option>
+                <!-- Les options seront générées dynamiquement -->
+            </select>
+        </div>
         <div id="vinContainer" class="vin-container"></div>
     </main>
 
