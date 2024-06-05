@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock'O Vin - Accueil</title>
     <link rel="stylesheet" href="home.css">
+      
 </head>
 <body>
 
@@ -16,6 +17,7 @@
 
     <header id="main-header">
         <nav class="navbar">
+            
             <a href="/catalogue/catalogue.html" class="nav-item">Les vins</a>
             <a href="#" class="nav-item">À propos</a>
             <a href="/dépot/depot.html" class="nav-item">Dépots & Stock</a>
@@ -23,6 +25,7 @@
             <a href="#" class="nav-item">Contact</a>
             <a href="/connexion/connexion.html" class="nav-item">Connexion</a>
             <a href="/panier/panier.html" class="nav-item">Panier</a>
+            <button id="logoutButton" class="nav-item" type="button">Déconnexion</button>
         </nav>
     </header>
     <main>
@@ -127,5 +130,17 @@
         </div>
     </main>
     <script src="home.js"></script>
+    
+    
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoutButton = document.getElementById('logoutButton');
+        
+        // Vérifier si la session est active
+        if (!localStorage.getItem('user')) {
+            logoutButton.style.display = 'none'; // Afficher le bouton si l'utilisateur est connecté
+        }
+    });
+</script>
 </html>

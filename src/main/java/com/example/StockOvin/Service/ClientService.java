@@ -17,7 +17,7 @@ public class ClientService implements IClientService {
     public List<ClientEntity> getAllClient() {
         return ClientRepository.findAll();
     }
-    
+
     public ClientEntity AddClient(ClientEntity client) {
         return ClientRepository.save(client);
     }
@@ -29,5 +29,8 @@ public class ClientService implements IClientService {
     public ClientEntity updateClient(ClientEntity client) {
         return ClientRepository.save(client);
     }
-    
+
+    public ClientEntity getClientByEmail(String email) {
+        return ClientRepository.findByEmail(email);
+    }
 }
