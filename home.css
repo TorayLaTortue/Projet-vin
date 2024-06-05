@@ -128,7 +128,7 @@ header {
 
 .first {
     background-image: url(image/vin.webp);
-    height: 140vh;
+    height: 180vh;
     margin-top: 200px;
 }
 
@@ -157,12 +157,12 @@ p {
 
 .second {
     background-image:url(image/depot.webp);
-    height: 92vh;
+    height: 120vh;
 }
 
 .third {
     background-image:url(image/fournisseur.webp);
-    height: 92vh;
+    height: 100vh;
 }
 
 

@@ -94,14 +94,22 @@ document.getElementById('submitDepot').addEventListener('click', () => {
 
 document.getElementById('submitSupplier').addEventListener('click', () => {
 
-    const supplierRef = document.getElementById('adressRef').value;
-    const wineRef = document.getElementById('wineRef').value;
+    const name = document.getElementById('name').value;
+    const wine_reference = document.getElementById('wine_reference').value;
+    const client_reference = document.getElementById('client_reference').value;
+    const address_reference = document.getElementById('address_reference').value;
 
-    const params = new URLSearchParams ({
-        address_reference: supplierRef,
-        wine_reference: wineRef
+    const params = new URLSearchParams({
+        name: name,
+        wine_reference: wine_reference,
+        client_reference: client_reference,
+        address_reference: address_reference
     });
 
+    postSupplier(params);
+});
+
+function postSupplier(params) {
     fetch('http://localhost:8080/Supplier/New', {
         method: 'POST',
         headers: {
@@ -116,4 +124,4 @@ document.getElementById('submitSupplier').addEventListener('click', () => {
     .catch((error) => {
         console.error('Error:', error);
     });
-});
+}
