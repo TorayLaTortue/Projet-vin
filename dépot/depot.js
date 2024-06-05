@@ -8,6 +8,7 @@ window.addEventListener('scroll', function() {
 });
 
 
+
 // ROUTE GET //
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -40,59 +41,3 @@ function displayDepots(depots) {
         tableBody.appendChild(row);
     });
 }
-
-
-
-//////////////////////////////////////////////
-/// A METTRE DANS UNE AUTRE PAGE --> ADMIN ///
-//////////////////////////////////////////////
-
-document.addEventListener('DOMContentLoaded', function() {
-    const addDepotButton = document.getElementById('addDepotButton');
-    const depotForm = document.getElementById('depotForm');
-    const closeFormButton = document.getElementById('closeFormButton');
-
-    addDepotButton.addEventListener('click', function() {
-        depotForm.style.display = 'block';
-    });
-
-    closeFormButton.addEventListener('click', function() {
-        depotForm.style.display = 'none';
-    });
-})
-
-
-
-//// POST ////
-
-document.getElementById('submit').addEventListener('click', () => {
-
-    const nameDepot = document.getElementById('nameDepot').value;
-    const wineRef = document.getElementById('wineRef').value;
-    const adressRef = document.getElementById('adressRef').value;
-    const supplierRef = document.getElementById('supplierRef').value;
-    const quantity = document.getElementById('quantity').value;
-
-    const params = new URLSearchParams({
-        name: nameDepot,
-        wine_reference: wineRef,
-        address_reference: adressRef,
-        supplier_reference : supplierRef,
-        quantity: quantity
-    });
-
-    fetch('http://localhost:8080/Deposit/New', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString()
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
