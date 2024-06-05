@@ -12,7 +12,6 @@ public class SupplierEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int supplier_reference;
     private String name;
-    private Date order_creation_date;
     @ManyToOne
     @JoinColumn(name = "wine_reference")
     private WineEntity wine_reference;
@@ -26,10 +25,9 @@ public class SupplierEntity {
     }
 
     // Parameterized constructor
-    public SupplierEntity(int supplier_reference, String name, Date order_creation_date, WineEntity wine_reference, AddressEntity address, Date deletion_date) {
+    public SupplierEntity(int supplier_reference, String name, WineEntity wine_reference, AddressEntity address, Date deletion_date) {
         this.supplier_reference = supplier_reference;
         this.name = name;
-        this.order_creation_date = order_creation_date;
         this.wine_reference = wine_reference;
         this.address = address;
         this.deletion_date = deletion_date;
@@ -50,14 +48,6 @@ public class SupplierEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getOrderCreationDate() {
-        return order_creation_date;
-    }
-
-    public void setOrderCreationDate(Date order_creation_date) {
-        this.order_creation_date = order_creation_date;
     }
 
     public WineEntity getWine_reference() {
