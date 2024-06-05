@@ -11,7 +11,7 @@ window.addEventListener('scroll', function() {
 // ROUTE GET //
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('http://localhost:8080/Deposit/dépôt')
+    fetch('http://localhost:8080/Deposit/All')
         .then(response => response.json())
         .then(data => {
             displayDepots(data);
@@ -43,6 +43,10 @@ function displayDepots(depots) {
 
 
 
+//////////////////////////////////////////////
+/// A METTRE DANS UNE AUTRE PAGE --> ADMIN ///
+//////////////////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', function() {
     const addDepotButton = document.getElementById('addDepotButton');
     const depotForm = document.getElementById('depotForm');
@@ -55,40 +59,40 @@ document.addEventListener('DOMContentLoaded', function() {
     closeFormButton.addEventListener('click', function() {
         depotForm.style.display = 'none';
     });
+})
 
 
-    // POST //
 
-    depotForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+//// POST ////
 
-        const wine_reference = 1;  
-        const formData = {
-            nameDeposit: document.getElementById('nameDepot').value,
-            quantity: document.getElementById('quantity').value
-        };
+document.getElementById('submit').addEventListener('click', () => {
 
-        fetch(`http://localhost:8080/Deposit/New/${wine_reference}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Success:', response);
-                alert('Dépôt ajouté avec succès');
-                depotForm.reset();
-                depotForm.style.display = 'none';
-            } else {
-                console.error('Error:', response);
-                alert('Erreur lors de l\'ajout du dépôt');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Erreur lors de l\'ajout du dépôt');
-        });
+    const nameDepot = document.getElementById('nameDepot').value;
+    const wineRef = document.getElementById('wineRef').value;
+    const adressRef = document.getElementById('adressRef').value;
+    const supplierRef = document.getElementById('supplierRef').value;
+    const quantity = document.getElementById('quantity').value;
+
+    const params = new URLSearchParams({
+        name: nameDepot,
+        wine_reference: wineRef,
+        address_reference: adressRef,
+        supplier_reference : supplierRef,
+        quantity: quantity
+    });
+
+    fetch('http://localhost:8080/Deposit/New', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
     });
 });
