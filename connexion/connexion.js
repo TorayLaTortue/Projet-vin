@@ -22,7 +22,7 @@ document.getElementById('submit').addEventListener('click', () => {
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data);
+        console.log('Success:', data.name);
         if (data && data.email) { // Change here to check if data is valid and contains email
             localStorage.setItem('user', JSON.stringify(data));
             alert('You are successfully logged in!');
