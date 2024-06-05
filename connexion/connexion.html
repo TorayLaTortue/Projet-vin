@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="connexion.css">
+    
     <title>Stock'O Vin - Connexion</title>
 </head>
 <body>
 
     <div class="wrapper">
+        <a id = "Bouton-home" href="/home.html" class="btn nav-item">Home</a>
 
         <form action="">
 
             <h1>Connexion</h1>
             <div class="input-box">
-                <input type="text" placeholder="Nom d'utilisateur"
-                required>
+                <input type="email" id="email" placeholder="Email" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password"
-                placeholder="Mot de passe" required>
-                <i class='bx bxs-lock-alt' ></i>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <i class='bx bxs-lock-alt'></i>
             </div>
+            <button type="button" id="submit" class="btn">Connexion</button>
 
-            <button type="submit" class="btn">Connexion</button>
+            
 
             <div class="register-link">
                 <p>Vous n'avez pas de compte ? <a href="inscription.html">S'inscrire</a></p>

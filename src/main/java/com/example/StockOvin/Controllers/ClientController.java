@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/Client")
@@ -30,11 +31,11 @@ public class ClientController {
     @Operation(summary = "Nouveau client")
     @PostMapping("/New")
     public ClientEntity newClient(
-        @Parameter(description = "Name") @RequestParam String name,
-        @Parameter(description = "Firstname") @RequestParam String firstname,
-        @Parameter(description = "Email") @RequestParam String email,
-        @Parameter(description = "Phone number") @RequestParam String phone,
-        @Parameter(description = "Password") @RequestParam String password) {
+            @Parameter(description = "Name") @RequestParam String name,
+            @Parameter(description = "Firstname") @RequestParam String firstname,
+            @Parameter(description = "Email") @RequestParam String email,
+            @Parameter(description = "Phone number") @RequestParam String phone,
+            @Parameter(description = "Password") @RequestParam String password) {
         ClientEntity Client = new ClientEntity();
         Client.setName(name);
         Client.setFirstName(firstname);
@@ -48,11 +49,11 @@ public class ClientController {
     @Operation(summary = "Update d'un client (Name ,first_name ,email ,phone)")
     @PutMapping("/Update{id}")
     public ResponseEntity<ClientEntity> updateClient(
-        @PathVariable("id") int reference,
-        @Parameter(description = "Name") @RequestParam String name,
-        @Parameter(description = "Firstname") @RequestParam String firstname,
-        @Parameter(description = "Email") @RequestParam String email,
-        @Parameter(description = "Phone number") @RequestParam String phone) {
+            @PathVariable("id") int reference,
+            @Parameter(description = "Name") @RequestParam String name,
+            @Parameter(description = "Firstname") @RequestParam String firstname,
+            @Parameter(description = "Email") @RequestParam String email,
+            @Parameter(description = "Phone number") @RequestParam String phone) {
         ClientEntity Client = ClientService.getClientById(reference);
 
         if (Client != null) {
@@ -62,31 +63,7 @@ public class ClientController {
             Client.setPhone(phone);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
-            
-            if (updatedClient != null) {
-                return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
-            } else {
-                // La mise à jour a échoué pour une raison quelconque
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-            }
-        } else {
-            // Le client est inexistant, renvoie un status 404
-            return ResponseEntity.notFound().build();
-        }
-}
 
-    @Operation(summary = "Update le mdp d'un client")
-    @PutMapping("/UpdateMdp/{id}")
-    public ResponseEntity<ClientEntity> updateMdpClient(
-        @PathVariable("id") int reference,
-        @Parameter(description = "Password") @RequestParam String password
-        ) {
-        ClientEntity Client = ClientService.getClientById(reference);
-        if (Client != null) {
-            Client.setMot_de_passe(password);
-
-            ClientEntity updatedClient = ClientService.updateClient(Client);
-            
             if (updatedClient != null) {
                 return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
             } else {
@@ -99,22 +76,44 @@ public class ClientController {
         }
     }
 
+    @Operation(summary = "Update le mdp d'un client")
+    @PutMapping("/UpdateMdp/{id}")
+    public ResponseEntity<ClientEntity> updateMdpClient(
+            @PathVariable("id") int reference,
+            @Parameter(description = "Password") @RequestParam String password) {
+        ClientEntity Client = ClientService.getClientById(reference);
+        if (Client != null) {
+            Client.setMot_de_passe(password);
+
+            ClientEntity updatedClient = ClientService.updateClient(Client);
+
+            if (updatedClient != null) {
+                return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
+            } else {
+                // La mise à jour a échoué pour une raison quelconque
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        } else {
+            // Le client est inexistant, renvoie un status 404
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @Operation(summary = "Delete d'un client")
     @PutMapping("/Delete/{id}")
     public ResponseEntity<ClientEntity> deleteClient(@PathVariable("id") int reference) {
         ClientEntity Client = ClientService.getClientById(reference);
         if (Client != null) {
-        
+
             long currentTimeMillis = System.currentTimeMillis();
-        
+
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
             Client.setDate_suppression(date);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
-            
+
             if (updatedClient != null) {
                 return ResponseEntity.ok(updatedClient); // La mise à jour a réussi, renvoie le client mis à jour
             } else {
@@ -127,5 +126,22 @@ public class ClientController {
         }
     }
 
+    @Operation(summary = "Connexion d'un client")
+    @PostMapping("/Login")
+    public ResponseEntity<ClientEntity> loginClient(
+            @Parameter(description = "Email") @RequestParam String email,
+            @Parameter(description = "Password") @RequestParam String password) {
+
+        ClientEntity client = ClientService.getClientByEmail(email);
+
+        // Utilisation de equals pour comparer les chaînes de manière sécurisée
+        if (client != null && client.getMot_de_passe().equals(password)) {
+            // Connexion réussie
+            return ResponseEntity.ok(client);
+        } else {
+            // Échec de la connexion
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
 
 }
