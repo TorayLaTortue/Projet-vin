@@ -27,11 +27,11 @@ VALUES
     (3, 3, 1, 'Terminée', '2024-05-14', 3, 2, NULL);
 
 -- Insertion de données de test pour la table "supplier"
-INSERT INTO public.supplier (wine_reference, name, address, deletion_date)
+INSERT INTO public.supplier (wine_reference, client_reference, name, address, deletion_date)
 VALUES
-    (1, 'Supplier1', 3, NULL),
-    (2, 'Supplier2', 2, NULL),
-    (3, 'Supplier3', 1, NULL);
+    (1, 3, 'Supplier1', 3, NULL),
+    (2, 2, 'Supplier2', 2, NULL),
+    (3, 1, 'Supplier3', 1, NULL);
 
 -- Insertion de données de test pour la table "deposit"
 INSERT INTO public.deposit (deposit_name, address, wine_reference, quantity, supplier_reference, deletion_date)

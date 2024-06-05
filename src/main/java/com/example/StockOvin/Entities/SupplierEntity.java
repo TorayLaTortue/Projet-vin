@@ -16,6 +16,9 @@ public class SupplierEntity {
     @JoinColumn(name = "wine_reference")
     private WineEntity wine_reference;
     @ManyToOne
+    @JoinColumn(name = "client_reference")
+    private ClientEntity client_reference;
+    @ManyToOne
     @JoinColumn(name = "address")
     private AddressEntity address;
     private Date deletion_date;
@@ -25,10 +28,11 @@ public class SupplierEntity {
     }
 
     // Parameterized constructor
-    public SupplierEntity(int supplier_reference, String name, WineEntity wine_reference, AddressEntity address, Date deletion_date) {
+    public SupplierEntity(int supplier_reference, String name, WineEntity wine_reference, ClientEntity client_reference, AddressEntity address, Date deletion_date) {
         this.supplier_reference = supplier_reference;
         this.name = name;
         this.wine_reference = wine_reference;
+        this.client_reference = client_reference;
         this.address = address;
         this.deletion_date = deletion_date;
     }
@@ -50,11 +54,18 @@ public class SupplierEntity {
         this.name = name;
     }
 
-    public WineEntity getWine_reference() {
+    public WineEntity getWineReference() {
         return wine_reference;
     }
-    public void setWine_reference(WineEntity wine_reference) {
+    public void setWineReference(WineEntity wine_reference) {
         this.wine_reference = wine_reference;
+    }
+
+    public ClientEntity getClientReference() {
+        return client_reference;
+    }
+    public void setClientReference(ClientEntity client_reference) {
+        this.client_reference = client_reference;
     }
 
     public AddressEntity getAddress() {
