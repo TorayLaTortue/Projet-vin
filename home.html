@@ -29,68 +29,99 @@
         <div class="container">
 
             <div class="container first">
-                <!--
-                <h3>Déguster un vin rouge est un art qui allie la technique à une expérience sensorielle enrichissante. Voici un guide étape par étape pour vous aider à apprécier pleinement votre vin rouge :</h3>
-                <br>
-                <br>
-                <br>
-                <br>
-                1. Observation
-                <br>
-                <br>
-                    •	Visuelle : Examinez la couleur du vin en inclinant votre verre sur fond blanc. Notez si la couleur est brillante et profonde ou pâle et transparente, indicateur potentiel de l’âge et du style du vin.
-                <br>
-                <br>
-                <br>
-                2. Le Nez
-                <br>
-                <br>
-                    •	Premier Nez : Reniflez le vin doucement après l’avoir versé pour identifier les arômes primaires, qui incluent souvent des fruits rouges ou noirs. <br>
-                    •	Deuxième Nez : Agitez le verre pour oxygéner le vin, facilitant ainsi la libération des arômes secondaires tels que les épices, le chocolat ou le bois, provenant souvent du vieillissement.
-                <br>
-                <br>
-                <br>
-                3. La Dégustation
-                <br>
-                <br>
-                    •	Attaque : Sippez le vin et laissez-le se répandre dans votre bouche. Évaluez la première impression: est-il doux, acide, amer, ou tannique ?<br>
-                    •	Milieu de Bouche : Concentrez-vous sur la sensation en bouche, la texture du vin, son corps, et l’équilibre entre les éléments comme les tanins et l’acidité.<br>
-                    •	Finale : Notez la longueur des arômes après avoir avalé. Un vin de bonne qualité aura souvent une finale longue et plaisante.<br>
-                <br>
-                <br>
-                <br>
-                4. Analyse et Réflexion
-                <br>
-                <br>
-                    •	Réfléchissez à l’expérience globale. Le vin était-il harmonieux et bien structuré ? Y avait-il une complexité qui a évolué avec le temps dans le verre ?
-                <br>
-                <br>
-                <br>
-                Conseils Pratiques
-                <br>
-                <br>
-                    •	Température de Service : Servez le vin à une température entre 15°C et 18°C pour maximiser l’expression des arômes sans que l’alcool soit trop dominant.<br>
-                    •	Aération : Pour les vins jeunes ou très tanniques, envisagez de les aérer pour adoucir les tanins et enrichir les arômes.</p> -->
+
+                <div class="wrapper">
+
+                    <form id="wineForm">
+            
+                        <h1>Ajouter un nouveau vin dans les stocks</h1>
+                        <div class="input-box">
+                            <input type="text" id="wineName" placeholder="Nom du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="winePicture" placeholder="Image du vin">
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineQuality" placeholder="Qualitée du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineRegion" placeholder="Région du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="date" id="wineYear" placeholder="Année du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineFamily" placeholder="Famille du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineFormat" placeholder="Format du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="number" id="winePrice" placeholder="Prix de vente" required>
+                        </div>
+            
+            
+                        <button type="submit" id="submitWine" class="btn">Ajouter un vin</button>
+            
+                    </form>
+                </div>
+
             </div>
 
             <div class="blank"></div>
 
             <div class="container second">
+
+                <div class="wrapper">
+
+                    <form id="depositForm">
+            
+                        <h1>Ajouter un nouveau dépot</h1>
+                        <div class="input-box">
+                            <input type="text" id="nameDepot" placeholder="Nom du dépot" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineRef" placeholder="Reférence du vin" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="adressRef" placeholder="Référence de l'adresse" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="supplierRef" placeholder="Référence du fournisseur" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="number" id="quantity" placeholder="Quantité de vin stocké dans le dépot" required>
+                        </div>
+            
+            
+                        <button type="submit" id="submitDepot" class="btn">Ajouter un dépot</button>
+            
+                    </form>
+                </div>
+
             </div>
 
             <div class="blank"></div>
 
             <div class="container third">
-            </div>
 
-            <div class="blank"></div>
+                <div class="wrapper">
 
-            <div class="container fourth">
-            </div>
+                    <form id="supplierForm">
+            
+                        <h1>Ajouter un nouveau fournisseur</h1>
+                        <div class="input-box">
+                            <input type="text" id="adressRef" placeholder="Référence de l'adresse" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="wineRef" placeholder="Référence du vin" required>
+                        </div>
+            
+                        <button type="submit" id="submitSupplier" class="btn">S'inscrire</button>
+            
+                    </form>
+                </div>
 
-            <div class="blank"></div>
-
-            <div class="container fifth">
             </div>
 
         </div>
