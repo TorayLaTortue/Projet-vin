@@ -1,9 +1,11 @@
 package com.example.StockOvin.Controllers;
 
 import com.example.StockOvin.Entities.AddressEntity;
+import com.example.StockOvin.Entities.ClientEntity;
 import com.example.StockOvin.Entities.SupplierEntity;
 import com.example.StockOvin.Entities.WineEntity;
 import com.example.StockOvin.Service.AddressService;
+import com.example.StockOvin.Service.ClientService;
 import com.example.StockOvin.Service.SupplierService;
 import com.example.StockOvin.Service.WineService;
 
@@ -25,9 +27,11 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
     @Autowired
-    private AddressService AddressService;
+    private AddressService addressService;
     @Autowired
-    private WineService WineService;
+    private WineService wineService;
+    @Autowired
+    private ClientService clientService ;
 
     @Operation(summary =  "All supplier")
     @GetMapping("/All")
@@ -35,20 +39,23 @@ public class SupplierController {
         return supplierService.getAllSupplier();
     }
 
-    @Operation(summary = "New supplier (name, adress and wine)")
+    @Operation(summary = "New supplier (name, adress client and wine)")
     @PostMapping("/New")
     public SupplierEntity newSupplier(
         @Parameter(description = "Supplier name") @RequestParam String name,
         @Parameter(description = "Wine reference") @RequestParam int wine_reference,
+        @Parameter(description = "Client reference") @RequestParam int client_reference,
         @Parameter(description = "Address reference") @RequestParam int address_reference) {
 
         SupplierEntity supplier = new SupplierEntity();
-        AddressEntity address = AddressService.getAddressById(address_reference);
-        WineEntity wine = WineService.getWineById(wine_reference);
+        AddressEntity address = addressService.getAddressById(address_reference);
+        ClientEntity client = clientService.getClientById(client_reference);
+        WineEntity wine = wineService.getWineById(wine_reference);
 
         supplier.setName(name);
-        supplier.setWine_reference(wine);
+        supplier.setWineReference(wine);
         supplier.setAddress(address);
+        supplier.setClientReference(client);
         return supplierService.addSupplier(supplier);
     }
 
@@ -59,15 +66,18 @@ public class SupplierController {
         @Parameter(description = "Supplier name") @RequestParam String name,
         @Parameter(description = "Wine reference") @RequestParam int wine_reference,
         @Parameter(description = "Address reference") @RequestParam int address_reference,
-        @Parameter(description = "New OrderCreationDate") @RequestParam Date orderCreationDate) { 
+        @Parameter(description = "New OrderCreationDate") @RequestParam Date orderCreationDate,
+        @Parameter(description = "Client reference") @RequestParam int client_reference) { 
 
-        AddressEntity address = AddressService.getAddressById(address_reference);
-        WineEntity wine = WineService.getWineById(wine_reference);
+        AddressEntity address = addressService.getAddressById(address_reference);
+        WineEntity wine = wineService.getWineById(wine_reference);
         SupplierEntity supplier = supplierService.getSupplierById(id);
+        ClientEntity client = clientService.getClientById(client_reference);
         if (supplier != null) {
             supplier.setName(name);
             supplier.setAddress(address);
-            supplier.setWine_reference(wine);
+            supplier.setWineReference(wine);
+            supplier.setClientReference(client);
 
             SupplierEntity updatedSupplier = supplierService.updateSupplier(supplier);
 
