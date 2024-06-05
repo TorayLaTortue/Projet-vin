@@ -65,34 +65,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //// POST ////
 
-    document.getElementById('submit').addEventListener('click', () => {
+document.getElementById('submit').addEventListener('click', () => {
 
-        const nameDepot = document.getElementById('nameDepot').value;
-        const wineRef = document.getElementById('wineRef').value;
-        const adressRef = document.getElementById('adressRef').value;
-        const supplierRef = document.getElementById('supplierRef').value;
-        const quantity = document.getElementById('quantity').value;
+    const nameDepot = document.getElementById('nameDepot').value;
+    const wineRef = document.getElementById('wineRef').value;
+    const adressRef = document.getElementById('adressRef').value;
+    const supplierRef = document.getElementById('supplierRef').value;
+    const quantity = document.getElementById('quantity').value;
 
-        const params = new URLSearchParams({
-            name: nameDepot,
-            wine_reference: wineRef,
-            address_reference: adressRef,
-            supplier_reference : supplierRef,
-            quantity: quantity
-        });
-    
-        fetch('http://localhost:8080/Deposit/New', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: params.toString()
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    const params = new URLSearchParams({
+        name: nameDepot,
+        wine_reference: wineRef,
+        address_reference: adressRef,
+        supplier_reference : supplierRef,
+        quantity: quantity
     });
+
+    fetch('http://localhost:8080/Deposit/New', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});

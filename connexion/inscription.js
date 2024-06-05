@@ -1,39 +1,31 @@
-document.getElementById('clientForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêche la soumission du formulaire par défaut
+document.getElementById('clientForm').addEventListener('submit', () => {
 
-    // Récupère les valeurs des champs du formulaire
-    const nom = document.getElementById('nom').value;
     const prenom = document.getElementById('prenom').value;
+    const nom = document.getElementById('nom').value;
     const mail = document.getElementById('mail').value;
-    const telephone = document.getElementById('tel').value;
+    const tel = document.getElementById('tel').value;
     const mot_de_passe = document.getElementById('mot_de_passe').value;
 
-    // Crée l'objet client à envoyer
-    const newClient = {
-        nom: nom,
-        prenom: prenom,
-        mail: mail,
-        telephone: telephone,
-        mot_de_passe: mot_de_passe
-    };
+    const params = new URLSearchParams({
+        name: prenom,
+        firstname: nom,
+        email: mail,
+        phone : tel,
+        password: mot_de_passe
+    });
 
-    // Envoie une requête POST à l'API
     fetch('http://localhost:8080/Client/New', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(newClient)
+        body: params.toString()
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Client ajouté avec succès:', data);
-        alert('Client ajouté avec succès!');
-        // Réinitialise le formulaire
-        document.getElementById('clientForm').reset();
+        console.log('Success:', data);
     })
-    .catch(error => {
-        console.error('Erreur lors de l\'ajout du client:', error);
-        alert('Erreur lors de l\'ajout du client.');
+    .catch((error) => {
+        console.error('Error:', error);
     });
 });
