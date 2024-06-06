@@ -1,31 +1,65 @@
 if (!localStorage.getItem('user')&& !window.location.pathname.endsWith('home.html')) {
     window.location.href = '../connexion/connexion.html';
 }
-
+const Connexion = document.getElementById('Connexion');
 console.log(localStorage)
 
 
  // Récupérer la chaîne de localStorage et la convertir en objet
  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
     
- // Vérifier si la session est active
- if (user) {
-     logoutButton.style.display = 'none'; // Masquer le bouton si l'utilisateur est connecté
- }
-
- // Vérifier si la session est active et si l'utilisateur est un client
- if (user && user.role === "Client") {
-
-     logoutButton.innerHTML = ""; // Vider le conteneur de vin si l'utilisateur est un client
-     wineContainer.innerHTML = ""; // Vider le conteneur de vin si l'utilisateur est un client
+ 
+ if (!user) { //Si je ne suis pas un utilisateur
+     logoutButton.style.display = 'none';
+     wineContainer.innerHTML = "";
      depositContainer.innerHTML = "";
      supplierContainer.innerHTML = "";
  }
 
- if (user && user.role === "Fournisseur"){
+
+ if (user && user.role === "Client") {// si je suis un utilisateur et un client
+     Connexion.innerHTML = "Connecté";
+     Connexion.href = "";
+     wineContainer.innerHTML = "";
+     depositContainer.innerHTML = "";
+     supplierContainer.innerHTML = "";
+ }
+
+ if (user && user.role === "Fournisseur"){// si je suis un utilisateur et un fournissueur
+    Connexion.innerHTML = "Connecté";
+    Connexion.href = "";
     supplierContainer.innerHTML = "";
  }
 
+
+ if (user && user.role === "Administrateur"){// si je suis un utilisateur et un Administrateur
+    Connexion.innerHTML = "Connecté";
+    Connexion.href = "";
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.getElementById('logoutButton');
+
+    logoutButton.addEventListener('click', function() {
+        logout(); // Appel de la fonction de déconnexion
+    });
+});
 
 function logout() {
     localStorage.removeItem('user'); // Suppression des informations de l'utilisateur
