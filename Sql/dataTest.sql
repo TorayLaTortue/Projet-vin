@@ -17,8 +17,10 @@ INSERT INTO public.wine (name, picture, wine_quality, region, family, year, form
 VALUES
     ('Vin1', 'picture1.jpg', 'High','Bordeaux', 'Family1', '2020-01-01', '750ml', 0.1, 20, NULL),
     ('Vin2', 'picture2.jpg', 'Low','Bourgogne', 'Family2', '2019-01-01', '750ml', 0.2, 25, NULL),
-    ('Vin3', 'picture3.jpg', 'Medium','Champagne', 'Family3', '2018-01-01', '750ml', 0.15, 30, NULL);
-
+    ('Vin3', 'picture3.jpg', 'Medium','Champagne', 'Family3', '2018-01-01', '750ml', 0.15, 30, NULL),
+    ('Vin4', 'https://www.lepressoirdesgourmands.fr/5282-large_default/vin-rouge-de-bordeaux-chateau-d-arcins-75cl.jpg','High', 'Bordeaux', 'Famille4', '2020-01-01', '750ml', 0.1, 20, NULL),
+    ('Vin5', 'https://chateaudeportets.fr/wp-content/uploads/2021/01/Grand-Vin-du-Cht-de-Portets-2018-Pro-600x1056.png','High', 'Bourgogne', 'Famille5', '2019-01-01','750ml', 0.2, 25, NULL),
+    ('Vin6', 'https://es.gerard-bertrand.com/cdn/shop/products/chateau_des_karantes_rouge_7f1a347e-8ee5-4738-8b86-c1a3286fc23b.jpg?v=1658262221', 'High','Champagne', 'Famille6', '2018-01-01', '750ml', 0.15, 30, NULL);
 -- Insertion de données de test pour la table "orders"
 INSERT INTO public.orders (client_reference, billing_address, delivery_address, status, order_creation_date, wine_reference, quantity_product, deletion_date)
 VALUES
