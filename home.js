@@ -7,8 +7,9 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
-// POST VIN //
+                    //////////////
+                    // POST VIN //
+                    //////////////
 
 document.getElementById('submitWine').addEventListener('click', () => {
 
@@ -32,6 +33,12 @@ document.getElementById('submitWine').addEventListener('click', () => {
         price: winePrice
     });
 
+    postWine(params);
+
+});
+
+function postWine(params) {
+
     fetch('http://localhost:8080/Wine/New', {
         method: 'POST',
         headers: {
@@ -46,13 +53,15 @@ document.getElementById('submitWine').addEventListener('click', () => {
     .catch((error) => {
         console.error('Error:', error);
     });
-});
+    
+}
 
 
 
 
-
-// POST DÉPOT //
+                    ////////////////
+                    // POST DÉPOT //
+                    ////////////////
 
 document.getElementById('submitDepot').addEventListener('click', () => {
 
@@ -70,6 +79,12 @@ document.getElementById('submitDepot').addEventListener('click', () => {
         quantity: quantity
     });
 
+    postDepot(params)
+
+});
+
+function postDepot(params) {
+    
     fetch('http://localhost:8080/Deposit/New', {
         method: 'POST',
         headers: {
@@ -84,13 +99,14 @@ document.getElementById('submitDepot').addEventListener('click', () => {
     .catch((error) => {
         console.error('Error:', error);
     });
-});
+
+}
 
 
 
-
-
-// POST SUPPLIER //
+                    ///////////////////
+                    // POST SUPPLIER //
+                    ///////////////////
 
 document.getElementById('submitSupplier').addEventListener('click', () => {
 
@@ -107,9 +123,11 @@ document.getElementById('submitSupplier').addEventListener('click', () => {
     });
 
     postSupplier(params);
+
 });
 
 function postSupplier(params) {
+
     fetch('http://localhost:8080/Supplier/New', {
         method: 'POST',
         headers: {
@@ -124,4 +142,5 @@ function postSupplier(params) {
     .catch((error) => {
         console.error('Error:', error);
     });
+
 }
