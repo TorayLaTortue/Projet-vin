@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/Supplier") 
+@RequestMapping("/Supplier")
 public class SupplierController {
 
     @Autowired
@@ -31,9 +32,9 @@ public class SupplierController {
     @Autowired
     private WineService wineService;
     @Autowired
-    private ClientService clientService ;
+    private ClientService clientService;
 
-    @Operation(summary =  "All supplier")
+    @Operation(summary = "All supplier")
     @GetMapping("/All")
     public List<SupplierEntity> getAllSuppliers() {
         return supplierService.getAllSupplier();
@@ -42,10 +43,10 @@ public class SupplierController {
     @Operation(summary = "New supplier (name, adress client and wine)")
     @PostMapping("/New")
     public SupplierEntity newSupplier(
-        @Parameter(description = "Supplier name") @RequestParam String name,
-        @Parameter(description = "Wine reference") @RequestParam int wine_reference,
-        @Parameter(description = "Client reference") @RequestParam int client_reference,
-        @Parameter(description = "Address reference") @RequestParam int address_reference) {
+            @Parameter(description = "Supplier name") @RequestParam String name,
+            @Parameter(description = "Wine reference") @RequestParam int wine_reference,
+            @Parameter(description = "Client reference") @RequestParam int client_reference,
+            @Parameter(description = "Address reference") @RequestParam int address_reference) {
 
         SupplierEntity supplier = new SupplierEntity();
         AddressEntity address = addressService.getAddressById(address_reference);
@@ -62,12 +63,12 @@ public class SupplierController {
     @Operation(summary = "Update of a supplier (Name, first_name, email, phone)")
     @PutMapping("/Update/{id}")
     public ResponseEntity<SupplierEntity> updateSupplier(
-        @PathVariable int id,
-        @Parameter(description = "Supplier name") @RequestParam String name,
-        @Parameter(description = "Wine reference") @RequestParam int wine_reference,
-        @Parameter(description = "Address reference") @RequestParam int address_reference,
-        @Parameter(description = "New OrderCreationDate") @RequestParam Date orderCreationDate,
-        @Parameter(description = "Client reference") @RequestParam int client_reference) { 
+            @PathVariable int id,
+            @Parameter(description = "Supplier name") @RequestParam String name,
+            @Parameter(description = "Wine reference") @RequestParam int wine_reference,
+            @Parameter(description = "Address reference") @RequestParam int address_reference,
+            @Parameter(description = "New OrderCreationDate") @RequestParam Date orderCreationDate,
+            @Parameter(description = "Client reference") @RequestParam int client_reference) {
 
         AddressEntity address = addressService.getAddressById(address_reference);
         WineEntity wine = wineService.getWineById(wine_reference);
@@ -98,16 +99,16 @@ public class SupplierController {
     public ResponseEntity<SupplierEntity> deleteSupplier(@PathVariable("id") int reference) {
         SupplierEntity Supplier = supplierService.getSupplierById(reference);
         if (Supplier != null) {
-        
+
             long currentTimeMillis = System.currentTimeMillis();
-        
+
             // Création d'une instance de java.sql.Date avec la date actuelle
             Date date = new Date(currentTimeMillis);
 
-            Supplier.setDeletionDate(date); 
+            Supplier.setDeletionDate(date);
 
             SupplierEntity updatedSupplier = supplierService.updateSupplier(Supplier);
-            
+
             if (updatedSupplier != null) {
                 return ResponseEntity.ok(updatedSupplier); // La mise à jour a réussi, renvoie le supplier mis à jour
             } else {

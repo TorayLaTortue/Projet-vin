@@ -5,6 +5,7 @@ const Connexion = document.getElementById('Connexion');
 console.log(localStorage)
 
 
+
  // Récupérer la chaîne de localStorage et la convertir en objet
  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
     
@@ -28,7 +29,8 @@ console.log(localStorage)
  if (user && user.role === "Supplier"){// si je suis un utilisateur et un fournissueur
     Connexion.innerHTML = "Connecté";
     Connexion.href = "";
-    supplierContainer.innerHTML = "";
+    
+
  }
 
 
@@ -46,22 +48,27 @@ console.log(localStorage)
 
 
 
-
+ console.log("Session.js est chargé");
+ // Testez les fonctions spécifiques
+ function testFunction() {
+     console.log("Fonction test exécutée");
+ }
+ testFunction();
 
 
 
 
 
  
- document.addEventListener('DOMContentLoaded', function() {
+ 
     const logoutButton = document.getElementById('logoutButton');
 
     logoutButton.addEventListener('click', function() {
         logout(); // Appel de la fonction de déconnexion
     });
-});
 
 function logout() {
     localStorage.removeItem('user'); // Suppression des informations de l'utilisateur
-    window.location.href = '../connexion/connexion.html'; // Redirection vers la page de connexion
+    
+    window.location.href = '/connexion/connexion.html'; // Redirection vers la page de connexion
 }
