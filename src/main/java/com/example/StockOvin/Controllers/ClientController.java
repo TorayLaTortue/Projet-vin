@@ -1,6 +1,7 @@
 package com.example.StockOvin.Controllers;
 
 import com.example.StockOvin.Entities.ClientEntity;
+import com.example.StockOvin.Entities.RoleEntity;
 import com.example.StockOvin.Service.ClientService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,7 +43,7 @@ public class ClientController {
         Client.setEmail(email);
         Client.setPhone(phone);
         Client.setMot_de_passe(password);
-        Client.setRole("Client");
+        Client.setRole(RoleEntity.findRole("user"));
         return ClientService.AddClient(Client);
     }
 
@@ -61,7 +62,7 @@ public class ClientController {
             Client.setName(name);
             Client.setFirstName(firstname);
             Client.setEmail(email);
-            Client.setRole(role);
+            Client.setRole(RoleEntity.findRole(role));
             Client.setPhone(phone);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);
