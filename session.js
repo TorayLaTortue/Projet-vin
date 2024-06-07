@@ -17,7 +17,7 @@ console.log(localStorage)
  }
 
 
- if (user && user.role === "Client") {// si je suis un utilisateur et un client
+ if (user && user.role === "User") {// si je suis un utilisateur et un client
      Connexion.innerHTML = "Connecté";
      Connexion.href = "";
      wineContainer.innerHTML = "";
@@ -25,14 +25,14 @@ console.log(localStorage)
      supplierContainer.innerHTML = "";
  }
 
- if (user && user.role === "Fournisseur"){// si je suis un utilisateur et un fournissueur
+ if (user && user.role === "Supplier"){// si je suis un utilisateur et un fournissueur
     Connexion.innerHTML = "Connecté";
     Connexion.href = "";
     supplierContainer.innerHTML = "";
  }
 
 
- if (user && user.role === "Administrateur"){// si je suis un utilisateur et un Administrateur
+ if (user && user.role === "Admin"){// si je suis un utilisateur et un Administrateur
     Connexion.innerHTML = "Connecté";
     Connexion.href = "";
  }
