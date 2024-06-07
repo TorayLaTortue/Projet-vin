@@ -53,6 +53,7 @@ public class ClientController {
             @Parameter(description = "Name") @RequestParam String name,
             @Parameter(description = "Firstname") @RequestParam String firstname,
             @Parameter(description = "Email") @RequestParam String email,
+            @Parameter(description = "Role") @RequestParam String role,
             @Parameter(description = "Phone number") @RequestParam String phone) {
         ClientEntity Client = ClientService.getClientById(reference);
 
@@ -60,6 +61,7 @@ public class ClientController {
             Client.setName(name);
             Client.setFirstName(firstname);
             Client.setEmail(email);
+            Client.setRole(role);
             Client.setPhone(phone);
 
             ClientEntity updatedClient = ClientService.updateClient(Client);

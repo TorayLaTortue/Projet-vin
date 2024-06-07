@@ -1,9 +1,59 @@
-if (!localStorage.getItem('user')) {
-    window.location.href = '../connexion/connexion.html'; // Redirection vers la page de connexion si non connecté
+if (!localStorage.getItem('user')&& !window.location.pathname.endsWith('home.html')) {
+    window.location.href = '../connexion/connexion.html';
 }
+const Connexion = document.getElementById('Connexion');
+console.log(localStorage)
 
 
-document.addEventListener('DOMContentLoaded', function() {
+ // Récupérer la chaîne de localStorage et la convertir en objet
+ const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+    
+ 
+ if (!user) { //Si je ne suis pas un utilisateur
+     logoutButton.style.display = 'none';
+     wineContainer.innerHTML = "";
+     depositContainer.innerHTML = "";
+     supplierContainer.innerHTML = "";
+ }
+
+
+ if (user && user.role === "Client") {// si je suis un utilisateur et un client
+     Connexion.innerHTML = "Connecté";
+     Connexion.href = "";
+     wineContainer.innerHTML = "";
+     depositContainer.innerHTML = "";
+     supplierContainer.innerHTML = "";
+ }
+
+ if (user && user.role === "Fournisseur"){// si je suis un utilisateur et un fournissueur
+    Connexion.innerHTML = "Connecté";
+    Connexion.href = "";
+    supplierContainer.innerHTML = "";
+ }
+
+
+ if (user && user.role === "Administrateur"){// si je suis un utilisateur et un Administrateur
+    Connexion.innerHTML = "Connecté";
+    Connexion.href = "";
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ document.addEventListener('DOMContentLoaded', function() {
     const logoutButton = document.getElementById('logoutButton');
 
     logoutButton.addEventListener('click', function() {
