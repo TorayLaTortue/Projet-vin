@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock'O Vin - Accueil</title>
     <link rel="stylesheet" href="home.css">
+    
       
 </head>
 <body>
@@ -23,7 +24,7 @@
             <a href="/dépot/depot.html" class="nav-item">Dépots & Stock</a>
             <img src="/image/logo.png" alt="Wine Logo" class="logo" id="logo">
             <a href="#" class="nav-item">Contact</a>
-            <a href="/connexion/connexion.html" class="nav-item">Connexion</a>
+            <a id ="Connexion" href="/connexion/connexion.html" class="nav-item">Connexion</a>
             <a href="/panier/panier.html" class="nav-item">Panier</a>
             <button id="logoutButton" class="nav-item" type="button">Déconnexion</button>
         </nav>
@@ -31,7 +32,7 @@
     <main>
         <div class="container">
 
-            <div class="container first">
+            <div id="wineContainer" class="container first">
 
                 <div class="wrapper">
 
@@ -73,7 +74,7 @@
 
             <div class="blank"></div>
 
-            <div class="container second">
+            <div id="depositContainer" class="container second">
 
                 <div class="wrapper">
 
@@ -106,7 +107,7 @@
 
             <div class="blank"></div>
 
-            <div class="container third">
+            <div id="supplierContainer" class="container third">
 
                 <div class="wrapper">
 
@@ -130,17 +131,8 @@
         </div>
     </main>
     <script src="home.js"></script>
+    <script src="session.js"></script>
     
     
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const logoutButton = document.getElementById('logoutButton');
-        
-        // Vérifier si la session est active
-        if (!localStorage.getItem('user')) {
-            logoutButton.style.display = 'none'; // Afficher le bouton si l'utilisateur est connecté
-        }
-    });
-</script>
 </html>
