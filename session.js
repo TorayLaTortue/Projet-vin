@@ -1,52 +1,42 @@
 if (!localStorage.getItem('user')&& !window.location.pathname.endsWith('home.html')) {
-    window.location.href = '../connexion/connexion.html';
+    window.location.href = '/connexion/connexion.html';
 }
 const Connexion = document.getElementById('Connexion');
-console.log(localStorage)
-
-
+const wineContainer = document.getElementById('wineContainer');
+const depositContainer = document.getElementById('depositContainer');
+const supplierContainer = document.getElementById('supplierContainer');
 
  // Récupérer la chaîne de localStorage et la convertir en objet
  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
     
  
- if (!user) { //Si je ne suis pas un utilisateur
-     logoutButton.style.display = 'none';
-     wineContainer.innerHTML = "";
-     depositContainer.innerHTML = "";
-     supplierContainer.innerHTML = "";
- }
+     // Gestion des rôles
+     if (!user) { // Si l'utilisateur n'est pas connecté
+        if (logoutButton) logoutButton.style.display = 'none';
+        if (wineContainer) wineContainer.innerHTML = "";
+        if (depositContainer) depositContainer.innerHTML = "";
+        if (supplierContainer) supplierContainer.innerHTML = "";
+    } else {
+        Connexion.innerHTML = "Connecté";
+        Connexion.href = "";
 
-
- if (user && user.role === "User") {// si je suis un utilisateur et un client
-     Connexion.innerHTML = "Connecté";
-     Connexion.href = "";
-     wineContainer.innerHTML = "";
-     depositContainer.innerHTML = "";
-     supplierContainer.innerHTML = "";
- }
-
- if (user && user.role === "Supplier"){// si je suis un utilisateur et un fournissueur
-    Connexion.innerHTML = "Connecté";
-    Connexion.href = "";
-    
-
- }
-
-
- if (user && user.role === "Admin"){// si je suis un utilisateur et un Administrateur
-    Connexion.innerHTML = "Connecté";
-    Connexion.href = "";
- }
+        
+        if (user.role === "user") { // Si l'utilisateur est connecté
+            if (wineContainer) wineContainer.innerHTML = "";
+            if (depositContainer) depositContainer.innerHTML = "";
+            if (supplierContainer) supplierContainer.innerHTML = "";
+        } else if (user.role === "Supplier") { // Si l'utilisateur est un Supplier
+            if (supplierContainer) supplierContainer.innerHTML = "";
+        } else if (user.role === "Admin") {
+        }
+    }
 
 
 
 
 
 
-
-
-
+console.log(user);
 
  console.log("Session.js est chargé");
  // Testez les fonctions spécifiques

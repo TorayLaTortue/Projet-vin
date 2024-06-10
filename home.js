@@ -1,72 +1,38 @@
-window.addEventListener('scroll', function() {
-    var header = document.getElementById('main-header');
-    if (window.scrollY > 100) {
-        header.classList.add('header-scrolled');
-    } else {
-        header.classList.remove('header-scrolled');
-    }
-});
+let supplierRefUser;
 
 
-// POST VIN //
-
-document.getElementById('submitWine').addEventListener('click', () => {
-
-    const wineName = document.getElementById('wineName').value;
-    const winePicture = document.getElementById('winePicture').value;
-    const wineQuality = document.getElementById('wineQuality').value;
-    const wineRegion = document.getElementById('wineRegion').value;
-    const wineYear = document.getElementById('wineYear').value;
-    const wineFamily = document.getElementById('wineFamily').value;
-    const wineFormat = document.getElementById('wineFormat').value;
-    const winePrice = document.getElementById('winePrice').value;
-
-    const params = new URLSearchParams ({
-        name: wineName,
-        picture: winePicture,
-        wineQuality: wineQuality,
-        region : wineRegion,
-        year: wineYear,
-        family: wineFamily,
-        format: wineFormat,
-        price: winePrice
-    });
-
-    fetch('http://localhost:8080/Wine/New', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString()
-    })
+fetch('http://localhost:8080/Supplier/All')
     .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
+        const SuppliersAll = data;
+        console.log(SuppliersAll);
+
+        const supplier = SuppliersAll.find(supplier => 
+            supplier.clientReference.client_reference === user.client_reference
+        );
+
+        if (supplier) {
+            supplierRefUser = supplier.supplierReference;
+            console.log(supplierRefUser);
+        } else {
+            console.log("Aucun fournisseur trouvé pour l'utilisateur actuel.");
+        }
     })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
+    .catch(error => console.error('Error:', error));
 
-
-
-
-
-// POST DÉPOT //
-
+// Event listener for form submission
 document.getElementById('submitDepot').addEventListener('click', () => {
-
+    
     const nameDepot = document.getElementById('nameDepot').value;
-    const wineRef = document.getElementById('wineRef').value;
-    const adressRef = document.getElementById('adressRef').value;
-    const supplierRef = document.getElementById('supplierRef').value;
-    const quantity = document.getElementById('quantity').value;
+    const wineRef = document.getElementById('wineRef').value || null;
+    const addressRef = document.getElementById('supplierAdressRef').value || null;
+    const quantity = document.getElementById('quantity').value || null;
 
     const params = new URLSearchParams ({
         name: nameDepot,
         wine_reference: wineRef,
-        address_reference: adressRef,
-        supplier_reference : supplierRef,
+        address_reference: addressRef,
+        supplier_reference: supplierRefUser,
         quantity: quantity
     });
 
@@ -80,40 +46,40 @@ document.getElementById('submitDepot').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
+        // You can perform any additional actions here after successful submission
     })
     .catch((error) => {
         console.error('Error:', error);
     });
 });
-
 
 
 
 
 // POST SUPPLIER //
 
-document.getElementById('submitSupplier').addEventListener('click', () => {
+// document.getElementById('submitSupplier').addEventListener('click', () => {
 
-    const supplierRef = document.getElementById('adressRef').value;
-    const wineRef = document.getElementById('wineRef').value;
+//     const addressRef = document.getElementById('supplierAdressRef').value || null;
+//     const wineRef = document.getElementById('wineRef').value || null;
 
-    const params = new URLSearchParams ({
-        address_reference: supplierRef,
-        wine_reference: wineRef
-    });
+//     const params = new URLSearchParams ({
+//         address_reference: addressRef, // Utiliser la référence de l'adresse du fournisseur
+//         wine_reference: wineRef
+//     });
 
-    fetch('http://localhost:8080/Supplier/New', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString()
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
+//     fetch('http://localhost:8080/Supplier/New', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//         body: params.toString()
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Success:', data);
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// });
