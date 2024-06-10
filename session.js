@@ -3,41 +3,39 @@ if (!localStorage.getItem('user')&& !window.location.pathname.endsWith('home.htm
 }
 const Connexion = document.getElementById('Connexion');
 console.log(localStorage)
+const wineContainer = document.getElementById('wineContainer');
+const depositContainer = document.getElementById('depositContainer');
+const supplierContainer = document.getElementById('supplierContainer');
+
 
 
  // Récupérer la chaîne de localStorage et la convertir en objet
  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
     
  
- if (!user) { //Si je ne suis pas un utilisateur
-     logoutButton.style.display = 'none';
-     wineContainer.innerHTML = "";
-     depositContainer.innerHTML = "";
-     supplierContainer.innerHTML = "";
- }
+     // Handle user roles and container visibility
+     if (!user) { // If the user is not logged in
+        if (logoutButton) logoutButton.style.display = 'none';
+        if (wineContainer) wineContainer.innerHTML = "";
+        if (depositContainer) depositContainer.innerHTML = "";
+        if (supplierContainer) supplierContainer.innerHTML = "";
+    } else {
+        Connexion.innerHTML = "Connecté";
+        Connexion.href = "";
 
+        // Handle different user roles
+        if (user.role === "user") { // If the user is a client
+            if (wineContainer) wineContainer.innerHTML = "";
+            if (depositContainer) depositContainer.innerHTML = "";
+            if (supplierContainer) supplierContainer.innerHTML = "";
+        } else if (user.role === "supplier") { // If the user is a supplier
+            if (supplierContainer) supplierContainer.innerHTML = "";
+        } else if (user.role === "Admin") { // If the user is an Admin
+            // Admin has access to all containers, no need to clear them
+        }
+    }
 
- if (user && user.role === "Client") {// si je suis un utilisateur et un client
-     Connexion.innerHTML = "Connecté";
-     Connexion.href = "";
-     wineContainer.innerHTML = "";
-     depositContainer.innerHTML = "";
-     supplierContainer.innerHTML = "";
- }
-
- if (user && user.role === "Fournisseur"){// si je suis un utilisateur et un fournissueur
-    Connexion.innerHTML = "Connecté";
-    Connexion.href = "";
-    supplierContainer.innerHTML = "";
- }
-
-
- if (user && user.role === "Administrateur"){// si je suis un utilisateur et un Administrateur
-    Connexion.innerHTML = "Connecté";
-    Connexion.href = "";
- }
-
-
+ 
 
 
 
@@ -63,5 +61,5 @@ console.log(localStorage)
 
 function logout() {
     localStorage.removeItem('user'); // Suppression des informations de l'utilisateur
-    window.location.href = '../connexion/connexion.html'; // Redirection vers la page de connexion
+    window.location.href = '/connexion/connexion.html'; // Redirection vers la page de connexion
 }
