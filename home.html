@@ -75,34 +75,25 @@
             <div class="blank"></div>
 
             <div id="depositContainer" class="container second">
-
                 <div class="wrapper">
-
                     <form id="depositForm">
-            
                         <h1>Ajouter un nouveau dépot</h1>
                         <div class="input-box">
                             <input type="text" id="nameDepot" placeholder="Nom du dépot" required>
                         </div>
                         <div class="input-box">
-                            <input type="text" id="wineRef" placeholder="Reférence du vin" required>
+                            <input type="text" id="wineRef" placeholder="Reférence du vin">
                         </div>
                         <div class="input-box">
-                            <input type="text" id="adressRef" placeholder="Référence de l'adresse" required>
+                            <input type="text" id="supplierAdressRef" placeholder="Référence de l'adresse">
                         </div>
                         <div class="input-box">
-                            <input type="text" id="supplierRef" placeholder="Référence du fournisseur" required>
+                            <input type="number" id="quantity" placeholder="Quantité de vin stocké dans le dépot">
                         </div>
-                        <div class="input-box">
-                            <input type="number" id="quantity" placeholder="Quantité de vin stocké dans le dépot" required>
-                        </div>
-            
-            
+    
                         <button type="submit" id="submitDepot" class="btn">Ajouter un dépot</button>
-            
                     </form>
                 </div>
-
             </div>
 
             <div class="blank"></div>
@@ -115,7 +106,7 @@
             
                         <h1>Ajouter un nouveau fournisseur</h1>
                         <div class="input-box">
-                            <input type="text" id="adressRef" placeholder="Référence de l'adresse" required>
+                            <input type="text" id="adressRef" placeholder="Référence de l'adresse">
                         </div>
                         <div class="input-box">
                             <input type="text" id="wineRef" placeholder="Référence du vin" required>
@@ -129,9 +120,11 @@
             </div>
 
         </div>
-    </main>
+        <script src="session.js"></script>
     <script src="home.js"></script>
-    <script src="session.js"></script>
+    </main>
+    
+
     
     
 </body>
