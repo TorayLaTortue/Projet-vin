@@ -1,10 +1,13 @@
-if (!localStorage.getItem('user')&& !window.location.pathname.endsWith('home.html')) {
+if (!localStorage.getItem('user') && 
+    !(window.location.pathname.endsWith('home.html') || window.location.pathname.endsWith('catalogue.html'))) {
     window.location.href = '/connexion/connexion.html';
 }
+
 const Connexion = document.getElementById('Connexion');
 const wineContainer = document.getElementById('wineContainer');
 const depositContainer = document.getElementById('depositContainer');
 const supplierContainer = document.getElementById('supplierContainer');
+const logoutButton = document.getElementById('logoutButton');
 
  // Récupérer la chaîne de localStorage et la convertir en objet
  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
@@ -51,7 +54,7 @@ console.log(user);
 
  
  
-    const logoutButton = document.getElementById('logoutButton');
+    
 
     logoutButton.addEventListener('click', function() {
         logout(); // Appel de la fonction de déconnexion
