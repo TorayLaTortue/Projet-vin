@@ -72,7 +72,7 @@ document.getElementById('submitWine').addEventListener('click', (event) => {
         wineYear = date.toISOString().split('T')[0];
     }
 
-    const params = new URLSearchParams ({
+    const paramsWine = new URLSearchParams ({
         name: wineName,
         picture: winePicture,
         wineQuality: wineQuality,
@@ -88,46 +88,38 @@ document.getElementById('submitWine').addEventListener('click', (event) => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: params.toString()
+        body: paramsWine.toString()
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
+        console.log('Wine added successfully:', data);
+        
+        const user = JSON.parse(localStorage.getItem('user'));
+        const clientReference = user.client_reference;
+        const ClientName = user.name;
+        const ClientAddress = user.client_reference;
+        
+        const paramsSupplier = new URLSearchParams ({
+            wine_reference: data,  
+            client_reference: clientReference,
+            name: ClientName,
+            address_reference: ClientAddress,
+        });
+
+        return fetch('http://localhost:8080/Supplier/New', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: paramsSupplier.toString()
+        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Supplier added successfully:', data);
         // You can perform any additional actions here after successful submission
     })
     .catch((error) => {
         console.error('Error:', error);
     });
 });
-
-
-
-
-
-// POST SUPPLIER //
-
-// document.getElementById('submitSupplier').addEventListener('click', () => {
-
-//     const addressRef = document.getElementById('supplierAdressRef').value || null;
-//     const wineRef = document.getElementById('wineRef').value || null;
-
-//     const params = new URLSearchParams ({
-//         address_reference: addressRef, // Utiliser la référence de l'adresse du fournisseur
-//         wine_reference: wineRef
-//     });
-
-//     fetch('http://localhost:8080/Supplier/New', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded',
-//         },
-//         body: params.toString()
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log('Success:', data);
-//     })
-//     .catch((error) => {
-//         console.error('Error:', error);
-//     });
-// });

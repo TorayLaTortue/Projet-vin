@@ -32,7 +32,7 @@ public class WineController {
 
     @Operation(summary = "Add a new wine (Name, Picture, Quality, Region, Year, Quantity, Format, Price)")
     @PostMapping("/New")
-    public WineEntity newWine(
+    public ResponseEntity<Integer> newWine(
         @Parameter(description = "Name of the wine") @RequestParam String name,
         @Parameter(description = "Picture of the wine") @RequestParam String picture,
         @Parameter(description = "Quality of the wine") @RequestParam String wineQuality,
@@ -51,7 +51,10 @@ public class WineController {
         Wine.setFamily(family);
         Wine.setFormat(format);
         Wine.setPrice(price);
-        return WineService.AddWine(Wine); 
+
+        WineEntity savedWine = WineService.AddWine(Wine); 
+        return ResponseEntity.ok(savedWine.getWineReference());
+
     }
 
 
