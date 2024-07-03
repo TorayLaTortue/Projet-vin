@@ -1,60 +1,46 @@
-<mxfile host="app.diagrams.net" modified="2024-07-03T14:30:41.117Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.6.4" etag="WHzbdbqnZVW1QA0NUWbg" type="github">
-  <diagram name="Page-1" id="fKqcrMx9VY91TpVnvFiy">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net" modified="2024-07-03T14:24:33.232Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="XrkLFMPMHZ6SS5w3FmrS" version="24.6.4" type="github">
+  <diagram name="Page-1" id="Ax_ShogTT-FzsEnMqoin">
+    <mxGraphModel dx="2421" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        
-        <!-- Acteurs -->
-        <mxCell id="2" style="shape=actor;" vertex="1" parent="1">
-          <mxGeometry x="80" y="50" width="30" height="50" as="geometry" />
-          <mxValue value="Utilisateur" />
+        <mxCell id="2" value="Utilisateur" style="shape=umlActor;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-90" y="620" width="30" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="3" style="shape=actor;" vertex="1" parent="1">
-          <mxGeometry x="80" y="150" width="30" height="50" as="geometry" />
-          <mxValue value="PageWeb" />
+        <mxCell id="3" value="PageWeb" style="shape=umlActor;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="250" y="60" width="30" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="4" style="shape=actor;" vertex="1" parent="1">
-          <mxGeometry x="80" y="250" width="30" height="50" as="geometry" />
-          <mxValue value="Serveur" />
+        <mxCell id="4" value="Serveur" style="shape=umlActor;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="540" y="480" width="30" height="160" as="geometry" />
         </mxCell>
-        
-        <!-- Actions -->
-        <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;" edge="1" parent="1" source="2" target="3">
+        <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Click &quot;Ajouter un Dépôt de Vin&quot;" />
         </mxCell>
-        
-        <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="2">
+        <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="2" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Affiche le formulaire" />
         </mxCell>
-        
-        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="2" target="3">
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Remplit le formulaire et click &quot;Soumettre&quot;" />
         </mxCell>
-        
-        <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="4">
+        <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="4" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Envoie les données du formulaire" />
         </mxCell>
-        
-        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="4" target="4">
+        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="4" target="4" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Traite les données (validation, insertion DB)" />
         </mxCell>
-        
-        <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="4" target="3">
+        <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="4" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Retourne la réponse (succès/erreur)" />
         </mxCell>
-        
-        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="2">
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="2" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue value="Affiche message de succès/erreur" />
         </mxCell>
-        
       </root>
     </mxGraphModel>
   </diagram>
