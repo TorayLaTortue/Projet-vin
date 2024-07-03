@@ -18,7 +18,7 @@ fetch('http://localhost:8080/Supplier/All')
             console.log("Aucun fournisseur trouvé pour l'utilisateur actuel.");
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error:', error));    
 
 // Event listener for form submission
 document.getElementById('submitDepot').addEventListener('click', () => {
@@ -64,6 +64,7 @@ document.getElementById('submitWine').addEventListener('click', (event) => {
     const wineFamily = document.getElementById('wineFamily').value || null;
     const wineFormat = document.getElementById('wineFormat').value || null;
     const winePrice = document.getElementById('winePrice').value || null;
+    const address = document.getElementById('address').value || null;
 
     // Transform the date format if wineYear is not null
     if (wineYear) {
@@ -97,7 +98,7 @@ document.getElementById('submitWine').addEventListener('click', (event) => {
         const user = JSON.parse(localStorage.getItem('user'));
         const clientReference = user.client_reference;
         const ClientName = user.name;
-        const ClientAddress = user.client_reference;
+        const ClientAddress = address;
         
         const paramsSupplier = new URLSearchParams ({
             wine_reference: data,  

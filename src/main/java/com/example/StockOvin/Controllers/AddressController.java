@@ -25,6 +25,17 @@ public class AddressController {
         return AddressService.getAllAddress();
     }
 
+    @Operation(summary = "Récupérer une adresse avec un ID")
+    @GetMapping("/{id}")
+    public ResponseEntity<AddressEntity> getAddressById(@PathVariable("id") int id) {
+        AddressEntity address = AddressService.getAddressById(id);
+        if (address != null) {
+            return ResponseEntity.ok(address);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @Operation(summary = "Ajout d'une address (city, street, postal_code)")
     @PostMapping("/New")
     public AddressEntity newAddress(
