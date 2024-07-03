@@ -4,6 +4,56 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <!-- Acteurs -->
+        <mxCell id="2" style="shape=actor;" vertex="1" parent="1">
+          <mxGeometry x="80" y="50" width="30" height="50" as="geometry" />
+          <mxValue value="Utilisateur" />
+        </mxCell>
+        <mxCell id="3" style="shape=actor;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="30" height="50" as="geometry" />
+          <mxValue value="PageWeb" />
+        </mxCell>
+        <mxCell id="4" style="shape=actor;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="30" height="50" as="geometry" />
+          <mxValue value="Serveur" />
+        </mxCell>
+        
+        <!-- Actions -->
+        <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Click 'Ajouter un Dépôt de Vin'" />
+        </mxCell>
+        
+        <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Affiche le formulaire" />
+        </mxCell>
+        
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Remplit le formulaire et click 'Soumettre'" />
+        </mxCell>
+        
+        <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Envoie les données du formulaire" />
+        </mxCell>
+        
+        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="4" target="4">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Traite les données (validation, insertion DB)" />
+        </mxCell>
+        
+        <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Retourne la réponse (succès/erreur)" />
+        </mxCell>
+        
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry relative="1" as="geometry" />
+          <mxValue value="Affiche message de succès/erreur" />
+        </mxCell>
+        
       </root>
     </mxGraphModel>
   </diagram>
