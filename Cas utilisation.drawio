@@ -15,31 +15,24 @@
         </mxCell>
         <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Click &quot;Ajouter un Dépôt de Vin&quot;</mxValue>
         </mxCell>
         <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="2" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Affiche le formulaire</mxValue>
         </mxCell>
         <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Remplit le formulaire et click &quot;Soumettre&quot;</mxValue>
         </mxCell>
         <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="4" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Envoie les données du formulaire</mxValue>
         </mxCell>
         <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="4" target="4" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Traite les données (validation, insertion DB)</mxValue>
         </mxCell>
         <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="4" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Retourne la réponse (succès/erreur)</mxValue>
         </mxCell>
         <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="3" target="2" edge="1">
           <mxGeometry relative="1" as="geometry" />
-          <mxValue>Affiche message de succès/erreur</mxValue>
         </mxCell>
       </root>
     </mxGraphModel>
