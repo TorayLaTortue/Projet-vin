@@ -229,3 +229,55 @@ p {
     color: #333;
     font-weight: 600;
 }
+
+/* Style général pour le conteneur de la boîte de sélection */
+.select-box {
+    margin-bottom: 15px;
+    position: relative;
+    width: 100%; /* Aligner avec la largeur des input-box */
+    margin-bottom: 0px !important; /* Change l'espacement vertical pour n'avoir que 15px en bas */
+}
+
+/* Style pour les étiquettes */
+.select-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #C2C2C2; /* Couleur des placeholders */
+}
+
+/* Style pour les sélections */
+.select-box select {
+    width: 100%;
+    padding: 20px; /* Espacement aligné avec les input-box */
+    font-size: 16px; /* Taille de police alignée avec les input-box */
+    border: 2px solid rgba(250, 250, 250, .6); /* Bordure alignée avec les input-box */
+    border-radius: 40px; /* Bordure arrondie */
+    background-color: transparent; /* Fond transparent */
+    color: #c2c2c2; /* Couleur du texte */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Icône de flèche pour les sélections */
+.select-box::after {
+    content: '\25BC';
+    font-size: 14px;
+    color: #fff; /* Couleur de l'icône de flèche */
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Aligné avec l'espacement des input-box */
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Style pour les options du menu déroulant */
+.select-box select option {
+    background-color: #333; /* Fond sombre pour les options */
+    color: #fff; /* Couleur du texte des options */
+}

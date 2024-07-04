@@ -41,8 +41,13 @@
                         <div class="input-box">
                             <input type="text" id="winePicture" placeholder="Image du vin">
                         </div>
-                        <div class="input-box">
-                            <input type="text" id="wineQuality" placeholder="Qualitée du vin" required>
+                        <div class="select-box">
+                            <select id="wineQuality" required>
+                                <option value="" disabled selected>Choix qualité du vin</option>
+                                <option value="Haut de gamme">Haut de gamme</option>
+                                <option value="Entrée de gamme">Entrée de gamme</option>
+                                <option value="Milieu de gamme">Milieu de gamme</option>
+                            </select>
                         </div>
                         <div class="input-box">
                             <input type="text" id="wineRegion" placeholder="Région du vin" required>
@@ -50,8 +55,17 @@
                         <div class="input-box">
                             <input type="date" id="wineYear" placeholder="Année du vin" required>
                         </div>
-                        <div class="input-box">
-                            <input type="text" id="wineFamily" placeholder="Famille du vin" required>
+                        <div class="select-box">
+                            <select id="wineFamily" name="Famille du vin"required>
+                                <option value="" disabled selected>Choix famille du vin</option>
+                                <option value="Rouge">Rouge</option>
+                                <option value="Blanc">Blanc</option>
+                                <option value="Rosé">Rosé</option>
+                                <option value="Champagne">Champagne</option>
+                                <option value="Mousseux">Mousseux</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Fortifié">Fortifié</option>
+                            </select>
                         </div>
                         <div class="input-box">
                             <input type="text" id="wineFormat" placeholder="Format du vin" required>
