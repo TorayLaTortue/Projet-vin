@@ -21,11 +21,11 @@
           <mxGeometry relative="1" as="geometry" />
           <mxValue>Affiche le formulaire</mxValue>
         </mxCell>
-        <mxCell id="7"parent="1" source="2" target="3" edge="1">
+        <mxCell id="7" parent="1" source="2" target="3" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue>Remplit le formulaire et click &quot;Soumettre&quot;</mxValue>
         </mxCell>
-        <mxCell id="8"parent="1" source="3" target="4" edge="1">
+        <mxCell id="8" parent="1" source="3" target="4" edge="1">
           <mxGeometry relative="1" as="geometry" />
           <mxValue>Envoie les données du formulaire</mxValue>
         </mxCell>
